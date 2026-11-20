@@ -198,7 +198,7 @@ class _TvPairScreenState extends State<TvPairScreen> {
           Text(
             context
                 .l10n
-                .onTheKetsurēnAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR,
+                .onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR,
             style: AppText.body.copyWith(
               color: AppColors.textSecondary,
               height: 1.5,

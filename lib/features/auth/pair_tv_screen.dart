@@ -146,7 +146,7 @@ class _PairTvScreenState extends State<PairTvScreen> {
         children: [
           Text(context.l10n.enterTheCodeFromYourTV, style: AppText.largeTitle),
           const SizedBox(height: 8),
-          Text(context.l10n.openKetsurēnOnYourTVAndSignInWithYourPhoneToSeeIt,
+          Text(context.l10n.openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt,
               style: AppText.body),
           const SizedBox(height: 28),
           TextField(

@@ -112,7 +112,7 @@ class _BackupScreenState extends State<BackupScreen> {
                 ? context
                       .l10n
                       .couldnTSaveTheBackupFileStoragePermissionMayBeNeeded
-                : context.l10n.savedToDownloadsKetsurēn,
+                : context.l10n.savedToDownloadsZangetsu,
           ),
         ),
       );
@@ -293,7 +293,7 @@ class _BackupScreenState extends State<BackupScreen> {
             Text(l10n.couldnTReinstall(r.failures.join('\n'))),
           ],
           const SizedBox(height: 8),
-          Text(l10n.reopenKetsurēnToSeeRestoredLibrarySources),
+          Text(l10n.reopenZangetsuToSeeRestoredLibrarySources),
         ],
       ),
     );

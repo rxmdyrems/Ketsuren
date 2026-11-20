@@ -297,7 +297,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get settingsSectionAccountSummary =>
-      'Pelacak, presence, cadangan, sinkronisasi';
+      'Pelacak, discord, cadangan, sinkronisasi';
 
   @override
   String get settingsSectionSourcesSummary =>
@@ -333,7 +333,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get couldNotExportLogs => 'Tidak dapat mengekspor log';
 
   @override
-  String get logsShareSubject => 'Log Ketsurēn';
+  String get logsShareSubject => 'Log zangetsu';
 
   @override
   String get signInSubtitle =>
@@ -346,16 +346,16 @@ class AppLocalizationsId extends AppLocalizations {
   String get connections => 'Koneksi';
 
   @override
-  String get presence => 'presence';
+  String get discord => 'discord';
 
   @override
-  String get presenceSubtitle => 'Rich Presence — tampilkan statusmu';
+  String get discordSubtitle => 'Rich Presence — tampilkan statusmu';
 
   @override
-  String get presenceActivityStatus => 'Activity status';
+  String get discordActivityStatus => 'Activity status';
 
   @override
-  String get presenceOnlineStatus => 'presence status';
+  String get discordOnlineStatus => 'discord status';
 
   @override
   String get presenceInvisible => 'Invisible';
@@ -409,7 +409,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get presenceButtonLabel => 'Button label';
 
   @override
-  String get presenceButtonLabelHint => 'Open in Ketsurēn';
+  String get presenceButtonLabelHint => 'Open in zangetsu';
 
   @override
   String get presenceShowWhenPaused => 'Show when paused';
@@ -1037,7 +1037,7 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get bootErrorTitle => 'Ketsurēn tidak selesai memulai';
+  String get bootErrorTitle => 'zangetsu tidak selesai memulai';
 
   @override
   String get bootErrorBody =>
@@ -1051,10 +1051,10 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get resetAppDataBody =>
-      'Ini menghapus yang tersimpan Ketsurēn di perangkat ini agar bisa mulai dari awal.\n\nAkunmu dan yang tersinkron ke cloud tidak disentuh — masuk lagi dan pustakamu kembali.';
+      'Ini menghapus yang tersimpan zangetsu di perangkat ini agar bisa mulai dari awal.\n\nAkunmu dan yang tersinkron ke cloud tidak disentuh — masuk lagi dan pustakamu kembali.';
 
   @override
-  String get resetAppDataDone => 'Tutup Ketsurēn sepenuhnya lalu buka lagi.';
+  String get resetAppDataDone => 'Tutup zangetsu sepenuhnya lalu buka lagi.';
 
   @override
   String get detailsCopied => 'Detail disalin — kirimkan ke kami';
@@ -1279,8 +1279,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get incognitoMode => 'Mode penyamaran';
 
   @override
-  String get pauseHistoryTrackingpresencePresence =>
-      'Jeda riwayat, pelacakan & Rich Presence presence';
+  String get pauseHistoryTrackingDiscordPresence =>
+      'Jeda riwayat, pelacakan & Rich Presence discord';
 
   @override
   String get enableNSFWSources2 => 'Aktifkan sumber NSFW';
@@ -1585,7 +1585,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Matikan Material You untuk memilih warna sendiri';
 
   @override
-  String get downloadsKetsurēn => 'Unduhan › Ketsurēn';
+  String get downloadsZangetsu => 'Unduhan › zangetsu';
 
   @override
   String get removableDrive => 'Drive yang bisa dilepas';
@@ -1625,10 +1625,10 @@ class AppLocalizationsId extends AppLocalizations {
       'SP0 — uji kelancaran pemutaran SurfaceView';
 
   @override
-  String get pastepresenceToken => 'Tempel token presence';
+  String get pasteDiscordToken => 'Tempel token discord';
 
   @override
-  String get yourpresenceUserToken => 'Token pengguna presence-mu';
+  String get yourDiscordUserToken => 'Token pengguna discord-mu';
 
   @override
   String get pasteToken => 'Tempel token';
@@ -1637,17 +1637,17 @@ class AppLocalizationsId extends AppLocalizations {
   String get useMobileDataForTorrents => 'Pakai data seluler untuk torrent';
 
   @override
-  String get presenceConnected => 'presence terhubung';
+  String get discordConnected => 'discord terhubung';
 
   @override
-  String get disconnectpresence => 'Putuskan presence?';
+  String get disconnectDiscord => 'Putuskan discord?';
 
   @override
   String get notConfigured => 'Belum dikonfigurasi';
 
   @override
-  String get apresenceApplicationIDMustBeSetInTheBuildFirst =>
-      'ID Aplikasi presence harus diatur di build terlebih dahulu.';
+  String get aDiscordApplicationIDMustBeSetInTheBuildFirst =>
+      'ID Aplikasi discord harus diatur di build terlebih dahulu.';
 
   @override
   String get richPresence => 'Rich Presence';
@@ -2287,8 +2287,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get haveTheApp => 'Punya aplikasinya?';
 
   @override
-  String get openKetsurēnOnYourNphoneAndScan =>
-      'Buka Ketsurēn di\\nponselmu dan pindai';
+  String get openZangetsuOnYourNphoneAndScan =>
+      'Buka zangetsu di\\nponselmu dan pindai';
 
   @override
   String get noApp => 'Belum punya aplikasi?';
@@ -2346,8 +2346,8 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String
-  get onTheKetsurēnAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
-      'Di aplikasi Ketsurēn di ponselmu, buka\\n\"Pasangkan TV\" lalu masukkan kode ini — atau pindai QR-nya.';
+  get onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
+      'Di aplikasi zangetsu di ponselmu, buka\\n\"Pasangkan TV\" lalu masukkan kode ini — atau pindai QR-nya.';
 
   @override
   String get signingIn => 'Sedang masuk…';
@@ -2372,8 +2372,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get enterTheCodeFromYourTV => 'Masukkan kode dari TV-mu';
 
   @override
-  String get openKetsurēnOnYourTVAndSignInWithYourPhoneToSeeIt =>
-      'Buka Ketsurēn di TV-mu dan masuk dengan ponselmu untuk melihatnya.';
+  String get openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt =>
+      'Buka zangetsu di TV-mu dan masuk dengan ponselmu untuk melihatnya.';
 
   @override
   String get abcd2345 => 'ABCD 2345';
@@ -2417,8 +2417,8 @@ class AppLocalizationsId extends AppLocalizations {
   String get restoreComplete => 'Pemulihan selesai';
 
   @override
-  String get reopenKetsurēnToSeeRestoredLibrarySources =>
-      'Buka lagi Ketsurēn untuk melihat pustaka & sumber yang dipulihkan.';
+  String get reopenZangetsuToSeeRestoredLibrarySources =>
+      'Buka lagi zangetsu untuk melihat pustaka & sumber yang dipulihkan.';
 
   @override
   String get saveToAFile => 'Simpan ke file';
@@ -2640,7 +2640,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get noSourcesInThisRepo => 'Tidak ada sumber di repo ini.';
 
   @override
-  String get KetsurēnProviders => 'Penyedia Ketsurēn';
+  String get zangetsuProviders => 'Penyedia zangetsu';
 
   @override
   String get addRepo => 'Tambah repo';
@@ -2748,7 +2748,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Buka pengaturan milik sumber ini (mis. server, bahasa)';
 
   @override
-  String get addKetsurēnRepo => 'Tambah repo Ketsurēn';
+  String get addZangetsuRepo => 'Tambah repo zangetsu';
 
   @override
   String get theProviderWillBeRemovedFromYourInstalledSources =>
@@ -3885,7 +3885,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get incognitoModeBlurb =>
-      'Selama aktif, pencarian, riwayat tontonan, scrobbling pelacak, dan Rich Presence presence dijeda — tidak ada yang terekam sampai kamu matikan.';
+      'Selama aktif, pencarian, riwayat tontonan, scrobbling pelacak, dan Rich Presence discord dijeda — tidak ada yang terekam sampai kamu matikan.';
 
   @override
   String get enableNsfwSourcesBody =>
@@ -3907,25 +3907,25 @@ class AppLocalizationsId extends AppLocalizations {
       'Sinkronkan progres tontonan dan status daftar ke akunmu. Anime tersinkron ke ketiganya; film dan series tersinkron ke Simkl.';
 
   @override
-  String get connectpresence => 'Hubungkan presence';
+  String get connectDiscord => 'Hubungkan discord';
 
   @override
   String get signInSoYourStatusCanShow =>
       'Masuk agar statusmu bisa tampil di profilmu';
 
   @override
-  String get disconnectpresenceBody =>
-      'Rich Presence berhenti dan tokenmu dihapus dari perangkat ini. Akun presence-mu tidak berubah — kamu bisa menghubungkan kembali kapan saja.';
+  String get disconnectDiscordBody =>
+      'Rich Presence berhenti dan tokenmu dihapus dari perangkat ini. Akun discord-mu tidak berubah — kamu bisa menghubungkan kembali kapan saja.';
 
   @override
-  String get presencePresenceBlurb =>
-      'Menampilkan \"Menonton <title> • Episode N\" (dan yang sedang kamu jelajahi) di profil presence selama aplikasi terbuka. Memakai login presence-mu, disimpan hanya di perangkat ini. Bisa dimatikan kapan saja.';
+  String get discordPresenceBlurb =>
+      'Menampilkan \"Menonton <title> • Episode N\" (dan yang sedang kamu jelajahi) di profil discord selama aplikasi terbuka. Memakai login discord-mu, disimpan hanya di perangkat ini. Bisa dimatikan kapan saja.';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get community => 'community';
+  String get telegram => 'telegram';
 
   @override
   String get accentColourBlurb =>
@@ -3933,7 +3933,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get appIconBlurb =>
-      'Ikon di layar berandamu. Ketsurēn menutup diri saat kamu mengubahnya — Android harus mengganti entri launcher.';
+      'Ikon di layar berandamu. zangetsu menutup diri saat kamu mengubahnya — Android harus mengganti entri launcher.';
 
   @override
   String useTheIcon(String label) {
@@ -3942,7 +3942,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get useTheIconBody =>
-      'Ketsurēn akan menutup diri supaya Android bisa menerapkan ikon baru. Buka lagi dari layar berandamu setelahnya.\n\nKalau Ketsurēn ada di folder atau dock, kamu mungkin perlu menambahkannya lagi.';
+      'zangetsu akan menutup diri supaya Android bisa menerapkan ikon baru. Buka lagi dari layar berandamu setelahnya.\n\nKalau zangetsu ada di folder atau dock, kamu mungkin perlu menambahkannya lagi.';
 
   @override
   String get animRise => 'Naik';
@@ -4022,7 +4022,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Cadangan cloud gagal. Pastikan kamu online — kalau terus gagal, penyimpanan cadangan cloud mungkin belum disiapkan.';
 
   @override
-  String get savedToDownloadsKetsurēn => 'Disimpan ke Unduhan › Ketsurēn';
+  String get savedToDownloadsZangetsu => 'Disimpan ke Unduhan › zangetsu';
 
   @override
   String restoreFailed(String error) {
@@ -4035,7 +4035,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get backupScreenBlurb =>
-      'Simpan sumber, daftar, dan pengaturanmu — ke file di perangkatmu atau ke akun Ketsurēn-mu. Pemulihan hanya menambahkan kembali; tidak pernah menghapus yang sudah kamu punya.';
+      'Simpan sumber, daftar, dan pengaturanmu — ke file di perangkatmu atau ke akun zangetsu-mu. Pemulihan hanya menambahkan kembali; tidak pernah menghapus yang sudah kamu punya.';
 
   @override
   String get includeInTheBackup => 'Masukkan ke cadangan';
@@ -4098,7 +4098,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get couldnTOpenInstaller =>
-      'Tidak bisa membuka installer. Aktifkan \"Pasang aplikasi tidak dikenal\" untuk Ketsurēn di pengaturan sistem, lalu coba lagi.';
+      'Tidak bisa membuka installer. Aktifkan \"Pasang aplikasi tidak dikenal\" untuk zangetsu di pengaturan sistem, lalu coba lagi.';
 
   @override
   String get downloadFailedCheckConnection =>
@@ -4261,7 +4261,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get lnreader => 'LNReader';
 
   @override
-  String get Ketsurēn => 'Ketsurēn';
+  String get zangetsu => 'zangetsu';
 
   @override
   String get cloudStream => 'CloudStream';
@@ -5539,7 +5539,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get keepDownloadsPrivateSubtitle =>
-      'Unduhan video baru tetap di dalam Ketsurēn, bukan di folder Unduhan. Unduhan itu dihapus saat kamu mencopot Ketsurēn. Bab dan hasil ekspor tidak terpengaruh.';
+      'Unduhan video baru tetap di dalam zangetsu, bukan di folder Unduhan. Unduhan itu dihapus saat kamu mencopot zangetsu. Bab dan hasil ekspor tidak terpengaruh.';
 
   @override
   String get mangaPageTranslationTitle => 'Translate page';
@@ -5680,7 +5680,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get mangaTranslationRestartRequiredMessage =>
-      'Close and reopen Ketsurēn to finish setting up on-device OCR, then try again.';
+      'Close and reopen zangetsu to finish setting up on-device OCR, then try again.';
 
   @override
   String get mangaTranslationSearchLanguages => 'Search languages';

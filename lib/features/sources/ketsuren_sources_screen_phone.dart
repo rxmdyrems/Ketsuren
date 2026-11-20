@@ -77,7 +77,7 @@ class _ZPhoneViewState extends State<_ZPhoneView> {
             onPressed: () => _showAddRepoDialog(context),
             icon: const Icon(Icons.add),
             label: Text(
-              context.l10n.addKetsurēnRepo,
+              context.l10n.addZangetsuRepo,
               style: AppText.button.copyWith(color: Colors.white),
             ),
           ),
