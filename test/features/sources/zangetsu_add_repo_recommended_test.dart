@@ -12,7 +12,7 @@ import 'package:ketsuren/core/provider/provider_downloader.dart';
 import 'package:ketsuren/core/provider/provider_manager.dart';
 import 'package:ketsuren/core/provider/provider_registry.dart';
 import 'package:ketsuren/core/provider/provider_repo_registry.dart';
-import 'package:ketsuren/features/sources/zangetsu_sources_screen.dart';
+import 'package:ketsuren/features/sources/ketsuren_sources_screen.dart';
 
 // The Ketsurēn (JS-provider) "Add repo" dialog used to offer a recommended
 // repo pack with a one-tap add. The whole recommended-repo surface — data,
@@ -131,7 +131,7 @@ void main() {
   // timeout. A couple of pumps is plenty for the AlertDialog's enter
   // transition.
   Future<void> openAddRepoDialog(WidgetTester tester) async {
-    await tester.pumpWidget(const MaterialApp(home: ZangetsuSourcesScreen()));
+    await tester.pumpWidget(const MaterialApp(home: KetsurēnSourcesScreen()));
     await tester.pump();
     await tester.tap(find.text('Add Ketsurēn repo'));
     await tester.pump();

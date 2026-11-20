@@ -26,7 +26,7 @@ class ExtensionAutoUpdater {
 
   static Future<int> run() async {
     var updated = 0;
-    updated += await _updateZangetsu();
+    updated += await _updateKetsurēn();
     // CloudStream + Aniyomi are Android-only; their managers aren't registered
     // elsewhere, so guard on registration rather than platform.
     updated += await _updateCloudStream();
@@ -37,7 +37,7 @@ class ExtensionAutoUpdater {
   /// JS providers: re-fetch each tracked repo's manifest, then force-reinstall
   /// only the installed sources whose version went up. Mirrors
   /// SourcesBloc._onRepoUpdated, minus the UI.
-  static Future<int> _updateZangetsu() async {
+  static Future<int> _updateKetsurēn() async {
     if (!sl.isRegistered<ProviderReposRegistry>() ||
         !sl.isRegistered<ProviderRegistry>()) {
       return 0;

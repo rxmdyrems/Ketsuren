@@ -11,7 +11,7 @@ import 'package:ketsuren/core/provider/provider_manager.dart';
 import 'package:ketsuren/core/provider/provider_registry.dart';
 import 'package:ketsuren/core/provider/provider_repo_registry.dart';
 import 'package:ketsuren/core/tv/tv_focusable.dart';
-import 'package:ketsuren/features/sources/zangetsu_sources_screen.dart';
+import 'package:ketsuren/features/sources/ketsuren_sources_screen.dart';
 
 // ── Fakes (mirrors test/provider/provider_registry_test.dart) ────────────────
 
@@ -82,12 +82,12 @@ void main() {
   });
 
   testWidgets(
-    'ZangetsuSourcesScreen (TV) exposes semantics labels for its tab chips, '
+    'KetsurēnSourcesScreen (TV) exposes semantics labels for its tab chips, '
     'Back button and Add-repo action — with no duplicate-text nodes',
     (tester) async {
       final handle = tester.ensureSemantics();
 
-      await tester.pumpWidget(const MaterialApp(home: ZangetsuSourcesScreen()));
+      await tester.pumpWidget(const MaterialApp(home: KetsurēnSourcesScreen()));
       await tester.pumpAndSettle();
 
       // Installed tab chip: autofocused, so this is where the D-pad lands.

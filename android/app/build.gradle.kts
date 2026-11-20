@@ -22,17 +22,7 @@ if (hasReleaseKeystore) {
     keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
-// Set KETSUREN_NO_DISCORD=1 (CI nightly) when the proprietary Discord SDK is
-// absent: the AAR require becomes a warning, the JNI lib is skipped, and a
-// no-op DiscordPresenceBridge (src/noDiscord) keeps MainActivity compiling.
-// Dart already treats the missing channel as "presence unavailable", so the
-// nightly behaves like a build with Discord disabled.
-val noDiscord =
-    System.getenv("KETSUREN_NO_DISCORD") == "1" || project.hasProperty("noDiscord")
-
-// CI nightly identity: separate package + launcher name so the nightly
-// installs ALONGSIDE the release build instead of showing up as an "update"
-// that overwrites it for release users.
+// Nightly builds use a separate package identity.
 val isNightly =
     System.getenv("KETSUREN_NIGHTLY") == "1" || project.hasProperty("nightly")
 
@@ -63,15 +53,6 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         resValue("string", "app_name", if (isNightly) "Ketsurēn Nightly" else "Ketsurēn")
-        if (noDiscord) {
-            externalNativeBuild {
-                cmake {
-                    // Tells our CMakeLists to skip the SDK's find_package +
-                    // JNI lib (the bridge below degrades via reflection).
-                    arguments += "-DNO_DISCORD=ON"
-                }
-            }
-        }
     }
 
     buildFeatures {
@@ -218,15 +199,6 @@ configurations.configureEach {
 // Bundles the CloudStream runtime so .cs3 plugins can be DexClassLoaded against
 // it. GPL-3.0 — see docs/cloudstream-integration-spec.md §7.
 dependencies {
-    val discordSdk = rootProject.file("discord-sdk/discord_partner_sdk.aar")
-    if (noDiscord) {
-        logger.warn("KETSUREN_NO_DISCORD: skipping proprietary Discord SDK.")
-    } else {
-        require(discordSdk.exists()) {
-            "Discord SDK missing: run python3 tool/setup_discord_sdk.py /path/to/DiscordSocialSdk-1.10.19337.zip"
-        }
-        implementation(files(discordSdk))
-    }
     implementation("com.github.recloudstream.cloudstream:library:v4.8.0")
     // Jackson is already on the RUNTIME classpath (CloudStream library transitive
     // dep). compileOnly lets our clean-room DataStore reference JsonMapper for the

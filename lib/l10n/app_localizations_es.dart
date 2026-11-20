@@ -297,7 +297,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get settingsSectionAccountSummary =>
-      'Trackers, Discord, copia, sincronización';
+      'Trackers, presence, copia, sincronización';
 
   @override
   String get settingsSectionSourcesSummary =>
@@ -335,7 +335,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get couldNotExportLogs => 'No se pudieron exportar los registros';
 
   @override
-  String get logsShareSubject => 'Registros de Zangetsu';
+  String get logsShareSubject => 'Registros de Ketsurēn';
 
   @override
   String get signInSubtitle => 'Sincroniza tu lista, historial y sigue viendo';
@@ -347,16 +347,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get connections => 'Conexiones';
 
   @override
-  String get discord => 'Discordia';
+  String get presence => 'presenceia';
 
   @override
-  String get discordSubtitle => 'Rich Presence — muestra tu estado';
+  String get presenceSubtitle => 'Rich Presence — muestra tu estado';
 
   @override
-  String get discordActivityStatus => 'Activity status';
+  String get presenceActivityStatus => 'Activity status';
 
   @override
-  String get discordOnlineStatus => 'Discord status';
+  String get presenceOnlineStatus => 'presence status';
 
   @override
   String get presenceInvisible => 'Invisible';
@@ -410,7 +410,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get presenceButtonLabel => 'Button label';
 
   @override
-  String get presenceButtonLabelHint => 'Open in Zangetsu';
+  String get presenceButtonLabelHint => 'Open in Ketsurēn';
 
   @override
   String get presenceShowWhenPaused => 'Show when paused';
@@ -1038,7 +1038,7 @@ class AppLocalizationsEs extends AppLocalizations {
   }
 
   @override
-  String get bootErrorTitle => 'Zangetsu no terminó de arrancar';
+  String get bootErrorTitle => 'Ketsurēn no terminó de arrancar';
 
   @override
   String get bootErrorBody =>
@@ -1052,11 +1052,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get resetAppDataBody =>
-      'Esto borra lo que Zangetsu ha guardado en este dispositivo para que pueda empezar de cero.\n\nTu cuenta y lo sincronizado en la nube no se tocan — inicia sesión otra vez y tu biblioteca vuelve.';
+      'Esto borra lo que Ketsurēn ha guardado en este dispositivo para que pueda empezar de cero.\n\nTu cuenta y lo sincronizado en la nube no se tocan — inicia sesión otra vez y tu biblioteca vuelve.';
 
   @override
   String get resetAppDataDone =>
-      'Cierra Zangetsu por completo y ábrelo otra vez.';
+      'Cierra Ketsurēn por completo y ábrelo otra vez.';
 
   @override
   String get detailsCopied => 'Detalles copiados — envíanoslos';
@@ -1282,8 +1282,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get incognitoMode => 'Modo incógnito';
 
   @override
-  String get pauseHistoryTrackingDiscordPresence =>
-      'Pausa el historial, el tracking y Discord';
+  String get pauseHistoryTrackingpresencePresence =>
+      'Pausa el historial, el tracking y presence';
 
   @override
   String get enableNSFWSources2 => 'Activar fuentes NSFW';
@@ -1586,7 +1586,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Desactiva Material You para elegir un color tú';
 
   @override
-  String get downloadsZangetsu => 'Descargas › Zangetsu';
+  String get downloadsKetsurēn => 'Descargas › Ketsurēn';
 
   @override
   String get removableDrive => 'Unidad extraíble';
@@ -1626,10 +1626,10 @@ class AppLocalizationsEs extends AppLocalizations {
       'SP0 — probar fluidez de reproducción SurfaceView';
 
   @override
-  String get pasteDiscordToken => 'Pegar token de Discord';
+  String get pastepresenceToken => 'Pegar token de presence';
 
   @override
-  String get yourDiscordUserToken => 'Tu token de usuario de Discord';
+  String get yourpresenceUserToken => 'Tu token de usuario de presence';
 
   @override
   String get pasteToken => 'Pegar token';
@@ -1638,17 +1638,17 @@ class AppLocalizationsEs extends AppLocalizations {
   String get useMobileDataForTorrents => 'Usar datos móviles para torrents';
 
   @override
-  String get discordConnected => 'Discord conectado';
+  String get presenceConnected => 'presence conectado';
 
   @override
-  String get disconnectDiscord => '¿Desconectar Discord?';
+  String get disconnectpresence => '¿Desconectar presence?';
 
   @override
   String get notConfigured => 'No configurado';
 
   @override
-  String get aDiscordApplicationIDMustBeSetInTheBuildFirst =>
-      'Hay que definir un Discord Application ID en el build primero.';
+  String get apresenceApplicationIDMustBeSetInTheBuildFirst =>
+      'Hay que definir un presence Application ID en el build primero.';
 
   @override
   String get richPresence => 'Presencia rica';
@@ -2288,8 +2288,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get haveTheApp => '¿Tienes la app?';
 
   @override
-  String get openZangetsuOnYourNphoneAndScan =>
-      'Abre Zangetsu en tu\\nteléfono y escanea';
+  String get openKetsurēnOnYourNphoneAndScan =>
+      'Abre Ketsurēn en tu\\nteléfono y escanea';
 
   @override
   String get noApp => '¿Sin app?';
@@ -2347,8 +2347,8 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String
-  get onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
-      'En la app Zangetsu del teléfono, abre\\n«Emparejar una TV» e introduce este código — o escanea el QR.';
+  get onTheKetsurēnAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
+      'En la app Ketsurēn del teléfono, abre\\n«Emparejar una TV» e introduce este código — o escanea el QR.';
 
   @override
   String get signingIn => 'Iniciando sesión…';
@@ -2373,8 +2373,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get enterTheCodeFromYourTV => 'Introduce el código de tu TV';
 
   @override
-  String get openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt =>
-      'Abre Zangetsu en tu TV e inicia sesión con el teléfono para verlo.';
+  String get openKetsurēnOnYourTVAndSignInWithYourPhoneToSeeIt =>
+      'Abre Ketsurēn en tu TV e inicia sesión con el teléfono para verlo.';
 
   @override
   String get abcd2345 => 'ABCD 2345';
@@ -2418,8 +2418,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get restoreComplete => 'Restauración lista';
 
   @override
-  String get reopenZangetsuToSeeRestoredLibrarySources =>
-      'Vuelve a abrir Zangetsu para ver la biblioteca y fuentes restauradas.';
+  String get reopenKetsurēnToSeeRestoredLibrarySources =>
+      'Vuelve a abrir Ketsurēn para ver la biblioteca y fuentes restauradas.';
 
   @override
   String get saveToAFile => 'Guardar en un archivo';
@@ -2641,7 +2641,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get noSourcesInThisRepo => 'No hay fuentes en este repo.';
 
   @override
-  String get zangetsuProviders => 'Proveedores Zangetsu';
+  String get KetsurēnProviders => 'Proveedores Ketsurēn';
 
   @override
   String get addRepo => 'Añadir repo';
@@ -2749,7 +2749,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Abre los ajustes propios de esta fuente (p. ej. servidor, idioma)';
 
   @override
-  String get addZangetsuRepo => 'Añadir repo Zangetsu';
+  String get addKetsurēnRepo => 'Añadir repo Ketsurēn';
 
   @override
   String get theProviderWillBeRemovedFromYourInstalledSources =>
@@ -3894,7 +3894,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get incognitoModeBlurb =>
-      'Mientras está activado, las búsquedas, el historial de visualización, el registro de actividad del rastreador y la presencia en Discord se pausan; no se registra nada hasta que lo desactives.';
+      'Mientras está activado, las búsquedas, el historial de visualización, el registro de actividad del rastreador y la presencia en presence se pausan; no se registra nada hasta que lo desactives.';
 
   @override
   String get enableNsfwSourcesBody =>
@@ -3916,25 +3916,25 @@ class AppLocalizationsEs extends AppLocalizations {
       'Sincroniza el progreso de visualización y el estado de las listas con tus cuentas. El anime se sincroniza con las tres; las películas y series se sincronizan con Simkl.';
 
   @override
-  String get connectDiscord => 'Conéctate a Discord';
+  String get connectpresence => 'Conéctate a presence';
 
   @override
   String get signInSoYourStatusCanShow =>
       'Inicia sesión para que tu estado aparezca en tu perfil.';
 
   @override
-  String get disconnectDiscordBody =>
-      'Rich Presence se desactiva y tu token se elimina de este dispositivo. Tu cuenta de Discord no se modifica; puedes volver a conectarte cuando quieras.';
+  String get disconnectpresenceBody =>
+      'Rich Presence se desactiva y tu token se elimina de este dispositivo. Tu cuenta de presence no se modifica; puedes volver a conectarte cuando quieras.';
 
   @override
-  String get discordPresenceBlurb =>
-      'Muestra \"Viendo <title> • Episodio N\" (y lo que estás viendo) en tu perfil de Discord mientras la aplicación está abierta. Usa tu contraseña de Discord, que se guarda solo en este dispositivo. Puedes desactivarlo cuando quieras.';
+  String get presencePresenceBlurb =>
+      'Muestra \"Viendo <title> • Episodio N\" (y lo que estás viendo) en tu perfil de presence mientras la aplicación está abierta. Usa tu contraseña de presence, que se guarda solo en este dispositivo. Puedes desactivarlo cuando quieras.';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get telegram => 'Telegrama';
+  String get community => 'communitya';
 
   @override
   String get accentColourBlurb =>
@@ -3942,7 +3942,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get appIconBlurb =>
-      'El icono en tu pantalla de inicio. Zangetsu se cierra cuando lo cambias: Android tiene que cambiar la entrada del lanzador.';
+      'El icono en tu pantalla de inicio. Ketsurēn se cierra cuando lo cambias: Android tiene que cambiar la entrada del lanzador.';
 
   @override
   String useTheIcon(String label) {
@@ -3951,7 +3951,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get useTheIconBody =>
-      'Zangetsu se cerrará para que Android pueda aplicar el nuevo icono. Vuelve a abrirlo desde la pantalla de inicio.\n\nSi tienes Zangetsu en una carpeta o en el dock, es posible que tengas que añadirlo de nuevo.';
+      'Ketsurēn se cerrará para que Android pueda aplicar el nuevo icono. Vuelve a abrirlo desde la pantalla de inicio.\n\nSi tienes Ketsurēn en una carpeta o en el dock, es posible que tengas que añadirlo de nuevo.';
 
   @override
   String get animRise => 'Elevar  ';
@@ -4031,7 +4031,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'La copia de seguridad en la nube falló. Comprueba que estás conectado a internet; si sigue fallando, es posible que el servicio de copia de seguridad en la nube aún no esté configurado.';
 
   @override
-  String get savedToDownloadsZangetsu => 'Guardado en Descargas › Zangetsu';
+  String get savedToDownloadsKetsurēn => 'Guardado en Descargas › Ketsurēn';
 
   @override
   String restoreFailed(String error) {
@@ -4044,7 +4044,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get backupScreenBlurb =>
-      'Guarda tus fuentes, listas y ajustes en un archivo de tu dispositivo o en tu cuenta de Zangetsu. Al restaurar, solo se añaden los elementos; nunca se borra lo que ya tienes.';
+      'Guarda tus fuentes, listas y ajustes en un archivo de tu dispositivo o en tu cuenta de Ketsurēn. Al restaurar, solo se añaden los elementos; nunca se borra lo que ya tienes.';
 
   @override
   String get includeInTheBackup => 'Incluir en la copia de seguridad';
@@ -4107,7 +4107,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get couldnTOpenInstaller =>
-      'No se pudo abrir el instalador. Habilita la opción \"Instalar aplicaciones desconocidas\" para Zangetsu en la configuración del sistema y vuelve a intentarlo.';
+      'No se pudo abrir el instalador. Habilita la opción \"Instalar aplicaciones desconocidas\" para Ketsurēn en la configuración del sistema y vuelve a intentarlo.';
 
   @override
   String get downloadFailedCheckConnection =>
@@ -4272,7 +4272,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get lnreader => 'Lector de LN';
 
   @override
-  String get zangetsu => 'Zangetsu';
+  String get Ketsurēn => 'Ketsurēn';
 
   @override
   String get cloudStream => 'Flujo de nube';
@@ -5555,7 +5555,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get keepDownloadsPrivateSubtitle =>
-      'New video downloads stay inside Zangetsu instead of the Downloads folder. They are deleted when you uninstall Zangetsu. Chapters and exports are unaffected.';
+      'New video downloads stay inside Ketsurēn instead of the Downloads folder. They are deleted when you uninstall Ketsurēn. Chapters and exports are unaffected.';
 
   @override
   String get mangaPageTranslationTitle => 'Translate page';
@@ -5696,7 +5696,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get mangaTranslationRestartRequiredMessage =>
-      'Close and reopen Zangetsu to finish setting up on-device OCR, then try again.';
+      'Close and reopen Ketsurēn to finish setting up on-device OCR, then try again.';
 
   @override
   String get mangaTranslationSearchLanguages => 'Search languages';

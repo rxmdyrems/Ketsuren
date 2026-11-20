@@ -55,7 +55,7 @@ internal class NativeReadAheadDataSource(
         val current = Session(memory, source)
         session = current
         try {
-            current.worker = Thread({ produce(current, chunk) }, "ZangetsuReadAhead").apply { isDaemon = true }
+            current.worker = Thread({ produce(current, chunk) }, "KetsurēnReadAhead").apply { isDaemon = true }
             current.worker.start()
         } catch (_: OutOfMemoryError) {
             session = null

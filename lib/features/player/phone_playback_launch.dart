@@ -13,8 +13,6 @@ import '../../core/download/download_record.dart';
 import '../downloads/episode_download_source_sheet.dart'
     show matchDownloadEpisode, resolveEpisodeDownloadShowId;
 import '../../core/repository/catalogue_repository.dart';
-import '../../core/discord/discord_rpc.dart';
-import '../../core/discord/discord_presence.dart';
 import '../../core/share/share_link.dart';
 import '../../core/models/provider_info.dart';
 import '../../core/models/episode.dart';
@@ -1132,11 +1130,6 @@ class PhoneNativePlayer {
           );
           return true;
         }
-      case 'discordPresence':
-        final args = _callArgs(call);
-        _syncSimkl(args);
-        _pushDiscordPresence(args);
-        return null;
       case 'saveProgress':
         final args = _callArgs(call);
         await _saveProgress(args, flush: true);
@@ -1152,11 +1145,6 @@ class PhoneNativePlayer {
             'completed': true,
           });
           _simklPlayback?.stop();
-        }
-        if (!_peek &&
-            _closed?.isCompleted == false &&
-            sl.isRegistered<DiscordRpc>()) {
-          sl<DiscordRpc>().clear(delay: DiscordRpc.playerExitClearDelay);
         }
         final args = _callArgs(call);
         await _saveProgress(args, flush: true);
@@ -1214,51 +1202,6 @@ class PhoneNativePlayer {
       durationMs: (args?['durationMs'] as num?)?.toInt() ?? 0,
       playing: args?['actualPlaying'] == true,
       completed: args?['completed'] == true,
-    );
-  }
-
-  static void _pushDiscordPresence(Map<String, dynamic>? args) {
-    if (_closed?.isCompleted != false ||
-        _peek ||
-        args == null ||
-        !sl.isRegistered<DiscordRpc>()) {
-      return;
-    }
-    final index = (args['index'] as num?)?.toInt() ?? -1;
-    final duration = (args['durationMs'] as num?)?.toInt() ?? 0;
-    final title = _showTitle.isNotEmpty ? _showTitle : _scrobbleTitle ?? '';
-    if (index < 0 ||
-        index >= _episodes.length ||
-        duration <= 0 ||
-        title.isEmpty) {
-      return;
-    }
-    unawaited(
-      sl<DiscordRpc>().setWatching(
-        title: title,
-        episodeLabel: discordEpisodeLabel(
-          _episodes[index],
-          fallbackNumber: index + 1,
-        ),
-        posterUrl: _cover,
-        position: Duration(
-          milliseconds: ((args['positionMs'] as num?)?.toInt() ?? 0).clamp(
-            0,
-            1 << 62,
-          ),
-        ),
-        duration: Duration(milliseconds: duration),
-        playing: args['playing'] == true,
-        openUrl: ShareLink.watchUrl(
-          sourceId: _sourceId,
-          url: _showUrl,
-          title: title,
-          type: (_scrobbleTitle != null || _malId != null)
-              ? ProviderType.anime
-              : ProviderType.movie,
-          cover: _cover,
-        ),
-      ),
     );
   }
 

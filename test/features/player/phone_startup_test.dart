@@ -219,14 +219,6 @@ void main() {
         int position,
         bool playing, {
         int? sessionId,
-      }) => send('discordPresence', {
-        'sessionId': sessionId ?? session,
-        'index': index,
-        'positionMs': position,
-        'durationMs': 100000,
-        'actualPlaying': playing,
-        'playing': playing,
-      });
       await state(0, 1000, true, sessionId: -1);
       await state(0, 1000, true);
       await send('playbackStarted', {'index': 0});

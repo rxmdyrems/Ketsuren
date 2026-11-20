@@ -11,7 +11,7 @@
 //  - a Mihon source's count/updates do NOT leak into the header total when
 //    the row itself is gated off — the exact place a broken
 //    `showMihon ? x : 0` guard would silently show up;
-//  - a `mihon:` active source id is excluded from `activeIsZangetsu`, so it
+//  - a `mihon:` active source id is excluded from `activeIsKetsurēn`, so it
 //    no longer misbadges the Ketsurēn row as ACTIVE (the bug the task
 //    specifically flagged as a risk);
 //  - the existing Ketsurēn/CloudStream/Aniyomi rows and their counts are
@@ -211,7 +211,7 @@ void main() {
       );
       await pump(tester);
 
-      // Before this task, activeIsZangetsu didn't exclude mihon: ids, so the
+      // Before this task, activeIsKetsurēn didn't exclude mihon: ids, so the
       // Ketsurēn row would have shown ACTIVE here. Off-Android the Mihon row
       // itself is hidden, so correctly nothing should show ACTIVE at all.
       expect(find.text('ACTIVE'), findsNothing);

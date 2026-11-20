@@ -19,7 +19,6 @@ import 'core/mode/content_mode.dart';
 import 'core/mode/content_mode_cubit.dart';
 import 'core/ui/splash_style.dart';
 import 'core/hive/safe_box.dart';
-import 'core/discord/discord_rpc.dart';
 import 'core/environment.dart';
 import 'core/logging/app_logger.dart';
 import 'core/platform/apple_tv.dart';
@@ -470,9 +469,7 @@ class _WatchAppState extends State<WatchApp> with WidgetsBindingObserver {
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    final discord = sl.isRegistered<DiscordRpc>() ? sl<DiscordRpc>() : null;
     if (state == AppLifecycleState.resumed) {
-      discord?.onForeground();
       // A blink of no network makes the startup session check fail, which
       // raises the "Reconnect to sync" banner — and nothing re-tested it,
       // because restore() only runs at launch. No-op unless that banner is up.
@@ -484,12 +481,6 @@ class _WatchAppState extends State<WatchApp> with WidgetsBindingObserver {
       // The wallpaper may have changed while we were away. No-op unless
       // Material You is on, and only rebuilds if the colours actually moved.
       ThemeController.refresh();
-    } else if (state == AppLifecycleState.paused) {
-      // Opening the in-app player (native surface / immersive) fires paused
-      // even though the user is still watching. Do not drop Rich Presence.
-      discord?.onPaused();
-    } else if (state == AppLifecycleState.detached) {
-      discord?.onDetached();
     }
   }
 

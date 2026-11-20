@@ -1129,7 +1129,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
           // Log-only, and the reason is the absence of it: a report about
           // closing the app while watching in picture-in-picture could not be
           // read at all, because nothing anywhere recorded that PiP had been
-          // entered. The sole trace was Discord logging `paused` then
+          // entered. The sole trace was retired community service logging `paused` then
           // `foreground` twice inside 15ms, which is not evidence.
           //
           // Read from the Dart-side status stream rather than the Activity

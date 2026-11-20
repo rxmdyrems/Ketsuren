@@ -6,7 +6,7 @@ import '../models/provider_info.dart';
 /// `ketsuren://open?…` deep link back into a [MediaItem].
 ///
 /// The shared link is an HTTPS URL to the site's `/open/` page:
-///   `https://…/Zangetsu-Site/open/?s=<source>&u=<url>&t=<title>&y=<a|m>&c=<cover>`
+///   `https://…/Ketsurēn-Site/open/?s=<source>&u=<url>&t=<title>&y=<a|m>&c=<cover>`
 /// Only the fields needed to re-open the title are carried — the Detail
 /// re-fetches everything else — which keeps the link short. When installed, the
 /// app catches it via `ketsuren://open?…`; otherwise the page offers the app.
@@ -44,7 +44,7 @@ class ShareLink {
   static String shareText(MediaItem item) =>
       '${item.title}\n\nWatch on Ketsurēn:\n${forItem(item)}';
 
-  /// "Open in Ketsurēn" URL for the Discord Rich Presence button while
+  /// "Open in Ketsurēn" URL for an external share action while
   /// watching: the same https share link, so a friend with the app lands on
   /// this exact title and one without gets the install page. Null when the
   /// title identity is incomplete (no source or url to reopen).

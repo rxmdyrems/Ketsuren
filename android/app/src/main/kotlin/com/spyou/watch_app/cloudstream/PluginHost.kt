@@ -234,7 +234,7 @@ class PluginHost(private val context: Context) {
      *
      *  This matters long after loading: a plugin keeps whatever it is handed in
      *  `load()` and shows its own dialogs on it later (CNC Verse's Cloudflare
-     *  screen, its subscription and Telegram popups). The application context
+     *  screen, its subscription and retired community service popups). The application context
      *  cannot host a dialog at all, and the throwaway AppCompatActivity we used
      *  to fall back to had already finished by then — either way the dialog died
      *  on BadTokenException, the plugin swallowed it, and the source quietly

@@ -1,7 +1,7 @@
 import '../environment.dart';
 
 /// Encodes TV pairing links and parses incoming pair URLs from either the
-/// website (`https://zangetsu.online/pair/…`) or the `ketsuren://pair` deeplink.
+/// website (`/pair/…`) or the `ketsuren://pair` deeplink.
 class PairLink {
   const PairLink({this.code, this.nonce, this.trackers = false});
 

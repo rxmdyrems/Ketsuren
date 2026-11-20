@@ -12,7 +12,7 @@ import android.os.Build
  *
  * The upstream class lives in the full CloudStream *app*, NOT in the
  * `com.github.recloudstream.cloudstream:library` artifact we compile the
- * runtime against. Some extensions reference it — e.g. Telegram/Discord promo
+ * runtime against. Some extensions reference it — e.g. retired community service/retired community service promo
  * popups invoked from `getMainPage()` / `loadLinks()` — so DexClassLoading them
  * against our subset threw `NoClassDefFoundError: …ui/settings/Globals` and the
  * whole home feed / link resolution came back empty ("Couldn't load"), even

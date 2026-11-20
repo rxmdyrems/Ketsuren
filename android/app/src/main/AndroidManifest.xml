@@ -122,22 +122,15 @@
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="zangetsu" android:host="anilist-auth"/>
-                <data android:scheme="zangetsu" android:host="mal-auth"/>
-                <data android:scheme="zangetsu" android:host="simkl-auth"/>
-                <data android:scheme="zangetsu" android:host="mangabaka-auth"/>
+                <data android:scheme="ketsuren" android:host="anilist-auth"/>
+                <data android:scheme="ketsuren" android:host="mal-auth"/>
+                <data android:scheme="ketsuren" android:host="simkl-auth"/>
+                <data android:scheme="ketsuren" android:host="mangabaka-auth"/>
                 <!-- Shared-title deep link: ketsuren://open?d=…&t=… (see OpenLinkService). -->
-                <data android:scheme="zangetsu" android:host="open"/>
-                <data android:scheme="zangetsu" android:host="room"/>
+                <data android:scheme="ketsuren" android:host="open"/>
+                <data android:scheme="ketsuren" android:host="room"/>
                 <!-- TV pairing QR: ketsuren://pair?code=… (see OpenLinkService). -->
-                <data android:scheme="zangetsu" android:host="pair"/>
-            </intent-filter>
-            <!-- Keep the hostless Discord callback separate from tracker hosts. -->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="discord-1518610045422665748"/>
+                <data android:scheme="ketsuren" android:host="pair"/>
             </intent-filter>
             <!-- "Open with" for local video files, so a file manager / Downloads
                  offers Ketsurēn the way it offers any other player.

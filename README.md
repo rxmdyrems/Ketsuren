@@ -20,10 +20,10 @@ Install Flutter 3.50.1, Java 17, and the Android SDK, then run:
 
 ```sh
 flutter pub get
-KETSUREN_NO_DISCORD=1 flutter build apk --debug
+flutter build apk --debug
 ```
 
-`KETSUREN_NO_DISCORD=1` omits the proprietary Discord SDK, which is not included in this repository. The Android application ID is `com.rxmdyrems.ketsuren` (minimum Android version 7.0 / API 24). GitHub Actions builds a debug APK on pushes to `main`; a `v*` tag builds arm64 and ARM universal-compatible release APKs and publishes them to a GitHub Release. The repository and its release assets remain private.
+The Android application ID is `com.rxmdyrems.ketsuren` (minimum Android version 7.0 / API 24). GitHub Actions builds a debug APK on pushes to `main`; a `v*` tag builds arm64 and ARM universal-compatible release APKs and publishes them to a GitHub Release. The repository and its release assets remain private.
 
 ## Privacy
 

@@ -4,7 +4,7 @@ import 'package:hive/hive.dart';
 
 /// Global "pause recording me" switch. While on, the app stops writing anything
 /// that tracks you: search history, watch history, resume positions, tracker
-/// auto-scrobble, and Discord presence. Explicit actions you take yourself
+/// auto-scrobble, and retired community service presence. Explicit actions you take yourself
 /// (e.g. editing a tracker list by hand) are unaffected.
 ///
 /// [notifier] drives the top-bar indicator; [on] is a fast synchronous read for

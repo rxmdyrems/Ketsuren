@@ -4,14 +4,14 @@ import 'package:ketsuren/core/share/share_link.dart';
 
 void main() {
   group('ShareLink.watchUrl', () {
-    test('builds the https open link for the Discord button', () {
+    test('builds the https open link', () {
       final url = ShareLink.watchUrl(
         sourceId: 'cs:hiAnime',
         url: 'https://hianime.to/watch/one-piece-100',
         title: 'One Piece',
         type: ProviderType.anime,
       );
-      expect(url, startsWith('https://zangetsu.online/open/'));
+      expect(url, startsWith('https://ketsuren.app/open/'));
       expect(url, contains('s=cs%3AhiAnime'));
       expect(url, contains('One+Piece'));
     });

@@ -25,8 +25,8 @@ import 'sources_search_field.dart';
 import '../../core/ui/app_dialog.dart';
 import '../../l10n/l10n.dart';
 
-part 'zangetsu_sources_screen_phone.dart';
-part 'zangetsu_sources_screen_tv.dart';
+part 'ketsuren_sources_screen_phone.dart';
+part 'ketsuren_sources_screen_tv.dart';
 
 /// Dedicated Ketsurēn (JS provider) ecosystem screen — Installed and
 /// Repositories as two tabs. Self-contained: creates its own [SourcesBloc]
@@ -35,8 +35,8 @@ part 'zangetsu_sources_screen_tv.dart';
 /// Phone and TV share this file (`if (sl<AppMode>().isTv)`); every lifted
 /// widget below is copied byte-identical from `sources_screen.dart` /
 /// `sources_screen_tv.dart` — only the host screen around them is new.
-class ZangetsuSourcesScreen extends StatelessWidget {
-  const ZangetsuSourcesScreen({
+class KetsurēnSourcesScreen extends StatelessWidget {
+  const KetsurēnSourcesScreen({
     super.key,
     this.openToRepos = false,
     this.scopeToReading = false,

@@ -9,8 +9,6 @@ import 'package:flutter/services.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
 import '../../core/di/injector.dart';
-import '../../core/discord/discord_presence.dart';
-import '../../core/discord/discord_rpc.dart';
 import '../../core/share/share_link.dart';
 import '../../core/metadata/episode_metadata_service.dart';
 import '../../core/models/episode.dart';
@@ -113,9 +111,6 @@ class _TvExoPlayerScreenState extends State<TvExoPlayerScreen> {
   bool _resumeSeeked = false;
   String? _error;
   int _lastSavedMs = 0;
-  int _discordLastPos = 0;
-  Timer? _discordPauseTimer;
-  bool _discordPaused = false;
 
   final _dio = Dio();
   late String _category;
@@ -258,8 +253,6 @@ class _TvExoPlayerScreenState extends State<TvExoPlayerScreen> {
     c.position.addListener(_scrobbleTick);
     c.position.addListener(_maybeAutoSkip);
     c.playing.addListener(_onPlayingChanged);
-    c.duration.addListener(_pushDiscordWatchingIfDurationKnown);
-    c.position.addListener(_maybeDiscordSeek);
     _bumpControls();
     _loadEpisode();
   }
@@ -331,19 +324,10 @@ class _TvExoPlayerScreenState extends State<TvExoPlayerScreen> {
   void _onPlayingChanged() {
     if (!mounted) return;
     if (_c?.playing.value == true) {
-      _discordPaused = false;
-      _discordPauseTimer?.cancel();
-      _pushDiscordWatchingIfDurationKnown();
       _bumpControls(); // resumed → start the fade-out countdown
     } else {
       _controlsHideTimer?.cancel(); // paused → keep controls up
       if (!_controlsVisible) setState(() => _controlsVisible = true);
-      _discordPauseTimer?.cancel();
-      _discordPauseTimer = Timer(const Duration(milliseconds: 600), () {
-        if (!mounted || _c?.playing.value == true) return;
-        _discordPaused = true;
-        _pushDiscordWatchingIfDurationKnown();
-      });
     }
   }
 
@@ -499,65 +483,7 @@ class _TvExoPlayerScreenState extends State<TvExoPlayerScreen> {
     await _applyCaptionStyle();
     _applyPlaybackTuning();
     _loadQualities(src);
-    // Discord Rich Presence: announce the episode now playing. This screen
-    // hosts a native ExoPlayer PlatformView (not PlayerController), so the
-    // phone player's setWatching never fired here — mirror it.
-    _pushDiscordWatchingIfDurationKnown();
   }
-
-  void _pushDiscordWatchingIfDurationKnown() {
-    if ((_c?.duration.value ?? 0) <= 0) return;
-    _pushDiscordWatching();
-  }
-
-  void _maybeDiscordSeek() {
-    final c = _c;
-    if (c == null) return;
-    final p = c.position.value;
-    if ((p - _discordLastPos).abs() > 3000) {
-      _pushDiscordWatchingIfDurationKnown();
-    }
-    _discordLastPos = p;
-  }
-
-  void _pushDiscordWatching() {
-    final title = widget.showTitle;
-    final ep = _ep;
-    final c = _c;
-    if (ep == null ||
-        title == null ||
-        title.isEmpty ||
-        !sl.isRegistered<DiscordRpc>()) {
-      return;
-    }
-    unawaited(
-      sl<DiscordRpc>().setWatching(
-        title: title,
-        episodeLabel: discordEpisodeLabel(ep, fallbackNumber: _index + 1),
-        posterUrl: widget.cover,
-        position: Duration(milliseconds: c?.position.value ?? 0),
-        duration: Duration(milliseconds: c?.duration.value ?? 0),
-        playing: !_discordPaused,
-        openUrl: ShareLink.watchUrl(
-          sourceId: widget.sourceId,
-          url: widget.showUrl,
-          title: title,
-          type: (widget.scrobbleTitle != null || widget.malId != null)
-              ? ProviderType.anime
-              : ProviderType.movie,
-          cover: widget.cover,
-        ),
-      ),
-    );
-  }
-
-  /// Drop Watching when the player exits so the profile status actually
-  /// disappears (the detail screen underneath will not re-fire browsing).
-  void _announceBrowsing() {
-    if (!sl.isRegistered<DiscordRpc>()) return;
-    sl<DiscordRpc>().clear(delay: DiscordRpc.playerExitClearDelay);
-  }
-
   Future<String?> _resolveTorrent(String uri, int gen) async {
     setState(() => _torrentPhase = 'Finding peers…');
     // Local subscription (not a shared field) so an overlapping _open can't
@@ -1898,20 +1824,15 @@ class _TvExoPlayerScreenState extends State<TvExoPlayerScreen> {
 
   @override
   void dispose() {
-    // Android pauses (and often disposes) this screen when the Exo surface
-    // attaches — that is not leaving the player. A delayed clear here races
-    // duration and wipes the Discord progress bar.
     final life = WidgetsBinding.instance.lifecycleState;
     if (life != AppLifecycleState.paused &&
         life != AppLifecycleState.hidden &&
         life != AppLifecycleState.inactive) {
-      _announceBrowsing();
-    }
+      }
     _loadGen++; // supersede any in-flight torrent resolve so it stops itself
     _stopTorrent();
     _menuHideTimer?.cancel();
     _controlsHideTimer?.cancel();
-    _discordPauseTimer?.cancel();
     _upNextTimer
         ?.cancel(); // cancel directly — _cancelUpNext setStates/refocuses
     final c = _c;

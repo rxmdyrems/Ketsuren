@@ -16,7 +16,7 @@ import 'pair_link.dart';
 import 'share_link.dart';
 
 /// Listens for incoming share links (`ketsuren://open?…`) and pairing links
-/// (`ketsuren://pair?…` or `https://zangetsu.online/pair/?…`) and opens the
+/// (`ketsuren://pair?…` or `/pair/?…`) and opens the
 /// matching screen. Tracker OAuth listeners share the same [AppLinks] stream
 /// and ignore anything they don't own.
 class OpenLinkService {

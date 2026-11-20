@@ -12,32 +12,31 @@ class Environment {
   // build needs a different project (e.g. staging).
   static const String supabaseUrl = String.fromEnvironment(
     'SUPABASE_URL',
-    defaultValue: 'https://eogwzrlfoercfwcfwlmv.supabase.co',
+    defaultValue: 'https://qrqyduziluhptyhyfoxa.supabase.co',
   );
   static const String supabaseAnonKey = String.fromEnvironment(
     'SUPABASE_ANON_KEY',
-    defaultValue:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVvZ3d6cmxmb2VyY2Z3Y2Z3bG12Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzNjgzODIsImV4cCI6MjA5OTk0NDM4Mn0.qr-nHnB9vb7BodP55XJ9-6Rwp__eOGCS6txhLiuWVZw',
+    defaultValue: '',
   );
 
   // Supabase issues auth tokens; all app cloud-data sync uses the VPS.
   static const String vpsSyncUrl = String.fromEnvironment(
     'VPS_SYNC_URL',
-    defaultValue: 'https://sync.zangetsu.online',
+    defaultValue: '',
   );
 
   /// Where Appwrite sends the password-recovery link. Appwrite appends
   /// Password-reset landing. Supabase now drives reset (via the auth `site_url`,
   /// which points at this same page); kept for reference. Not used by the
   /// Supabase AuthCubit, which calls `resetPasswordForEmail`.
-  static const String passwordResetUrl = 'https://zangetsu.online/';
+  static const String passwordResetUrl = '';
 
   /// Base of the Ketsurēn website (landing + reset + the share "open" page).
-  static const String siteBaseUrl = 'https://zangetsu.online';
+  static const String siteBaseUrl = '';
 
   /// Share links point here. The page opens the app if installed (via the
   /// [openLinkScheme] scheme below), otherwise offers the download. Its domain
-  /// must be an Appwrite Web platform (already added for the reset page).
+  /// must be an configured Web platform (already added for the reset page).
   static const String siteOpenUrl = '$siteBaseUrl/open/';
 
   /// TV pairing page on the website. Used when someone opens a shared/https
@@ -47,7 +46,7 @@ class Environment {
 
   /// The "open" page redirects to `ketsuren://open?…`; an installed app catches
   /// it (see [OpenLinkService] + the Android manifest intent-filter).
-  static const String openLinkScheme = trackerRedirectScheme; // 'zangetsu'
+  static const String openLinkScheme = trackerRedirectScheme; // 'ketsuren'
   static const String openLinkHost = 'open';
   static const String pairLinkHost = 'pair';
 
@@ -66,7 +65,7 @@ class Environment {
   // matching Android intent-filter. Client secrets are embedded where the
   // provider's token exchange requires it (MAL = PKCE, no secret; Simkl needs
   // one) — standard for these APIs and low-risk.
-  static const String trackerRedirectScheme = 'zangetsu';
+  static const String trackerRedirectScheme = 'ketsuren';
 
   // AniList — implicit grant (token in URL fragment, 1-year, no secret).
   static const String anilistClientId = '43052';
@@ -83,7 +82,7 @@ class Environment {
   // Simkl wants these on EVERY request (url params + a real User-Agent), or
   // the call is invisible in their debug log and they can't help when
   // something breaks. See https://api.simkl.org/conventions/headers.
-  static const String simklAppName = 'zangetsu';
+  static const String simklAppName = 'ketsuren';
   static const String simklApiHost = 'api.simkl.com';
   static const String simklDataHost = 'data.simkl.in';
 

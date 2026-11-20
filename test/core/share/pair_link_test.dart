@@ -49,7 +49,7 @@ void main() {
 
   test('parse ignores unrelated links', () {
     expect(PairLink.parse(Uri.parse('ketsuren://open?s=x&u=y')), isNull);
-    expect(PairLink.parse(Uri.parse('https://zangetsu.online/open/?s=x&u=y')), isNull);
+    expect(PairLink.parse(Uri.parse('https://ketsuren.app/open/?s=x&u=y')), isNull);
     expect(PairLink.parse(Uri.parse('https://example.com/pair/?code=$code')), isNull);
   });
 }

@@ -60,7 +60,7 @@ import '../settings/streaming_services_screen.dart';
 import '../sources/aniyomi_repo_tab.dart' show kAniyomiReposBoxName;
 import '../sources/providers_hub_screen.dart';
 import '../sources/source_picker_row_actions.dart';
-import '../sources/zangetsu_sources_screen.dart';
+import '../sources/ketsuren_sources_screen.dart';
 import '../update/update_dialog.dart';
 import 'continue_section.dart';
 import 'my_list_screen.dart';
@@ -2283,7 +2283,7 @@ class HomeSourceSwitcherSlot extends StatelessWidget {
                 onInstallSources: () => Navigator.of(context).push(
                   MaterialPageRoute<void>(
                     builder: (_) =>
-                        const ZangetsuSourcesScreen(openToRepos: true),
+                        const KetsurēnSourcesScreen(openToRepos: true),
                   ),
                 ),
               ),

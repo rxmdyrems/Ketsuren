@@ -14,7 +14,7 @@ import '../zmode/zmode_prefs.dart';
 import 'app_logger.dart';
 
 /// Sends the in-app diagnostic log to the intake Worker
-/// (`cloudflare/log-intake/`), which stores it and pings Discord.
+/// (`cloudflare/log-intake/`), which stores it and pings retired community service.
 ///
 /// Exists because the log was only ever reachable by asking the person to find
 /// Settings, tap Share logs, and send the file somewhere — so in practice a bug
@@ -101,7 +101,7 @@ class LogReportService {
   /// What the report says about the device and setup, on top of the log.
   ///
   /// Every field is gathered separately and swallowed on failure: a missing
-  /// line in a Discord message costs nothing, a report that never arrives
+  /// line in a retired community service message costs nothing, a report that never arrives
   /// because a plugin threw costs the whole point of this.
   ///
   /// Nothing identifying goes in — model and device class, never an account,

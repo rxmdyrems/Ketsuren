@@ -685,7 +685,7 @@ class TvPlayerActivity : Activity() {
         return target
     }
 
-    /** Push position+duration to Dart (Discord bar + resume). */
+    /** Push position+duration to Dart (retired community service bar + resume). */
     private fun reportTiming(
         positionMs: Long? = null,
         playing: Boolean? = null,
@@ -706,7 +706,7 @@ class TvPlayerActivity : Activity() {
         )
     }
 
-    /** First time this episode is ready — Discord needs an end timestamp. */
+    /** First time this episode is ready — retired community service needs an end timestamp. */
     private fun reportTimingIfNeeded() = reportTiming(onlyOncePerEpisode = true)
 
     private fun toastFail() = android.widget.Toast.makeText(

@@ -28,7 +28,7 @@ import 'stremio_sources_screen.dart';
 import 'lnreader_sources_screen.dart';
 import 'mangayomi_sources_screen.dart';
 import 'mihon_sources_screen.dart';
-import 'zangetsu_sources_screen.dart';
+import 'ketsuren_sources_screen.dart';
 import '../../l10n/l10n.dart';
 
 const Widget _kChevron = Icon(
@@ -152,7 +152,7 @@ class _HubPhoneView extends StatelessWidget {
     final activeIsMihon = activeId.startsWith('mihon:');
     final activeIsLnReader = activeId.startsWith('lnr:');
     final activeIsMangayomi = activeId.startsWith('mg:');
-    final activeIsZangetsu =
+    final activeIsKetsurēn =
         activeId.isNotEmpty &&
         !activeIsCs &&
         !activeIsAni &&
@@ -170,7 +170,7 @@ class _HubPhoneView extends StatelessWidget {
     // source can still be installed and active, and the Ketsurēn STREAMING row
     // must not light up as ACTIVE when it is.
     final activeIsReading =
-        activeIsZangetsu && isReadingType(sourceTypeOf(activeId));
+        activeIsKetsurēn && isReadingType(sourceTypeOf(activeId));
 
     return Scaffold(
       backgroundColor: AppColors.bg,
@@ -211,14 +211,14 @@ class _HubPhoneView extends StatelessWidget {
             title: context.l10n.zangetsu,
             desc: 'Built-in JS providers',
             info: '$zangetsuCount sources',
-            // Reading sources are Ketsurēn providers too (activeIsZangetsu
+            // Reading sources are Ketsurēn providers too (activeIsKetsurēn
             // alone doesn't distinguish), so exclude them here — the Manga &
             // Novel row owns the badge when a reading source is active. When
             // the active source is anime/movie, activeIsReading is false and
-            // this is byte-identical to plain activeIsZangetsu, as before.
-            active: activeIsZangetsu && !activeIsReading,
+            // this is byte-identical to plain activeIsKetsurēn, as before.
+            active: activeIsKetsurēn && !activeIsReading,
             updateCount: zUpdates,
-            onTap: () => open(const ZangetsuSourcesScreen()),
+            onTap: () => open(const KetsurēnSourcesScreen()),
           ),
           if (sl.isRegistered<StremioManager>()) ...[
             const SizedBox(height: 12),
@@ -697,10 +697,10 @@ class _HubTvViewState extends State<_HubTvView> {
                       ),
                     row(
                       icon: Icons.dns_rounded,
-                      title: context.l10n.zangetsuProviders,
+                      title: context.l10n.ketsurenProviders,
                       subtitle: '$zangetsuCount installed',
                       tint: AppColors.accent,
-                      onTap: () => _open(const ZangetsuSourcesScreen()),
+                      onTap: () => _open(const KetsurēnSourcesScreen()),
                     ),
                     if (sl.isRegistered<StremioManager>())
                       row(

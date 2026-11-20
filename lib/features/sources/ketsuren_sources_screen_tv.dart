@@ -1,5 +1,5 @@
 // Ketsurēn sources — TV (D-pad) UI.
-part of 'zangetsu_sources_screen.dart';
+part of 'ketsuren_sources_screen.dart';
 
 // ---------------------------------------------------------------------------
 // TV view
@@ -56,7 +56,7 @@ class _ZTvViewState extends State<_ZTvView> {
                     const SizedBox(width: 16),
                     Expanded(
                       child: Text(
-                        context.l10n.zangetsuProviders,
+                        context.l10n.ketsurenProviders,
                         style: AppText.largeTitle,
                       ),
                     ),

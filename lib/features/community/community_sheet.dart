@@ -1,17 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ketsuren/core/hive/safe_box.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../../core/app_config.dart';
 import '../../core/app_mode.dart';
 import '../../core/di/injector.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text.dart';
 import '../../core/tv/tv_list_focusable.dart';
 
-const _telegramUrl = 'https://t.me/ZangetsuStream';
-const _discordUrl = kDiscordInviteUrl;
 const _flagsBox = 'app_flags';
 const _seenKey = 'communitySheetSeen';
 
@@ -52,16 +48,6 @@ Future<void> showCommunitySheet(BuildContext context) {
 
 class _CommunitySheet extends StatelessWidget {
   const _CommunitySheet();
-
-  Future<void> _open(String url) async {
-    final uri = Uri.tryParse(url);
-    if (uri == null) return;
-    try {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } catch (_) {
-      // A missing browser/app shouldn't crash — silently ignore.
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -118,61 +104,12 @@ class _CommunitySheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 22),
-            _linkButton(
-              context,
-              icon: Icons.send_rounded,
-              label: 'Telegram  ·  @ZangetsuStream',
-              color: const Color(0xFF229ED9),
-              url: _telegramUrl,
-              autofocus: isTv, // first button gets D-pad focus on TV
-              isTv: isTv,
-            ),
-            const SizedBox(height: 12),
-            _linkButton(
-              context,
-              icon: Icons.forum_rounded,
-              label: 'Discord',
-              color: const Color(0xFF5865F2),
-              url: _discordUrl,
-              autofocus: false,
-              isTv: isTv,
-            ),
             const SizedBox(height: 6),
             Center(child: _laterButton(context, isTv: isTv)),
           ],
         ),
       ),
     );
-  }
-
-  Widget _linkButton(
-    BuildContext context, {
-    required IconData icon,
-    required String label,
-    required Color color,
-    required String url,
-    required bool autofocus,
-    required bool isTv,
-  }) {
-    void go() {
-      Navigator.of(context).pop();
-      _open(url);
-    }
-
-    final button = FilledButton.icon(
-      style: FilledButton.styleFrom(
-        backgroundColor: color,
-        foregroundColor: Colors.white,
-        minimumSize: const Size.fromHeight(50),
-        alignment: AlignmentDirectional.centerStart,
-      ),
-      onPressed: go,
-      icon: Icon(icon),
-      label: Text(label),
-    );
-    if (!isTv) return button;
-    // On TV the D-pad drives focus; TvFocusable handles OK-key activation.
-    return TvListFocusable( autofocus: autofocus, onTap: go, child: button);
   }
 
   Widget _laterButton(BuildContext context, {required bool isTv}) {

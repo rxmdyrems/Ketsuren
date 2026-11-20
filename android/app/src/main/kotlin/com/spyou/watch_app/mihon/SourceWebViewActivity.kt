@@ -246,7 +246,7 @@ class SourceWebViewActivity : AppCompatActivity() {
      *
      * `setDefaultSettings()` turns multiple windows on, and with nothing
      * handling them the navigation is dropped in silence — which is every
-     * OAuth sign-in (Google, Discord, Patreon), the exact flow login mode
+     * OAuth sign-in (Google, retired community service, Patreon), the exact flow login mode
      * exists for. There is no second screen to give a popup, so the throwaway
      * WebView below exists only to catch the popup's first URL and hand it
      * back.

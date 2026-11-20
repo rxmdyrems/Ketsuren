@@ -8,8 +8,6 @@ import 'package:flutter/services.dart';
 
 import '../../core/download/hls_downloader.dart';
 import '../../core/di/injector.dart';
-import '../../core/discord/discord_presence.dart';
-import '../../core/discord/discord_rpc.dart';
 import '../../core/metadata/episode_metadata_service.dart';
 import '../../core/models/episode.dart';
 import '../../core/models/episode_title.dart';
@@ -73,7 +71,7 @@ class TvAvNativePlayer {
     _subtitleSkewAfterSeconds = src.subtitleSkewAfterSeconds ?? 0;
     if (_subtitleSkewSeconds.abs() >= 0.05) {
       debugPrint(
-        '[zangetsu-sub-timing] pack skew '
+        '[ketsuren-sub-timing] pack skew '
         '${_subtitleSkewSeconds.toStringAsFixed(3)}s after '
         '${_subtitleSkewAfterSeconds.toStringAsFixed(3)}s',
       );
@@ -148,7 +146,7 @@ class TvAvNativePlayer {
       return false;
     }
     debugPrint(
-      '[zangetsu-sub-timing] launch cat=$category quality=${src.quality} '
+      '[ketsuren-sub-timing] launch cat=$category quality=${src.quality} '
       'kind=${src.kind} container=${src.container.name} '
       'subs=${src.subtitles.length} '
       'delayPrefs=${sl<PlaybackPrefs>().subtitleDelaySeconds.toStringAsFixed(3)} '
@@ -157,7 +155,7 @@ class TvAvNativePlayer {
     for (var i = 0; i < src.subtitles.length; i++) {
       final s = src.subtitles[i];
       debugPrint(
-        '[zangetsu-sub-timing] sourceSub[$i] default=${s.isDefault} '
+        '[ketsuren-sub-timing] sourceSub[$i] default=${s.isDefault} '
         'lang=${s.lang} label=${s.label} fmt=${s.format} url=${s.url}',
       );
     }
@@ -176,11 +174,6 @@ class TvAvNativePlayer {
     }();
 
     final mark = resume.get(sourceId, _showId, ep.id);
-    _announceWatching(
-      ep,
-      positionMs: mark?.position.inMilliseconds ?? 0,
-      durationMs: mark?.duration.inMilliseconds ?? 0,
-    );
     _tracker?.maybeMarkWatching();
 
     final warm = malId != null ? FillerService.instance.peekCache(malId) : null;
@@ -237,12 +230,10 @@ class TvAvNativePlayer {
       });
     } on PlatformException catch (e) {
       debugPrint('[TvAvNativePlayer] launch failed: $e');
-      _announceBrowsing();
-      return false;
+        return false;
     } on MissingPluginException {
       debugPrint('[TvAvNativePlayer] native player plugin missing');
-      _announceBrowsing();
-      return false;
+        return false;
     }
 
     final index = (res?['episodeIndex'] as num?)?.toInt() ?? startIndex;
@@ -250,7 +241,6 @@ class TvAvNativePlayer {
     final durMs = (res?['durationMs'] as num?)?.toInt() ?? 0;
     _saveProgress(index, posMs, durMs);
     _tracker?.stopLive();
-    _announceBrowsing();
     return true;
   }
 
@@ -275,11 +265,6 @@ class TvAvNativePlayer {
         _category = category;
         final mark = _resume?.get(_sourceId, _showId, ep.id);
         _tracker?.maybeMarkWatching();
-        _announceWatching(
-          ep,
-          positionMs: mark?.position.inMilliseconds ?? 0,
-          durationMs: mark?.duration.inMilliseconds ?? 0,
-        );
         return {
           ..._streamPayload(src, mark?.position.inMilliseconds ?? 0),
           'episodeLabel': _episodeLabel(ep),
@@ -299,12 +284,6 @@ class TvAvNativePlayer {
             durationMs: durMs,
             playing: args['playing'] as bool? ?? true,
             completed: completed,
-          );
-          _announceWatching(
-            _episodes[index],
-            positionMs: posMs,
-            durationMs: durMs,
-            playing: args['playing'] as bool? ?? true,
           );
         }
         return null;
@@ -438,7 +417,7 @@ class TvAvNativePlayer {
         final args = (call.arguments as Map).cast<String, dynamic>();
         final url = args['url'] as String?;
         if (url == null || url.isEmpty) return null;
-        debugPrint('[zangetsu-sub-timing] fetchSubtitle GET $url');
+        debugPrint('[ketsuren-sub-timing] fetchSubtitle GET $url');
         final hdrs = <String, String>{};
         final rawH = args['headers'];
         if (rawH is Map) {
@@ -462,7 +441,7 @@ class TvAvNativePlayer {
           final res = await dio.get<String>(url);
           final text = res.data;
           if (text == null || text.trim().isEmpty) {
-            debugPrint('[zangetsu-sub-timing] fetchSubtitle empty response');
+            debugPrint('[ketsuren-sub-timing] fetchSubtitle empty response');
             return null;
           }
           var out = text;
@@ -479,7 +458,7 @@ class TvAvNativePlayer {
             if (gapOnly != null) {
               final blended = (skew + gapOnly.seconds) / 2;
               debugPrint(
-                '[zangetsu-sub-timing] fetchSubtitle blend pack skew '
+                '[ketsuren-sub-timing] fetchSubtitle blend pack skew '
                 'markers=${skew.toStringAsFixed(3)}s gap=${gapOnly.seconds.toStringAsFixed(3)}s '
                 '→ ${blended.toStringAsFixed(3)}s '
                 '(VTT OP resume ${gapOnly.afterSeconds.toStringAsFixed(3)}s, '
@@ -496,16 +475,16 @@ class TvAvNativePlayer {
               afterSeconds: after,
             );
             debugPrint(
-              '[zangetsu-sub-timing] fetchSubtitle applied pack skew '
+              '[ketsuren-sub-timing] fetchSubtitle applied pack skew '
               '${skew.toStringAsFixed(3)}s after ${after.toStringAsFixed(3)}s',
             );
           }
           debugPrint(
-            '[zangetsu-sub-timing] fetchSubtitle OK ${out.length} chars',
+            '[ketsuren-sub-timing] fetchSubtitle OK ${out.length} chars',
           );
           return {'text': out};
         } catch (e) {
-          debugPrint('[zangetsu-sub-timing] fetchSubtitle failed: $e');
+          debugPrint('[ketsuren-sub-timing] fetchSubtitle failed: $e');
           return null;
         }
       case 'probeHlsEpoch':
@@ -539,7 +518,7 @@ class TvAvNativePlayer {
         );
       case 'subtitleTimingLog':
         final msg = (call.arguments as Map?)?['message'] as String?;
-        if (msg != null) debugPrint('[zangetsu-sub-timing] $msg');
+        if (msg != null) debugPrint('[ketsuren-sub-timing] $msg');
         return null;
       case 'sourcesFor':
         final args = (call.arguments as Map).cast<String, dynamic>();
@@ -726,31 +705,6 @@ class TvAvNativePlayer {
     debugPrint('[TvAvNativePlayer] saved ep=${ep.id} pos=$posMs');
   }
 
-  static void _announceWatching(
-    Episode ep, {
-    int positionMs = 0,
-    int durationMs = 0,
-    bool playing = true,
-  }) {
-    if (_showTitle.isEmpty || !sl.isRegistered<DiscordRpc>()) return;
-    if (durationMs <= 0) return;
-    unawaited(
-      sl<DiscordRpc>().setWatching(
-        title: _showTitle,
-        episodeLabel: discordEpisodeLabel(ep),
-        posterUrl: _cover,
-        position: Duration(milliseconds: positionMs),
-        duration: Duration(milliseconds: durationMs),
-        playing: playing,
-      ),
-    );
-  }
-
-  static void _announceBrowsing() {
-    if (!sl.isRegistered<DiscordRpc>()) return;
-    sl<DiscordRpc>().clear(delay: DiscordRpc.playerExitClearDelay);
-  }
-
   static String _episodeLabel(Episode ep) => episodePresenceDetails(ep) ?? '';
 
   static List<bool> _fillerFlags(List<Episode> episodes, Set<int> fillers) {
@@ -804,7 +758,7 @@ class TvAvNativePlayer {
     String url,
     Map<String, String> headers,
   ) async {
-    debugPrint('[zangetsu-sub-timing] HLS epoch probe GET $url');
+    debugPrint('[ketsuren-sub-timing] HLS epoch probe GET $url');
     try {
       final textDio = Dio(
         BaseOptions(
@@ -825,7 +779,7 @@ class TvAvNativePlayer {
           return {'seconds': 0.0, 'reason': 'no variant URI'};
         }
         playlistUrl = Uri.parse(playlistUrl).resolve(next).toString();
-        debugPrint('[zangetsu-sub-timing] HLS epoch variant $playlistUrl');
+        debugPrint('[ketsuren-sub-timing] HLS epoch variant $playlistUrl');
         text = (await textDio.get<String>(playlistUrl)).data;
         if (text == null || text.trim().isEmpty) {
           return {'seconds': 0.0, 'reason': 'variant fetch failed'};
@@ -838,7 +792,7 @@ class TvAvNativePlayer {
       final mapUri = hlsExtXMapUri(text);
       final segments = hlsMediaSegments(text, max: 4096);
       debugPrint(
-        '[zangetsu-sub-timing] HLS tags ${hlsPlaylistTagSummary(text)}',
+        '[ketsuren-sub-timing] HLS tags ${hlsPlaylistTagSummary(text)}',
       );
       if (segments.isEmpty) {
         return {'seconds': 0.0, 'reason': 'no segment URI'};
@@ -855,7 +809,7 @@ class TvAvNativePlayer {
           if (segments[i].discontinuity) i,
       ];
       debugPrint(
-        '[zangetsu-sub-timing] HLS media nSeg=${segments.length} '
+        '[ketsuren-sub-timing] HLS media nSeg=${segments.length} '
         'sumEXTINF=${totalExtinf.toStringAsFixed(3)}s '
         'START=${startTag?.toStringAsFixed(3) ?? "-"} '
         'discPad=${discPad?.toStringAsFixed(3) ?? "-"} '
@@ -886,11 +840,11 @@ class TvAvNativePlayer {
           return Uint8List.fromList(raw);
         } on DioException catch (e) {
           debugPrint(
-            '[zangetsu-sub-timing] HLS epoch fetch ${e.response?.statusCode ?? e.type} $u',
+            '[ketsuren-sub-timing] HLS epoch fetch ${e.response?.statusCode ?? e.type} $u',
           );
           return null;
         } catch (e) {
-          debugPrint('[zangetsu-sub-timing] HLS epoch fetch error $e');
+          debugPrint('[ketsuren-sub-timing] HLS epoch fetch error $e');
           return null;
         }
       }
@@ -907,7 +861,7 @@ class TvAvNativePlayer {
       Uint8List? initBytes;
       if (mapUri != null) {
         final initUrl = Uri.parse(playlistUrl).resolve(mapUri).toString();
-        debugPrint('[zangetsu-sub-timing] HLS epoch init $initUrl');
+        debugPrint('[ketsuren-sub-timing] HLS epoch init $initUrl');
         initBytes = await fetchPrefix(initUrl);
       }
 
@@ -936,11 +890,11 @@ class TvAvNativePlayer {
       for (final idx in toFetch.toList()..sort()) {
         final seg = segments[idx];
         final segUrl = Uri.parse(playlistUrl).resolve(seg.uri).toString();
-        debugPrint('[zangetsu-sub-timing] HLS epoch segment[$idx] $segUrl');
+        debugPrint('[ketsuren-sub-timing] HLS epoch segment[$idx] $segUrl');
         final segBytes = await fetchPrefix(segUrl);
         if (segBytes == null || segBytes.isEmpty) continue;
         debugPrint(
-          '[zangetsu-sub-timing] HLS epoch magic[$idx] ${hlsSegmentMagic(segBytes)} '
+          '[ketsuren-sub-timing] HLS epoch magic[$idx] ${hlsSegmentMagic(segBytes)} '
           '(${segBytes.length}B)',
         );
         final media =
@@ -949,7 +903,7 @@ class TvAvNativePlayer {
         if (media == null) continue;
         if (!identical(media, segBytes)) {
           debugPrint(
-            '[zangetsu-sub-timing] HLS epoch unwrapped[$idx] '
+            '[ketsuren-sub-timing] HLS epoch unwrapped[$idx] '
             '+${segBytes.length - media.length}B prefix → ${hlsSegmentMagic(media)}',
           );
         }
@@ -961,7 +915,7 @@ class TvAvNativePlayer {
             (unwrappedInit != null && isoLooksLikeFmp4(unwrappedInit))) {
           final t = fmp4BaseMediaTimeSeconds(unwrappedInit ?? media, media);
           debugPrint(
-            '[zangetsu-sub-timing] HLS epoch fMP4[$idx] '
+            '[ketsuren-sub-timing] HLS epoch fMP4[$idx] '
             'tfdt=${t?.toStringAsFixed(3) ?? "none"}s',
           );
           if (t != null && t >= 8 && t <= 30) {
@@ -971,11 +925,11 @@ class TvAvNativePlayer {
 
         final inspect = mpegTsInspect(media);
         debugPrint(
-          '[zangetsu-sub-timing] HLS epoch TS[$idx] ${inspect.summary}',
+          '[ketsuren-sub-timing] HLS epoch TS[$idx] ${inspect.summary}',
         );
         if (inspect.ptsSamples.isNotEmpty) {
           debugPrint(
-            '[zangetsu-sub-timing] HLS epoch PTS samples[$idx] '
+            '[ketsuren-sub-timing] HLS epoch PTS samples[$idx] '
             '${inspect.ptsSamples.map((t) => t.toStringAsFixed(3)).join(",")}',
           );
         }
@@ -988,7 +942,7 @@ class TvAvNativePlayer {
         if (origin != null) {
           final delta = origin - playlistT;
           debugPrint(
-            '[zangetsu-sub-timing] HLS epoch pts-playlist[$idx] '
+            '[ketsuren-sub-timing] HLS epoch pts-playlist[$idx] '
             'pts=${origin.toStringAsFixed(3)} playlist=${playlistT.toStringAsFixed(3)} '
             'delta=${delta.toStringAsFixed(3)}',
           );
@@ -1000,7 +954,7 @@ class TvAvNativePlayer {
           probedFirstContent = true;
           final tsEpoch = inspect.epoch;
           debugPrint(
-            '[zangetsu-sub-timing] HLS epoch candidate[$idx] '
+            '[ketsuren-sub-timing] HLS epoch candidate[$idx] '
             '${tsEpoch == null ? "none (clocks ~0, not Apple padding)" : "${tsEpoch.toStringAsFixed(3)}s ${inspect.summary}"}',
           );
           firstEpoch = tsEpoch;
@@ -1030,7 +984,7 @@ class TvAvNativePlayer {
         return {'seconds': startTag.abs(), 'reason': 'EXT-X-START'};
       }
       debugPrint(
-        '[zangetsu-sub-timing] HLS epoch none — media clock ~0, '
+        '[ketsuren-sub-timing] HLS epoch none — media clock ~0, '
         'playlist ${totalExtinf.toStringAsFixed(3)}s, '
         '${firstInspect?.summary ?? "no TS"}',
       );
@@ -1042,7 +996,7 @@ class TvAvNativePlayer {
       final short = e is DioException
           ? 'HTTP ${e.response?.statusCode ?? e.type.name}'
           : '$e';
-      debugPrint('[zangetsu-sub-timing] HLS epoch probe failed: $short');
+      debugPrint('[ketsuren-sub-timing] HLS epoch probe failed: $short');
       return {'seconds': 0.0, 'reason': 'probe failed: $short'};
     }
   }
@@ -1059,14 +1013,14 @@ class TvAvNativePlayer {
     final videoId = hlsCdnEncodeId(streamUrl);
     final subId = hlsCdnEncodeId(subtitleUrl);
     debugPrint(
-      '[zangetsu-sub-timing] encode ids video=${videoId ?? "-"} '
+      '[ketsuren-sub-timing] encode ids video=${videoId ?? "-"} '
       'sub=${subId ?? "-"} streamDur=${streamDuration.toStringAsFixed(3)}',
     );
     if (videoId == null || subId == null) {
       return {'seconds': 0.0, 'reason': 'no encode ids in URLs'};
     }
     if (videoId == subId) {
-      debugPrint('[zangetsu-sub-timing] encode ids match — same pack');
+      debugPrint('[ketsuren-sub-timing] encode ids match — same pack');
       return {'seconds': 0.0, 'reason': 'same encode'};
     }
 
@@ -1081,18 +1035,18 @@ class TvAvNativePlayer {
     );
 
     Future<String?> getText(String url, String label) async {
-      debugPrint('[zangetsu-sub-timing] $label GET $url');
+      debugPrint('[ketsuren-sub-timing] $label GET $url');
       try {
         final res = await textDio.get<String>(url);
         final code = res.statusCode ?? 0;
         final text = res.data;
         if (code >= 400 || text == null || text.trim().isEmpty) {
-          debugPrint('[zangetsu-sub-timing] $label HTTP $code $url');
+          debugPrint('[ketsuren-sub-timing] $label HTTP $code $url');
           return null;
         }
         return text;
       } catch (e) {
-        debugPrint('[zangetsu-sub-timing] $label failed $url: $e');
+        debugPrint('[ketsuren-sub-timing] $label failed $url: $e');
         return null;
       }
     }
@@ -1103,7 +1057,7 @@ class TvAvNativePlayer {
       Future<void> ingest(String url, String body) async {
         if (hlsPlaylistIsMaster(body)) {
           debugPrint(
-            '[zangetsu-sub-timing] $label master '
+            '[ketsuren-sub-timing] $label master '
             '${hlsPlaylistPreview(body, maxLines: 16)}',
           );
           for (final v in hlsVariantUrisOrdered(body, url)) {
@@ -1129,14 +1083,14 @@ class TvAvNativePlayer {
 
     void logFingerprints(String label, Map<String, String> playlists) {
       if (playlists.isEmpty) {
-        debugPrint('[zangetsu-sub-timing] $label: none');
+        debugPrint('[ketsuren-sub-timing] $label: none');
         return;
       }
       for (final e in playlists.entries) {
         final name = Uri.tryParse(e.key)?.pathSegments.last ?? e.key;
         final segs = hlsMediaSegments(e.value, max: 8192);
         debugPrint(
-          '[zangetsu-sub-timing] $label $name ${hlsExtinfFingerprint(segs)}',
+          '[ketsuren-sub-timing] $label $name ${hlsExtinfFingerprint(segs)}',
         );
       }
     }
@@ -1152,7 +1106,7 @@ class TvAvNativePlayer {
         ? null
         : swapped.replaceFirst(RegExp(r'[^/]+$'), 'master.m3u8');
     debugPrint(
-      '[zangetsu-sub-timing] VTT encode differs from video — probing '
+      '[ketsuren-sub-timing] VTT encode differs from video — probing '
       'sibling playlists (all renditions)',
     );
     final vttSeed = swapped ?? vttMaster;
@@ -1181,7 +1135,7 @@ class TvAvNativePlayer {
         final lead = hlsLeadingExtinfSkew(playDurs, vttDurs);
         final delta = playDur - vttDur;
         debugPrint(
-          '[zangetsu-sub-timing] EXTINF pair $playName vs $vttName '
+          '[ketsuren-sub-timing] EXTINF pair $playName vs $vttName '
           'skew=${lead == null ? "no-match" : "${lead.toStringAsFixed(3)}s"} '
           'durDelta=${delta.toStringAsFixed(3)}s',
         );
@@ -1213,7 +1167,7 @@ class TvAvNativePlayer {
         };
       }
       debugPrint(
-        '[zangetsu-sub-timing] EXTINF leading ambiguous: '
+        '[ketsuren-sub-timing] EXTINF leading ambiguous: '
         '${inRange.map((e) => "${e.key}=${e.value.toStringAsFixed(3)}").join("; ")}',
       );
     }

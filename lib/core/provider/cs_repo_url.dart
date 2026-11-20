@@ -1,6 +1,6 @@
 /// Cleans up a repository link the user pasted before it is fetched.
 ///
-/// People paste from browsers, Discord, Telegram and GitHub, and what arrives
+/// People paste from browsers, retired community service, retired community service and GitHub, and what arrives
 /// is often not a bare URL: it comes wrapped in quotes or angle brackets, with
 /// a trailing full stop from a sentence, or missing its scheme entirely. Our
 /// fetch hands the string straight to `java.net.URL`, which rejects anything
@@ -30,7 +30,7 @@ String normalizeCsRepoUrl(String raw) {
   // and are invisible in the field, so a "correct-looking" URL fails.
   s = s.replaceAll(RegExp(r'[​-‍﻿]'), '').trim();
 
-  // Markdown/Discord wrap links in <> to suppress previews; chat and docs wrap
+  // Markdown/retired community service wrap links in <> to suppress previews; chat and docs wrap
   // them in quotes. Strip a matched pair, repeatedly (quoted angle brackets).
   var stripped = true;
   while (stripped && s.length > 1) {

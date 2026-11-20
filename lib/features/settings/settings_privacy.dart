@@ -131,7 +131,7 @@ class _PrivacySettingsScreenState extends State<PrivacySettingsScreen> {
                 autofocus: true,
                 icon: Icons.visibility_off_outlined,
                 title: context.l10n.incognitoMode,
-                subtitle: context.l10n.pauseHistoryTrackingDiscordPresence,
+                subtitle: context.l10n.incognitoModeBlurb,
                 onTap: () => IncognitoMode.set(!IncognitoMode.on),
                 trailing: ValueListenableBuilder<bool>(
                   valueListenable: IncognitoMode.notifier,

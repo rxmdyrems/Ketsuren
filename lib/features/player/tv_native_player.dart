@@ -4,8 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import '../../core/di/injector.dart';
-import '../../core/discord/discord_presence.dart';
-import '../../core/discord/discord_rpc.dart';
 import '../../core/metadata/episode_metadata_service.dart';
 import '../../core/models/episode.dart';
 import '../../core/models/episode_title.dart';
@@ -187,16 +185,6 @@ class TvNativePlayer {
       return stageSubtitleFont(prefs.subtitleFont);
     }();
 
-    // Discord Rich Presence: the native Activity runs outside the Flutter
-    // engine and can't reach the Dart Discord service, so announce "Watching"
-    // from here — mirroring the phone player (player_controller.dart).
-    // Wait for native STATE_READY when duration is unknown. Sending Watching
-    // with end=null first is often the update Discord keeps (rate-limited).
-    _announceWatching(
-      ep,
-      positionMs: mark?.position.inMilliseconds ?? 0,
-      durationMs: mark?.duration.inMilliseconds ?? 0,
-    );
     _tracker?.maybeMarkWatching();
 
     // Filler flags: use warm cache immediately so launch isn't blocked; push an
@@ -279,7 +267,6 @@ class TvNativePlayer {
     }
     // Player closed → drop Watching, then restore browsing. The detail screen
     // stays mounted underneath and won't re-fire it.
-    _announceBrowsing();
     return true;
   }
 
@@ -303,12 +290,6 @@ class TvNativePlayer {
         if (playUrl == null) return null;
         _category = category;
         final mark = _resume?.get(_sourceId, _showId, ep.id);
-        // Episode switch / Next Episode → advance the Discord "Watching" line.
-        _announceWatching(
-          ep,
-          positionMs: mark?.position.inMilliseconds ?? 0,
-          durationMs: mark?.duration.inMilliseconds ?? 0,
-        );
         return {
           ..._streamPayload(src, mark?.position.inMilliseconds ?? 0),
           'url': playUrl,
@@ -329,12 +310,6 @@ class TvNativePlayer {
             durationMs: durMs,
             playing: args['playing'] as bool? ?? true,
             completed: completed,
-          );
-          _announceWatching(
-            _episodes[index],
-            positionMs: posMs,
-            durationMs: durMs,
-            playing: args['playing'] as bool? ?? true,
           );
         }
         return null;
@@ -755,39 +730,7 @@ class TvNativePlayer {
     debugPrint('[TvNativePlayer] saved ep=${ep.id} pos=$posMs');
   }
 
-  /// Push a "Watching" Discord presence (show + episode) for [ep]. The native
-  /// TV Activity can't reach Discord itself, so the Dart isolate announces on
-  /// launch and on every episode switch — same shape as the phone player
-  /// (player_controller.dart). No-op when Discord isn't wired up / a title is
-  /// missing; the service itself also drops it when disabled/incognito.
-  static void _announceWatching(
-    Episode ep, {
-    int positionMs = 0,
-    int durationMs = 0,
-    bool playing = true,
-  }) {
-    if (_showTitle.isEmpty || !sl.isRegistered<DiscordRpc>()) return;
-    if (durationMs <= 0) return;
-    unawaited(
-      sl<DiscordRpc>().setWatching(
-        title: _showTitle,
-        episodeLabel: discordEpisodeLabel(ep),
-        posterUrl: _cover,
-        position: Duration(milliseconds: positionMs),
-        duration: Duration(milliseconds: durationMs),
-        playing: playing,
-      ),
-    );
-  }
-
-  /// Drop Watching when the player exits so the profile status actually
-  /// disappears (the detail screen underneath will not re-fire browsing).
-  static void _announceBrowsing() {
-    if (!sl.isRegistered<DiscordRpc>()) return;
-    sl<DiscordRpc>().clear(delay: DiscordRpc.playerExitClearDelay);
-  }
-
-  /// Top-left label under the show title, e.g. "Episode 3 · Real Name".
+  /// Top-left label under the show title, e.g. `Episode 3 · Real Name`.
   static String _episodeLabel(Episode ep) => episodePresenceDetails(ep) ?? '';
 
   /// Per-index filler flags for the native player (Jikan episode numbers).

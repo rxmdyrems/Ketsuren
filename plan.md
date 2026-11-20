@@ -31,3 +31,9 @@ Continue from `v0.1.0-test` without changing the Android package ID or rewriting
 - `assets/brand/` and `assets/icon/`: supplied brand artwork and runtime assets.
 - `android/`: phone/TV launcher and native player integration.
 - `supabase/`: database/functions owned by the repository, to be changed only after project identity is confirmed.
+
+## Ketsurēn account backend status
+
+The app is configured for Supabase project `ketsurenDB` (`qrqyduziluhptyhyfoxa`) through build-time `SUPABASE_URL` and `SUPABASE_ANON_KEY` values; no secret key is committed. The project was empty when this migration was started. The existing contract is captured by the tracked `supabase/migrations/0001_schema.sql` through `0007_mylist_incremental_sync.sql` and later bridge migrations: `public.profiles`, the viewer-profile/sync tables, and the public `avatars` Storage bucket with authenticated owner-write policies are required before production account and profile sync is enabled. Production DDL has intentionally not been applied from this task until that contract is reviewed.
+
+The `zangetsu_source_bridge` package remains because it is the upstream source-provider dependency and its package/repository identifier is legally and technically required. Any remaining `zangetsu_*` names in server migration roles, persisted local keys, tests, or upstream identifiers are compatibility or attribution identifiers, not user-facing branding. Discord and Telegram application integrations, links, buttons, native bridges, and dependencies are retired.

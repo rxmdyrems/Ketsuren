@@ -41,7 +41,7 @@ String? episodeDisplayTitle(Episode ep, {String? sourceTitle, int? number}) {
   return meta.isEmpty ? null : meta;
 }
 
-/// Player / Discord details line: `Episode 47 · The Title`, or `Episode 47`
+/// Player / retired community service details line: `Episode 47 · The Title`, or `Episode 47`
 /// when no real name is known.
 String? episodePresenceDetails(Episode ep, {int? fallbackNumber}) {
   final n = episodeNumberInt(ep) ?? fallbackNumber;

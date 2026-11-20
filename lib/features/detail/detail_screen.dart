@@ -49,7 +49,6 @@ import '../../core/ui/jump_prompt.dart';
 import '../../core/app_mode.dart';
 import '../../core/cache/app_image_cache.dart';
 import '../../core/di/injector.dart';
-import '../../core/discord/discord_rpc.dart';
 import '../../core/mihon/mihon_extension_service.dart';
 import '../../core/mangayomi/mangayomi_cloudflare.dart';
 import '../../core/metadata/episode_metadata_service.dart';
@@ -121,7 +120,7 @@ import '../../core/tv/tv_list_focusable.dart';
 import '../../core/zmode/metadata_repository.dart';
 import '../../core/zmode/source_matcher.dart';
 import '../../core/ui/source_switcher.dart';
-import '../sources/zangetsu_sources_screen.dart';
+import '../sources/ketsuren_sources_screen.dart';
 import '../../core/zmode/match_store.dart';
 import '../../core/zmode/zmode_ids.dart';
 import '../../core/aniyomi/aniyomi_image_provider.dart';
@@ -568,13 +567,7 @@ class _DetailViewState extends State<_DetailView>
     ThemeController.revision.addListener(_onThemeRevision);
     _loadLogo();
     _schedulePlayerWarmup();
-    // Discord Rich Presence: "Looking at <title>" while this detail is open.
-    if (sl.isRegistered<DiscordRpc>()) {
-      sl<DiscordRpc>().setBrowsing(
-        title: widget.item.title,
-        posterUrl: widget.item.cover,
-      );
-    }
+  }
   }
 
   Timer? _playerWarmupTimer;
@@ -689,8 +682,6 @@ class _DetailViewState extends State<_DetailView>
     // Leaving before the stay-delay elapsed: no viewer is here to warm a menu
     // for, so the pending resolve never starts.
     _prefetchTimer?.cancel();
-    // Back to generic "Browsing" when leaving the detail.
-    if (sl.isRegistered<DiscordRpc>()) sl<DiscordRpc>().setBrowsing();
     _scrollController.dispose();
     _tint.removeListener(_onTintChanged);
     ThemeController.revision.removeListener(_onThemeRevision);
@@ -1134,7 +1125,7 @@ class _DetailViewState extends State<_DetailView>
       onChanged: (_) {},
       onInstallSources: () => Navigator.of(context).push(
         MaterialPageRoute<void>(
-          builder: (_) => const ZangetsuSourcesScreen(openToRepos: true),
+          builder: (_) => const KetsurēnSourcesScreen(openToRepos: true),
         ),
       ),
     ).showPicker(

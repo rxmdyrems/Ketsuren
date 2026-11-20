@@ -22,10 +22,9 @@ RESERVED = {
 }
 
 BRANDS = {
-    "Zangetsu", "AniList", "MyAnimeList", "Simkl", "MAL", "Discord", "GitHub",
-    "Telegram", "CloudStream", "Aniyomi", "Mihon", "LNReader", "PayPal", "DRM",
+    "CloudStream", "Aniyomi", "Mihon", "LNReader", "PayPal", "DRM",
     "AL", "SK", "SOURCE", "HOST", "CODE", "LIVE", "ACTIVE", "ANIYOMI", "MIHON",
-    "UPI · India", "Krishna Vishwakarma", "zangetsu.online",
+    "UPI · India", "Krishna Vishwakarma",
 }
 
 # Explicit keys (name -> english). Placeholders use {name} / ICU plural.
@@ -125,7 +124,7 @@ EXPLICIT: list[tuple[str, str, dict]] = [
     ("settingsSectionNotifications", "Notifications", {}),
     ("settingsSectionAdvanced", "Advanced", {}),
     ("settingsSectionAbout", "About", {}),
-    ("settingsSectionAccountSummary", "Trackers, Discord, backup, sync", {}),
+    ("settingsSectionAccountSummary", "Trackers, backup, sync", {}),
     ("settingsSectionSourcesSummary", "Providers, active source, updates", {}),
     ("settingsSectionPlaybackSummary", "Quality, autoplay, speed", {}),
     ("settingsSectionReadingSummary", "Manga & novel reader defaults", {}),
@@ -136,13 +135,10 @@ EXPLICIT: list[tuple[str, str, dict]] = [
     ("settingsSectionAdvancedSummary", "DNS, privacy, logs", {}),
     ("settingsSectionAboutSummary", "Updates, support, version", {}),
     ("couldNotExportLogs", "Could not export logs", {}),
-    ("logsShareSubject", "Zangetsu logs", {}),
+    ("logsShareSubject", "Ketsurēn logs", {}),
     ("signInSubtitle", "Sync your list, history & continue watching", {}),
     ("signInSubtitleTv", "Sync your list & continue watching", {}),
     ("connections", "Connections", {}),
-    ("discord", "Discord", {}),
-    ("discordSubtitle", "Rich Presence — show your status", {}),
-    ("discordActivityStatus", "Activity status", {}),
     ("presenceOnline", "Online", {}),
     ("presenceIdle", "Idle", {}),
     ("presenceDnd", "Do not disturb", {}),
@@ -159,7 +155,7 @@ EXPLICIT: list[tuple[str, str, dict]] = [
     ("presenceImageOff", "Off", {}),
     ("presenceShowButton", "Open button", {}),
     ("presenceButtonLabel", "Button label", {}),
-    ("presenceButtonLabelHint", "Open in Zangetsu", {}),
+    ("presenceButtonLabelHint", "Open in Ketsurēn", {}),
     ("presenceShowWhenPaused", "Show when paused", {}),
     ("presenceBrowsingTitle", "Show browsing title", {}),
     ("presencePreview", "Preview", {}),
@@ -305,12 +301,12 @@ EXPLICIT: list[tuple[str, str, dict]] = [
     ("relativeMonthsAgo", "{count, plural, one {{count} month ago} other {{count} months ago}}", {"count": {"type": "int"}}),
     ("relativeYearsAgo", "{count, plural, one {{count} year ago} other {{count} years ago}}", {"count": {"type": "int"}}),
     # ── boot / onboarding ─────────────────────────────────────────────────
-    ("bootErrorTitle", "Zangetsu didn't finish starting", {}),
+    ("bootErrorTitle", "Ketsurēn didn't finish starting", {}),
     ("bootErrorBody", "Something saved on this device is stopping it from opening. Nothing is lost — your account and anything synced to the cloud are safe.", {}),
     ("resetAppData", "Reset app data", {}),
     ("resetAppDataTitle", "Reset app data?", {}),
-    ("resetAppDataBody", "This clears what Zangetsu has saved on this device so it can start fresh.\n\nYour account and anything synced to the cloud are not touched — sign in again and your library comes back.", {}),
-    ("resetAppDataDone", "Close Zangetsu completely and open it again.", {}),
+    ("resetAppDataBody", "This clears what Ketsurēn has saved on this device so it can start fresh.\n\nYour account and anything synced to the cloud are not touched — sign in again and your library comes back.", {}),
+    ("resetAppDataDone", "Close Ketsurēn completely and open it again.", {}),
     ("detailsCopied", "Details copied — send them to us", {}),
     ("copyDetails", "Copy details", {}),
     ("goodToHaveYouHere", "Good to have you here.", {}),

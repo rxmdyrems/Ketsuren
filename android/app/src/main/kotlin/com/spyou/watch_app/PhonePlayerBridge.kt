@@ -56,7 +56,7 @@ object PhonePlayerBridge {
                     } catch (_: Exception) {
                         activity.runOnUiThread { result.error("cache_unavailable", "Playback cache is unavailable", null) }
                     }
-                }, "ZangetsuCacheInfo").start()
+                }, "KetsurēnCacheInfo").start()
                 // Dart-side enrichment (e.g. the show synopsis) arriving after
                 // launch. Session-checked: a stale Dart session's late result
                 // must not paint over the live player's screen.

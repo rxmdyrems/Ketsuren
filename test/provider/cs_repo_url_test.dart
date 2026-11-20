@@ -33,7 +33,7 @@ void main() {
       );
     });
 
-    test('Discord/markdown angle brackets that suppress link previews', () {
+    test('markdown angle brackets that suppress link previews', () {
       expect(
         normalizeCsRepoUrl('<https://example.com/repo.json>'),
         'https://example.com/repo.json',

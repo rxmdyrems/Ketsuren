@@ -1434,7 +1434,7 @@ class DownloadManager extends ChangeNotifier {
     }
     // Delete the actual media file on disk. Two cases:
     //  • SAF custom folder → a content:// URI, removed via UriUtils.
-    //  • Default download (public Download/Zangetsu) → a plain file path the
+    //  • Default download (public Download/Ketsurēn) → a plain file path the
     //    app owns. Previously ONLY the content:// case was handled, so default
     //    downloads left the file on disk (the "still in the folder" bug). Delete
     //    it directly; if scoped storage blocks the raw delete, fall back to the
@@ -1751,7 +1751,7 @@ class DownloadManager extends ChangeNotifier {
 
   /// Delete a downloaded media file. Two cases:
   ///  • SAF custom folder → a content:// URI, removed via UriUtils.
-  ///  • Default download (public Download/Zangetsu) → a plain file path the
+  ///  • Default download (public Download/Ketsurēn) → a plain file path the
   ///    app owns. Previously ONLY the content:// case was handled, so default
   ///    downloads left the file on disk (the "still in the folder" bug). Delete
   ///    it directly; if scoped storage blocks the raw delete, fall back to the

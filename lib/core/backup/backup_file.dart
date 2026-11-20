@@ -39,7 +39,7 @@ Map<String, dynamic> parseBackupJson(String raw) {
 
 class BackupFile {
   /// Encodes [payload] as JSON and saves it into the public
-  /// **Downloads/Zangetsu** folder so the user can find it in their file
+  /// **Downloads/Ketsurēn** folder so the user can find it in their file
   /// manager. Returns the saved public path, or `null` if the move to shared
   /// storage failed.
   Future<String?> export(
@@ -63,7 +63,7 @@ class BackupFile {
       } catch (_) {/* best-effort — never block the primary export */}
     }
 
-    // Move into public Downloads/Zangetsu for the user's file manager. On TV
+    // Move into public Downloads/Ketsurēn for the user's file manager. On TV
     // boxes this often has no shared-storage target and returns null/throws —
     // in which case the app-private copy above is the saved backup, so report
     // its path (restore-from-file lists it) instead of failing. On a phone
@@ -94,7 +94,7 @@ class BackupFile {
 
   /// Backup files this app can read back without a document picker, newest
   /// first. Scans the app-private backups dir plus a best-effort look at the
-  /// public Downloads/Zangetsu folder (readable on many TV boxes). Used by the
+  /// public Downloads/Ketsurēn folder (readable on many TV boxes). Used by the
   /// TV restore flow in place of the (usually absent) system file picker.
   Future<List<File>> listLocalBackups() async {
     final found = <String, File>{}; // de-dupe by file name
@@ -110,7 +110,7 @@ class BackupFile {
     }
 
     await scan(await _localBackupDir());
-    await scan(Directory('/storage/emulated/0/Download/Zangetsu'));
+    await scan(Directory('/storage/emulated/0/Download/Ketsurēn'));
 
     final files = found.values.toList()
       ..sort((a, b) => b.path.compareTo(a.path)); // name embeds the timestamp

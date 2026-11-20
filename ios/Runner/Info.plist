@@ -85,7 +85,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<!-- Custom-scheme hand-off from https://zangetsu.online/pair/ (and
+	<!-- Custom-scheme hand-off from the pair page (and
 	     share / tracker OAuth). Without this, Safari's ketsuren:// redirect
 	     after scanning the TV QR never reaches the app. Flutter's own
 	     deep-link handler is off so app_links receives the URI. -->
@@ -100,8 +100,7 @@
 			<string>com.rxmdyrems.ketsuren</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>zangetsu</string>
-				<string>discord-1518610045422665748</string>
+				<string>ketsuren</string>
 			</array>
 		</dict>
 	</array>

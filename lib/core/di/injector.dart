@@ -113,7 +113,6 @@ import '../torrent/torrent_prefs.dart';
 import '../torrent/torrent_service.dart';
 import '../notify/subscription_store.dart';
 import '../notify/subscription_checker.dart';
-import '../discord/discord_rpc.dart';
 import '../aniyomi/aniyomi_extension_service.dart';
 import '../aniyomi/aniyomi_provider.dart';
 import '../lnreader/lnreader_extension_service.dart';
@@ -573,13 +572,6 @@ Future<void> initDependencies({bool Function()? isOffline}) async {
   // Lightweight title autocomplete for the search field (one fast AniList call
   // per debounced keystroke — NOT the heavy multi-source provider search).
   sl.registerSingleton<TitleSuggestionService>(TitleSuggestionService(dio));
-
-  // Discord Rich Presence (opt-in; off until the user connects + enables it).
-  await DiscordRpc.init();
-  sl.registerSingleton<DiscordRpc>(DiscordRpc(dio));
-  // Restore the saved token + reconnect now (before the UI), so presence resumes
-  // promptly after a restart instead of looking disconnected.
-  await sl<DiscordRpc>().start();
 
   // Metadata-API trailer lookups (AniList for anime, TMDB for movie/TV).
   sl.registerSingleton<TrailerService>(TrailerService(dio));
@@ -1146,7 +1138,7 @@ Future<void> initDependencies({bool Function()? isOffline}) async {
 
   // Z Mode: the catalogue router and its metadata side. Off by default;
   // registering it costs nothing but makes the toggle instant.
-  await registerZangetsuMode(sl);
+  await registerKetsurēnMode(sl);
 
   // TV never started loadAll above. Reapply the saved active source once the
   // shell is up (CloudStream/Aniyomi may still land later via their microtasks).

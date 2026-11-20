@@ -47,7 +47,7 @@ class TvExoController {
     final rawDuration = e['durationMs'];
     position.value = rawPosition is num ? rawPosition.toInt() : 0;
     // HLS/DASH often emit 0 until the window is known. Don't clobber a real
-    // duration — that would drop Discord's progress bar and resume seeks.
+    // duration — that would drop retired community service's progress bar and resume seeks.
     final nextDur = rawDuration is num ? rawDuration.toInt() : 0;
     if (nextDur > 0) duration.value = nextDur;
     playing.value = e['playing'] == true;

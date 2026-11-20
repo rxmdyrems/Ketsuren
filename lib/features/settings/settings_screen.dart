@@ -51,7 +51,6 @@ import 'poster_card_settings_screen.dart';
 import 'home_rows_screen.dart';
 import 'nav_tabs_screen.dart';
 import 'reader_settings_screen.dart';
-import 'discord_settings_screen.dart';
 import 'torrent_settings_screen.dart';
 import '../../core/provider/provider_downloader.dart';
 import '../../core/provider/provider_registry.dart';
@@ -232,7 +231,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     );
   }
 
-  /// The metadata provider store is registered by `registerZangetsuMode`,
+  /// The metadata provider store is registered by `registerKetsurēnMode`,
   /// which runs late in boot — and this screen is built eagerly as the dock's
   /// Profile tab. Guarded so it reads as the default rather than throwing if
   /// it is built first. Same guard `SourceRepository._domainOverride` uses.
@@ -887,17 +886,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
       },
     ),
     if (!_isTv || !isAppleTv)
-      _SettingsEntry(
-        section: SettingsSection.account,
-        icon: Icons.gamepad_outlined,
-        title: l10n.discord,
-        subtitle: l10n.discordSubtitle,
-        keywords: 'discord rich presence',
-        onTap: () async {
-          await _push(const DiscordSettingsScreen());
-          if (mounted) setState(() {});
-        },
-      ),
     if (WatchTogetherController.isEnabled)
       _SettingsEntry(
         section: SettingsSection.account,
@@ -1337,7 +1325,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       subtitle: 'v$kAppVersion',
       keywords:
           'about version app info license developers credits team '
-          'contributors social discord telegram how it works guide '
+          'contributors social how it works guide '
           'check updates upgrade latest beta prerelease support donate coffee',
       onTap: () => _push(const AboutSettingsScreen()),
     ),

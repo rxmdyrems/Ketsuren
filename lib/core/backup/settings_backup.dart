@@ -3,7 +3,7 @@ import 'package:hive/hive.dart';
 /// Codec that dumps and restores the plain preference Hive boxes.
 ///
 /// Excluded intentionally:
-///   - `discord`           — may hold the RPC auth token
+///   - `retired community service`           — may hold the RPC auth token
 ///   - `provider_settings` — belongs to the Sources bundle
 ///   - `auth_cache`        — authentication token cache
 ///   - `*_cache`           — transient caches, not user preferences

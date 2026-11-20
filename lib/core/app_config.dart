@@ -22,10 +22,8 @@ const String kAppId = 'com.rxmdyrems.ketsuren';
 /// Manifest schema version this app speaks. Repos below this are rejected.
 const int kManifestSchemaVersion = 2;
 
-/// Community Discord invite. Lived in two places (the launch community sheet
-/// and Settings → About) and drifted — the sheet's copy went stale and expired.
-/// One const now, so refreshing the invite is a single edit here.
-const String kDiscordInviteUrl = '';
+/// Community links are intentionally unset until an official Ketsurēn endpoint exists.
+const String kCommunityInviteUrl = '';
 
 /// Where "Send report" posts the diagnostic log — the Cloudflare Worker in
 /// `cloudflare/log-intake/` (see its README to deploy). No path, no trailing
@@ -34,7 +32,7 @@ const String kDiscordInviteUrl = '';
 /// Empty means "not set up" — the report button falls back to the share sheet
 /// rather than failing, so a fork with no Worker of its own still works.
 ///
-/// Only the public URL lives here. The Discord webhook stays on the Worker:
+/// Only the public URL lives here. The diagnostic webhook stays on the Worker:
 /// this app is open source and its APK is public, so anything put in the app
 /// can be read straight back out of it.
 const String kLogIntakeUrl = '';

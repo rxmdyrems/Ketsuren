@@ -41,7 +41,7 @@ void main() {
         'ketsuren://open?d=x&t=y',
         'ketsuren://pair?code=1234',
         'ketsuren://room?code=1234',
-        'https://zangetsu.online/pair/?code=1234',
+        'https://ketsuren.app/pair/?code=1234',
       ]) {
         expect(LocalVideoLink.matches(Uri.parse(u)), isFalse, reason: u);
       }

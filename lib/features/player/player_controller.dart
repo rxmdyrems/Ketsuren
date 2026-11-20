@@ -14,8 +14,6 @@ import 'package:path_provider/path_provider.dart';
 
 import '../../core/app_mode.dart';
 import '../../core/di/injector.dart';
-import '../../core/discord/discord_presence.dart';
-import '../../core/discord/discord_rpc.dart';
 import '../../core/share/share_link.dart';
 import '../../core/logging/app_logger.dart';
 import '../../core/metadata/episode_metadata_service.dart';
@@ -636,8 +634,6 @@ class PlayerCubit extends Cubit<PlayerState> {
   bool _defaultRateApplied = false; // default speed applied once per session
   bool _libassNoticeShown =
       false; // libass "disable if no subs" hint shown once
-  Timer? _discordPauseTimer;
-  bool _discordPaused = false;
 
   Episode get currentEpisode => episodes[state.currentIndex];
 
@@ -1124,20 +1120,8 @@ class PlayerCubit extends Cubit<PlayerState> {
         if (sourceId == stremioSourceId && !v) _resumePauseEpoch++;
         _syncSimkl();
         if (v) {
-          _discordPaused = false;
-          _discordPauseTimer?.cancel();
-          _pushDiscordWatching();
           return;
         }
-        // Seek/buffer briefly reports not-playing. Only freeze Discord after
-        // a real pause holds.
-        _discordPauseTimer?.cancel();
-        _discordPauseTimer = Timer(const Duration(milliseconds: 600), () {
-          if (!_playing) {
-            _discordPaused = true;
-            _pushDiscordWatching();
-          }
-        });
       }),
     );
     _subs.add(
@@ -1192,7 +1176,6 @@ class PlayerCubit extends Cubit<PlayerState> {
         // write every ~5s. NOT gated on duration — downloaded HLS (concatenated
         // TS) often reports no duration, and we still want resume to work.
         final now = DateTime.now().millisecondsSinceEpoch;
-        if (jumped) _pushDiscordWatching();
 
         if (now - _lastHistoryMs >= 5000) {
           _lastHistoryMs = now;
@@ -1238,7 +1221,6 @@ class PlayerCubit extends Cubit<PlayerState> {
     _subs.add(
       player.stream.duration.listen((d) {
         _lastDur = d;
-        if (d > Duration.zero) _pushDiscordWatching();
         // The duration arriving is mpv's "ready" signal (its STATE_READY): only
         // now is the stream reliably seekable. A remote MP4 reports duration
         // only after its moov atom loads, and any seek issued before that is
@@ -1324,7 +1306,6 @@ class PlayerCubit extends Cubit<PlayerState> {
         _markWatching();
       }
     }
-    if (jumped) _pushDiscordWatching();
     final now = DateTime.now().millisecondsSinceEpoch;
     if (now - _lastHistoryMs >= 5000) {
       _lastHistoryMs = now;
@@ -3082,8 +3063,6 @@ class PlayerCubit extends Cubit<PlayerState> {
     if (g != _gen || isClosed || !_lifecycle.canContinue(openToken)) return;
     final didOpen = await _lifecycle.runPlayerOpenSteps(openToken, setupSteps);
     if (!didOpen || g != _gen || isClosed) return;
-    // Discord Rich Presence: announce the episode now playing.
-    _pushDiscordWatching();
     // Some streams ignore Media.start (the seek-on-open doesn't take), so the
     // user lands back at 0. Verify a moment later and re-seek if needed.
     if (start > Duration.zero) {
@@ -3834,7 +3813,7 @@ class PlayerCubit extends Cubit<PlayerState> {
         _toast("Couldn't capture the frame");
         return false;
       }
-      final name = 'Zangetsu_${DateTime.now().millisecondsSinceEpoch}';
+      final name = 'Ketsurēn_${DateTime.now().millisecondsSinceEpoch}';
       // Saving needs no runtime permission on Android 10+; on older Android /
       // iOS the first attempt throws accessDenied — request, then retry once.
       try {
@@ -4167,44 +4146,6 @@ class PlayerCubit extends Cubit<PlayerState> {
     );
   }
 
-  /// Push "Watching {title}" with timestamps Discord interpolates into a
-  /// progress bar. Waits for a known duration so Discord doesn't keep a first
-  /// payload with no end time (rate-limited).
-  void _pushDiscordWatching() {
-    final discordTitle = showTitle ?? scrobbleTitle;
-    if (discordTitle == null ||
-        discordTitle.isEmpty ||
-        _lastDur <= Duration.zero ||
-        !sl.isRegistered<DiscordRpc>()) {
-      return;
-    }
-    unawaited(
-      sl<DiscordRpc>().setWatching(
-        title: discordTitle,
-        episodeLabel: discordEpisodeLabel(
-          currentEpisode,
-          fallbackNumber: state.currentIndex + 1,
-        ),
-        posterUrl: cover,
-        position: _lastPos,
-        duration: _lastDur,
-        playing: !_discordPaused,
-        // Friend tapping "Open in Ketsurēn" lands on this exact title (or the
-        // install page without the app). Same anime/movie call as episode
-        // enrichment so the link's type hint matches.
-        openUrl: ShareLink.watchUrl(
-          sourceId: sourceId,
-          url: showUrl,
-          title: discordTitle,
-          type: (scrobbleTitle != null || malId != null)
-              ? ProviderType.anime
-              : ProviderType.movie,
-          cover: cover,
-        ),
-      ),
-    );
-  }
-
   Future<void> _enrichEpisodeTitles() async {
     if (!sl.isRegistered<EpisodeMetadataService>()) return;
     try {
@@ -4267,9 +4208,6 @@ class PlayerCubit extends Cubit<PlayerState> {
     // Leaving the player → drop Watching. Do not immediately restore a
     // "Playing" browse status; that is what kept the profile occupied after
     // the episode ended. Detail screens set browsing on their own init.
-    if (sl.isRegistered<DiscordRpc>()) {
-      sl<DiscordRpc>().clear(delay: DiscordRpc.playerExitClearDelay);
-    }
     for (final s in _subs) {
       s.cancel();
     }
@@ -4280,7 +4218,6 @@ class PlayerCubit extends Cubit<PlayerState> {
     _startTimer?.cancel();
     _neverStartedTimer?.cancel();
     _toastTimer?.cancel();
-    _discordPauseTimer?.cancel();
     // Stop any active torrent stream + delete its buffered pieces.
     unawaited(_stopTorrent().catchError((_) {}));
     toast.dispose();

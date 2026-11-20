@@ -684,7 +684,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsSectionAccountSummary.
   ///
   /// In en, this message translates to:
-  /// **'Trackers, Discord, backup, sync'**
+  /// **'Trackers, presence, backup, sync'**
   String get settingsSectionAccountSummary;
 
   /// No description provided for @settingsSectionSourcesSummary.
@@ -750,7 +750,7 @@ abstract class AppLocalizations {
   /// No description provided for @logsShareSubject.
   ///
   /// In en, this message translates to:
-  /// **'Zangetsu logs'**
+  /// **'Ketsurēn logs'**
   String get logsShareSubject;
 
   /// No description provided for @signInSubtitle.
@@ -774,7 +774,7 @@ abstract class AppLocalizations {
   /// No description provided for @discord.
   ///
   /// In en, this message translates to:
-  /// **'Discord'**
+  /// **'presence'**
   String get discord;
 
   /// No description provided for @discordSubtitle.
@@ -792,7 +792,7 @@ abstract class AppLocalizations {
   /// No description provided for @discordOnlineStatus.
   ///
   /// In en, this message translates to:
-  /// **'Discord status'**
+  /// **'presence status'**
   String get discordOnlineStatus;
 
   /// No description provided for @presenceInvisible.
@@ -900,7 +900,7 @@ abstract class AppLocalizations {
   /// No description provided for @presenceButtonLabelHint.
   ///
   /// In en, this message translates to:
-  /// **'Open in Zangetsu'**
+  /// **'Open in Ketsurēn'**
   String get presenceButtonLabelHint;
 
   /// No description provided for @presenceShowWhenPaused.
@@ -2004,7 +2004,7 @@ abstract class AppLocalizations {
   /// No description provided for @bootErrorTitle.
   ///
   /// In en, this message translates to:
-  /// **'Zangetsu didn\'t finish starting'**
+  /// **'Ketsurēn didn\'t finish starting'**
   String get bootErrorTitle;
 
   /// No description provided for @bootErrorBody.
@@ -2028,13 +2028,13 @@ abstract class AppLocalizations {
   /// No description provided for @resetAppDataBody.
   ///
   /// In en, this message translates to:
-  /// **'This clears what Zangetsu has saved on this device so it can start fresh.\n\nYour account and anything synced to the cloud are not touched — sign in again and your library comes back.'**
+  /// **'This clears what Ketsurēn has saved on this device so it can start fresh.\n\nYour account and anything synced to the cloud are not touched — sign in again and your library comes back.'**
   String get resetAppDataBody;
 
   /// No description provided for @resetAppDataDone.
   ///
   /// In en, this message translates to:
-  /// **'Close Zangetsu completely and open it again.'**
+  /// **'Close Ketsurēn completely and open it again.'**
   String get resetAppDataDone;
 
   /// No description provided for @detailsCopied.
@@ -2466,7 +2466,7 @@ abstract class AppLocalizations {
   /// No description provided for @pauseHistoryTrackingDiscordPresence.
   ///
   /// In en, this message translates to:
-  /// **'Pause history, tracking & Discord presence'**
+  /// **'Pause history, tracking & presence presence'**
   String get pauseHistoryTrackingDiscordPresence;
 
   /// No description provided for @enableNSFWSources2.
@@ -3030,7 +3030,7 @@ abstract class AppLocalizations {
   /// No description provided for @downloadsZangetsu.
   ///
   /// In en, this message translates to:
-  /// **'Downloads › Zangetsu'**
+  /// **'Downloads › Ketsurēn'**
   String get downloadsZangetsu;
 
   /// No description provided for @removableDrive.
@@ -3108,13 +3108,13 @@ abstract class AppLocalizations {
   /// No description provided for @pasteDiscordToken.
   ///
   /// In en, this message translates to:
-  /// **'Paste Discord token'**
+  /// **'Paste presence token'**
   String get pasteDiscordToken;
 
   /// No description provided for @yourDiscordUserToken.
   ///
   /// In en, this message translates to:
-  /// **'Your Discord user token'**
+  /// **'Your presence user token'**
   String get yourDiscordUserToken;
 
   /// No description provided for @pasteToken.
@@ -3132,13 +3132,13 @@ abstract class AppLocalizations {
   /// No description provided for @discordConnected.
   ///
   /// In en, this message translates to:
-  /// **'Discord connected'**
+  /// **'presence connected'**
   String get discordConnected;
 
   /// No description provided for @disconnectDiscord.
   ///
   /// In en, this message translates to:
-  /// **'Disconnect Discord?'**
+  /// **'Disconnect presence?'**
   String get disconnectDiscord;
 
   /// No description provided for @notConfigured.
@@ -3150,7 +3150,7 @@ abstract class AppLocalizations {
   /// No description provided for @aDiscordApplicationIDMustBeSetInTheBuildFirst.
   ///
   /// In en, this message translates to:
-  /// **'A Discord Application ID must be set in the build first.'**
+  /// **'A presence Application ID must be set in the build first.'**
   String get aDiscordApplicationIDMustBeSetInTheBuildFirst;
 
   /// No description provided for @richPresence.
@@ -4375,7 +4375,7 @@ abstract class AppLocalizations {
   /// No description provided for @openZangetsuOnYourNphoneAndScan.
   ///
   /// In en, this message translates to:
-  /// **'Open Zangetsu on your\\nphone and scan'**
+  /// **'Open Ketsurēn on your\\nphone and scan'**
   String get openZangetsuOnYourNphoneAndScan;
 
   /// No description provided for @noApp.
@@ -4489,7 +4489,7 @@ abstract class AppLocalizations {
   /// No description provided for @onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR.
   ///
   /// In en, this message translates to:
-  /// **'On the Zangetsu app on your phone, open\\n\"Pair a TV\" and enter this code — or scan the QR.'**
+  /// **'On the Ketsurēn app on your phone, open\\n\"Pair a TV\" and enter this code — or scan the QR.'**
   String get onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR;
 
   /// No description provided for @signingIn.
@@ -4537,7 +4537,7 @@ abstract class AppLocalizations {
   /// No description provided for @openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt.
   ///
   /// In en, this message translates to:
-  /// **'Open Zangetsu on your TV and sign in with your phone to see it.'**
+  /// **'Open Ketsurēn on your TV and sign in with your phone to see it.'**
   String get openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt;
 
   /// No description provided for @abcd2345.
@@ -4615,7 +4615,7 @@ abstract class AppLocalizations {
   /// No description provided for @reopenZangetsuToSeeRestoredLibrarySources.
   ///
   /// In en, this message translates to:
-  /// **'Reopen Zangetsu to see restored library & sources.'**
+  /// **'Reopen Ketsurēn to see restored library & sources.'**
   String get reopenZangetsuToSeeRestoredLibrarySources;
 
   /// No description provided for @saveToAFile.
@@ -5035,7 +5035,7 @@ abstract class AppLocalizations {
   /// No description provided for @zangetsuProviders.
   ///
   /// In en, this message translates to:
-  /// **'Zangetsu providers'**
+  /// **'Ketsurēn providers'**
   String get zangetsuProviders;
 
   /// No description provided for @addRepo.
@@ -5227,7 +5227,7 @@ abstract class AppLocalizations {
   /// No description provided for @addZangetsuRepo.
   ///
   /// In en, this message translates to:
-  /// **'Add Zangetsu repo'**
+  /// **'Add Ketsurēn repo'**
   String get addZangetsuRepo;
 
   /// No description provided for @theProviderWillBeRemovedFromYourInstalledSources.
@@ -7033,7 +7033,7 @@ abstract class AppLocalizations {
   /// No description provided for @incognitoModeBlurb.
   ///
   /// In en, this message translates to:
-  /// **'While on, searches, watch history, tracker scrobbling and Discord presence are paused — nothing is recorded until you turn it off.'**
+  /// **'While on, searches, watch history, tracker scrobbling and presence presence are paused — nothing is recorded until you turn it off.'**
   String get incognitoModeBlurb;
 
   /// No description provided for @enableNsfwSourcesBody.
@@ -7069,7 +7069,7 @@ abstract class AppLocalizations {
   /// No description provided for @connectDiscord.
   ///
   /// In en, this message translates to:
-  /// **'Connect Discord'**
+  /// **'Connect presence'**
   String get connectDiscord;
 
   /// No description provided for @signInSoYourStatusCanShow.
@@ -7081,13 +7081,13 @@ abstract class AppLocalizations {
   /// No description provided for @disconnectDiscordBody.
   ///
   /// In en, this message translates to:
-  /// **'Rich Presence stops and your token is removed from this device. Your Discord account is not changed — you can reconnect anytime.'**
+  /// **'Rich Presence stops and your token is removed from this device. Your presence account is not changed — you can reconnect anytime.'**
   String get disconnectDiscordBody;
 
   /// No description provided for @discordPresenceBlurb.
   ///
   /// In en, this message translates to:
-  /// **'Shows \"Watching <title> • Episode N\" (and what you\'re browsing) on your Discord profile while the app is open. Uses your Discord login, stored only on this device. Turn off anytime.'**
+  /// **'Shows \"Watching <title> • Episode N\" (and what you\'re browsing) on your presence profile while the app is open. Uses your presence login, stored only on this device. Turn off anytime.'**
   String get discordPresenceBlurb;
 
   /// No description provided for @github.
@@ -7099,7 +7099,7 @@ abstract class AppLocalizations {
   /// No description provided for @telegram.
   ///
   /// In en, this message translates to:
-  /// **'Telegram'**
+  /// **'community'**
   String get telegram;
 
   /// No description provided for @accentColourBlurb.
@@ -7111,7 +7111,7 @@ abstract class AppLocalizations {
   /// No description provided for @appIconBlurb.
   ///
   /// In en, this message translates to:
-  /// **'The icon on your home screen. Zangetsu closes when you change it — Android has to swap the launcher entry.'**
+  /// **'The icon on your home screen. Ketsurēn closes when you change it — Android has to swap the launcher entry.'**
   String get appIconBlurb;
 
   /// No description provided for @useTheIcon.
@@ -7123,7 +7123,7 @@ abstract class AppLocalizations {
   /// No description provided for @useTheIconBody.
   ///
   /// In en, this message translates to:
-  /// **'Zangetsu will close so Android can apply the new icon. Open it again from your home screen afterwards.\n\nIf you have Zangetsu in a folder or dock, you may need to add it again.'**
+  /// **'Ketsurēn will close so Android can apply the new icon. Open it again from your home screen afterwards.\n\nIf you have Ketsurēn in a folder or dock, you may need to add it again.'**
   String get useTheIconBody;
 
   /// No description provided for @animRise.
@@ -7255,7 +7255,7 @@ abstract class AppLocalizations {
   /// No description provided for @savedToDownloadsZangetsu.
   ///
   /// In en, this message translates to:
-  /// **'Saved to Downloads › Zangetsu'**
+  /// **'Saved to Downloads › Ketsurēn'**
   String get savedToDownloadsZangetsu;
 
   /// No description provided for @restoreFailed.
@@ -7273,7 +7273,7 @@ abstract class AppLocalizations {
   /// No description provided for @backupScreenBlurb.
   ///
   /// In en, this message translates to:
-  /// **'Save your sources, list and settings — to a file on your device or to your Zangetsu account. Restoring only adds things back; it never deletes what you already have.'**
+  /// **'Save your sources, list and settings — to a file on your device or to your Ketsurēn account. Restoring only adds things back; it never deletes what you already have.'**
   String get backupScreenBlurb;
 
   /// No description provided for @includeInTheBackup.
@@ -7375,7 +7375,7 @@ abstract class AppLocalizations {
   /// No description provided for @couldnTOpenInstaller.
   ///
   /// In en, this message translates to:
-  /// **'Couldn\'t open the installer. Enable \"Install unknown apps\" for Zangetsu in system settings, then try again.'**
+  /// **'Couldn\'t open the installer. Enable \"Install unknown apps\" for Ketsurēn in system settings, then try again.'**
   String get couldnTOpenInstaller;
 
   /// No description provided for @downloadFailedCheckConnection.
@@ -7633,7 +7633,7 @@ abstract class AppLocalizations {
   /// No description provided for @zangetsu.
   ///
   /// In en, this message translates to:
-  /// **'Zangetsu'**
+  /// **'Ketsurēn'**
   String get zangetsu;
 
   /// No description provided for @cloudStream.
@@ -9571,7 +9571,7 @@ abstract class AppLocalizations {
   /// No description provided for @keepDownloadsPrivateSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'New video downloads stay inside Zangetsu instead of the Downloads folder. They are deleted when you uninstall Zangetsu. Chapters and exports are unaffected.'**
+  /// **'New video downloads stay inside Ketsurēn instead of the Downloads folder. They are deleted when you uninstall Ketsurēn. Chapters and exports are unaffected.'**
   String get keepDownloadsPrivateSubtitle;
 
   /// No description provided for @mangaPageTranslationTitle.
@@ -9829,7 +9829,7 @@ abstract class AppLocalizations {
   /// No description provided for @mangaTranslationRestartRequiredMessage.
   ///
   /// In en, this message translates to:
-  /// **'Close and reopen Zangetsu to finish setting up on-device OCR, then try again.'**
+  /// **'Close and reopen Ketsurēn to finish setting up on-device OCR, then try again.'**
   String get mangaTranslationRestartRequiredMessage;
 
   /// No description provided for @mangaTranslationSearchLanguages.

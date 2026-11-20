@@ -42,7 +42,7 @@ import 'package:ketsuren/features/auth/auth_cubit.dart';
 import 'package:ketsuren/features/auth/migration_bridge.dart';
 import 'package:ketsuren/features/settings/settings_screen.dart';
 import 'package:ketsuren/features/sources/providers_hub_screen.dart';
-import 'package:ketsuren/features/sources/zangetsu_sources_screen.dart';
+import 'package:ketsuren/features/sources/ketsuren_sources_screen.dart';
 
 // ---------------------------------------------------------------------------
 // Shared fakes
@@ -76,7 +76,7 @@ class _FakeProviderRegistry implements ProviderRegistry {
   @override
   String? typeOf(String sourceId) => _types[sourceId];
 
-  // SourcesBloc (built when ZangetsuSourcesScreen is pushed) subscribes to
+  // SourcesBloc (built when KetsurēnSourcesScreen is pushed) subscribes to
   // this on construction.
   @override
   Stream<BoxEvent> watch() => const Stream<BoxEvent>.empty();
@@ -218,15 +218,15 @@ void main() {
     );
 
     // scopeToReading is still live production behavior of
-    // ZangetsuSourcesScreen — just no longer reachable from this hub. It's
+    // KetsurēnSourcesScreen — just no longer reachable from this hub. It's
     // still reachable from Settings → Manga & Novel (untouched), so this
     // pins the behavior directly rather than losing coverage of it.
     testWidgets(
-      'ZangetsuSourcesScreen(scopeToReading: true) scopes the Installed tab '
+      'KetsurēnSourcesScreen(scopeToReading: true) scopes the Installed tab '
       'to reading providers, with a Show all escape hatch back to everything',
       (tester) async {
         await tester.pumpWidget(
-          const MaterialApp(home: ZangetsuSourcesScreen(scopeToReading: true)),
+          const MaterialApp(home: KetsurēnSourcesScreen(scopeToReading: true)),
         );
         await tester.pumpAndSettle();
 

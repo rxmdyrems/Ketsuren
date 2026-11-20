@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity(), FlutterEngineConfigurator {
     // CloudStream plugins are handed a Context in `load()`, cast it to
     // AppCompatActivity, keep it in a static field and later show their own
     // dialogs on it — CNC Verse's Cloudflare screen works exactly that way, and
-    // so do its subscription/Telegram popups. FlutterActivity descends from
+    // so do its subscription/retired community service popups. FlutterActivity descends from
     // android.app.Activity, so that cast could never succeed; we used to load
     // such plugins against a throwaway AppCompatActivity that finished
     // immediately, which left them holding a DEAD activity. Every dialog they
@@ -405,7 +405,6 @@ class MainActivity : AppCompatActivity(), FlutterEngineConfigurator {
     override fun cleanUpFlutterEngine(flutterEngine: FlutterEngine) {}
 
     private var playerOrientationObserver: PhoneOrientationObserver? = null
-    private var discordPresence: DiscordPresenceBridge? = null
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         // FlutterActivity.configureFlutterEngine did this for us; FlutterFragment
@@ -426,7 +425,6 @@ class MainActivity : AppCompatActivity(), FlutterEngineConfigurator {
                     playerOrientationObserver = null
                 }
             })
-        discordPresence = DiscordPresenceBridge(this, flutterEngine.dartExecutor.binaryMessenger)
 
         // Bridge mega-repo plugins → our repo list: when a plugin's load() calls
         // RepositoryManager.addRepository(...), forward each URL to Dart so it
@@ -2012,8 +2010,6 @@ class MainActivity : AppCompatActivity(), FlutterEngineConfigurator {
     override fun onDestroy() {
         playerOrientationObserver?.disable()
         playerOrientationObserver = null
-        discordPresence?.dispose()
-        discordPresence = null
         phoneVoiceSearch?.dispose()
         phoneVoiceSearch = null
         pip.unregister()

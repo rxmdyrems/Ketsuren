@@ -135,17 +135,10 @@ class _DetailScreenTvState extends State<DetailScreenTv> {
     super.initState();
     _status = _listStatus.statusOf(widget.item);
     _inMyList = _status != null || _myList.contains(widget.item);
-    if (sl.isRegistered<DiscordRpc>()) {
-      sl<DiscordRpc>().setBrowsing(
-        title: widget.item.title,
-        posterUrl: widget.item.cover,
-      );
-    }
   }
 
   @override
   void dispose() {
-    if (sl.isRegistered<DiscordRpc>()) sl<DiscordRpc>().setBrowsing();
     _leftScope.dispose();
     _rightScope.dispose();
     super.dispose();

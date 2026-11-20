@@ -18,7 +18,7 @@ class TeamMember {
 
   final String name;
   final String role;
-  final String link; // opened on tap (GitHub / Discord / …)
+  final String link; // opened on tap (GitHub / other contributor page)
   final String? github; // login → avatar + default link
   final String? avatarUrl;
 
@@ -47,7 +47,7 @@ const List<TeamMember> kCoreTeam = [
   ),
   TeamMember(
     name: 'Ombryal',
-    role: 'Discord Head Admin · Contributor',
+    role: 'Contributor',
     github: 'ombryal',
     link: 'https://github.com/Ombryal',
   ),
@@ -56,13 +56,7 @@ const List<TeamMember> kCoreTeam = [
 /// Community contributors we list by hand, ahead of the GitHub-pulled ones.
 /// For people whose work never landed as a commit — art, design — so the
 /// contributors fetch can't find them.
-const List<TeamMember> kFixedCommunity = [
-  TeamMember(
-    name: 'Riyoc',
-    role: 'New logo creator',
-    link: 'https://discord.com/users/1443370547877646447',
-  ),
-];
+const List<TeamMember> kFixedCommunity = [];
 
 /// GitHub logins NOT shown under Community Contributors: the curated core (they
 /// already appear above) and known ghost / bot accounts.
@@ -106,7 +100,7 @@ List<TeamMember> parseCommunity(List<dynamic> json) {
 Future<List<TeamMember>> fetchCommunity() async {
   try {
     final resp = await Dio().get<List<dynamic>>(
-      'https://api.github.com/repos/Spyou/Zangetsu/contributors',
+      'https://api.github.com/repos/Spyou/Ketsurēn/contributors',
       queryParameters: const {'per_page': 100, 'anon': 0},
       options: Options(
         responseType: ResponseType.json,

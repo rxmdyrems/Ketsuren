@@ -16,7 +16,7 @@ Thanks for looking. If you've found a security problem in Ketsurēn, please repo
 
 That opens a private thread only the maintainer can see. It's the preferred route — no email address to find, and the whole discussion, fix and disclosure live in one place.
 
-Please **don't** open a public issue, PR, or Discord post for a vulnerability until it's fixed.
+Please **don't** open a public issue, PR, or community post for a vulnerability until it's fixed.
 
 ---
 
