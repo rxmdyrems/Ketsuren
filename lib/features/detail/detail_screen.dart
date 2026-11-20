@@ -568,7 +568,6 @@ class _DetailViewState extends State<_DetailView>
     _loadLogo();
     _schedulePlayerWarmup();
   }
-  }
 
   Timer? _playerWarmupTimer;
   MpvPlayerPool? _playerWarmupPool;
