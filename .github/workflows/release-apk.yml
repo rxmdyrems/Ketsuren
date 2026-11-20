@@ -4,6 +4,12 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: Existing release tag to publish without moving it
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -11,8 +17,20 @@ permissions:
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
+    env:
+      RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && inputs.tag_name || github.ref_name }}
     steps:
       - uses: actions/checkout@v4
+      - name: Reclaim runner disk space
+        run: |
+          echo "Disk space before cleanup:"
+          df -h /
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/share/boost \
+            /usr/local/lib/android/sdk/system-images \
+            /usr/local/lib/android/sdk/emulator \
+            /usr/local/share/chromium
+          echo "Disk space after cleanup:"
+          df -h /
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
@@ -34,10 +52,11 @@ jobs:
       - name: Prepare release assets
         run: |
           mkdir -p release-assets
-          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk release-assets/Ketsuren-${GITHUB_REF_NAME}-arm64.apk
-          cp build/app/outputs/flutter-apk/app-release.apk release-assets/Ketsuren-${GITHUB_REF_NAME}-universal.apk
+          cp build/app/outputs/flutter-apk/app-arm64-v8a-release.apk release-assets/Ketsuren-${RELEASE_TAG}-arm64.apk
+          cp build/app/outputs/flutter-apk/app-release.apk release-assets/Ketsuren-${RELEASE_TAG}-universal.apk
           sha256sum release-assets/*.apk > release-assets/SHA256SUMS.txt
       - uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ env.RELEASE_TAG }}
           files: release-assets/*
           generate_release_notes: true
