@@ -294,6 +294,8 @@ flutter:
     - assets/icon/preview_classic.png
     # New Ketsurēn mark (black bg keyed out) — for the mode-switch transition.
     - assets/icon/logo_mark.png
+    # Supplied Ketsurēn emblem used for startup and appearance previews.
+    - assets/brand/ketsuren-emblem-source.png
     # Metadata provider marks, from each service's own site, for the switcher
     # sheet. The sheet falls back to initials if one ever fails to decode.
     - assets/icon/providers/anilist.png

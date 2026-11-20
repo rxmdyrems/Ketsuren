@@ -3,7 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../../core/ui/splash_style.dart';
-import 'bankai_splash.dart';
+import 'ketsuren_splash.dart';
 import 'package:hive/hive.dart';
 
 import '../../core/app_mode.dart';
@@ -83,7 +83,7 @@ class _SplashScreenState extends State<SplashScreen>
           if (_bankai) {
             return Center(
               child: LayoutBuilder(
-                builder: (context, box) => BankaiSplash(
+                builder: (context, box) => KetsurenSplash(
                   progress: _c.value,
                   size: math.min(box.maxWidth * 0.62, 320),
                 ),
