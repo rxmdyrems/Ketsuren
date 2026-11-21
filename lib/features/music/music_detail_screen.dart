@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/theme/app_colors.dart';
+import '../../core/audio/music_audio_handler.dart';
 import '../../core/theme/app_text.dart';
 import '../../core/ui/poster_palette.dart';
 import '../../features/music/music_library.dart';
@@ -104,7 +105,7 @@ class _MusicDetailScreenState extends State<MusicDetailScreen> {
                                         width: 120,
                                         height: 120,
                                         color: AppColors.surface2,
-                                        child: const Icon(
+                                        child: Icon(
                                             Icons.music_note_rounded,
                                             color: AppColors.accent,
                                             size: 40),
@@ -114,7 +115,7 @@ class _MusicDetailScreenState extends State<MusicDetailScreen> {
                                       width: 120,
                                       height: 120,
                                       color: AppColors.surface2,
-                                      child: const Icon(
+                                      child: Icon(
                                           Icons.music_note_rounded,
                                           color: AppColors.accent,
                                           size: 40),

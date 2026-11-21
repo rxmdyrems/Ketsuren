@@ -36,12 +36,12 @@ void main() {
     });
 
     test('maps anything else to Ketsurēn', () {
-      expect(ecosystemOf('allanime'), SearchEcosystem.zangetsu);
-      expect(ecosystemOf('netmirror'), SearchEcosystem.zangetsu);
+      expect(ecosystemOf('allanime'), SearchEcosystem.ketsuren);
+      expect(ecosystemOf('netmirror'), SearchEcosystem.ketsuren);
       // No colon → not an Aniyomi/CloudStream id, so it stays Ketsurēn.
-      expect(ecosystemOf('anilist'), SearchEcosystem.zangetsu);
-      expect(ecosystemOf('csfd'), SearchEcosystem.zangetsu);
-      expect(ecosystemOf(''), SearchEcosystem.zangetsu);
+      expect(ecosystemOf('anilist'), SearchEcosystem.ketsuren);
+      expect(ecosystemOf('csfd'), SearchEcosystem.ketsuren);
+      expect(ecosystemOf(''), SearchEcosystem.ketsuren);
     });
 
     test('never returns the All sentinel', () {
@@ -59,7 +59,7 @@ void main() {
     test('only Ketsurēn sources → All + Ketsurēn (no CS/Ani tabs)', () {
       expect(ecosystemTabsFor(const ['allanime', 'netmirror']), [
         SearchEcosystem.all,
-        SearchEcosystem.zangetsu,
+        SearchEcosystem.ketsuren,
       ]);
     });
 
@@ -67,7 +67,7 @@ void main() {
       final tabs = ecosystemTabsFor(const ['allanime', 'cs:AnimePahe']);
       expect(tabs, [
         SearchEcosystem.all,
-        SearchEcosystem.zangetsu,
+        SearchEcosystem.ketsuren,
         SearchEcosystem.cloudstream,
       ]);
       expect(tabs, isNot(contains(SearchEcosystem.aniyomi)));
@@ -88,7 +88,7 @@ void main() {
         ]),
         [
         SearchEcosystem.all,
-        SearchEcosystem.zangetsu,
+        SearchEcosystem.ketsuren,
         SearchEcosystem.cloudstream,
         SearchEcosystem.aniyomi,
           SearchEcosystem.mangayomi,
@@ -101,7 +101,7 @@ void main() {
         ecosystemTabsFor(const ['ani:2', 'ani:1', 'cs:b', 'cs:a', 'zjs']),
         [
           SearchEcosystem.all,
-          SearchEcosystem.zangetsu,
+          SearchEcosystem.ketsuren,
           SearchEcosystem.cloudstream,
           SearchEcosystem.aniyomi,
         ],
@@ -143,7 +143,7 @@ void main() {
     });
 
     test('Ketsurēn tab shows only Ketsurēn groups', () {
-      final s = base.copyWith(ecosystem: SearchEcosystem.zangetsu);
+      final s = base.copyWith(ecosystem: SearchEcosystem.ketsuren);
       expect(s.sortedVisibleGroups.map((g) => g.sourceId), ['allanime']);
       expect(s.visibleGroups.map((g) => g.sourceId), ['allanime']);
       expect(s.visibleResults.map((i) => i.sourceId), ['allanime']);

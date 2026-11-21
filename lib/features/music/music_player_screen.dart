@@ -92,10 +92,11 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
   @override
   Widget build(BuildContext context) {
     final handler = MusicPlayback.handler;
-    if (handler == null || _item == null) {
+    final item = _item;
+    if (handler == null || item == null) {
       return Scaffold(
         backgroundColor: AppColors.bg,
-        body: const Center(
+        body: Center(
           child: CircularProgressIndicator(color: AppColors.accent),
         ),
       );
@@ -106,10 +107,10 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
       body: Stack(
         children: [
           // Adaptive artwork background — same approach as detail pages.
-          if (_item.artUri != null)
+          if (item.artUri != null)
             Positioned.fill(
               child: CachedNetworkImageWrapper(
-                imageUrl: _item.artUri!.toString(),
+                imageUrl: item.artUri!.toString(),
               ),
             ),
           // Scrim so text reads over the artwork.
@@ -154,9 +155,9 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 40),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(24),
-                      child: _item.artUri != null
+                      child: item.artUri != null
                           ? CachedNetworkImage(
-                              imageUrl: _item.artUri!.toString(),
+                              imageUrl: item.artUri!.toString(),
                               width: 260,
                               height: 260,
                               fit: BoxFit.cover,
@@ -169,7 +170,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                                 width: 260,
                                 height: 260,
                                 color: AppColors.surface,
-                                child: const Icon(Icons.music_note_rounded,
+                                child: Icon(Icons.music_note_rounded,
                                     color: AppColors.accent, size: 64),
                               ),
                             )
@@ -177,7 +178,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                               width: 260,
                               height: 260,
                               color: AppColors.surface,
-                              child: const Icon(Icons.music_note_rounded,
+                              child: Icon(Icons.music_note_rounded,
                                   color: AppColors.accent, size: 64),
                             ),
                     ),
@@ -188,7 +189,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
 
                 // Title / artist / album.
                 Text(
-                  _item.title,
+                  item.title,
                   style: AppText.headline.copyWith(
                     color: Colors.white,
                     fontSize: 26,
@@ -200,17 +201,17 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                 ),
                 const SizedBox(height: 6),
                 Text(
-                  _item.artist ?? '',
+                  item.artist ?? '',
                   style: AppText.body.copyWith(
                     color: Colors.white.withValues(alpha: 0.8),
                     fontSize: 16,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                if (_item.album != null && _item.album!.isNotEmpty) ...[
+                if (item.album != null && item.album!.isNotEmpty) ...[
                   const SizedBox(height: 4),
                   Text(
-                    _item.album!,
+                    item.album!,
                     style: AppText.caption.copyWith(
                       color: Colors.white.withValues(alpha: 0.6),
                     ),
@@ -235,10 +236,10 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                         ),
                         child: Slider(
                           min: 0,
-                          max: _item.duration?.inMilliseconds.toDouble() ?? 1,
+                          max: item.duration?.inMilliseconds.toDouble() ?? 1,
                           value: _position.clamp(
                             0,
-                            _item.duration?.inMilliseconds.toDouble() ?? 1,
+                            item.duration?.inMilliseconds.toDouble() ?? 1,
                           ),
                           onChanged: (v) => handler.seek(Duration(milliseconds: v.toInt())),
                           onChangeEnd: (_) {},
@@ -255,7 +256,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                           ),
                           Text(
                             _formatDuration(
-                              (_item.duration?.inMilliseconds ?? 0).toInt(),
+                              (item.duration?.inMilliseconds ?? 0).toInt(),
                             ),
                             style: AppText.caption.copyWith(
                               color: Colors.white.withValues(alpha: 0.7),
@@ -359,12 +360,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
     setState(() {
       _repeatMode = (_repeatMode + 1) % 3;
     });
-    final repeat = switch (_repeatMode) {
-      0 => RepeatMode.off,
-      1 => RepeatMode.one,
-      _ => RepeatMode.all,
-    };
-    MusicPlayback.handler?.setRepeatMode(repeat);
+    MusicPlayback.handler?.setRepeatMode(_repeatMode);
   }
 
   void _toggleLike() {
@@ -391,7 +387,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
           topRight: Radius.circular(20),
         ),
       ),
-      builder: (_) => _QueueSheet(),
+      builder: (_) => _QueueSheet(item: _item),
     );
   }
 
@@ -427,6 +423,10 @@ final List<IconData> _repeatIcons = [
 
 /// Queue bottom sheet.
 class _QueueSheet extends StatelessWidget {
+  const _QueueSheet({required this.item});
+
+  final MediaItem? item;
+
   @override
   Widget build(BuildContext context) {
     final handler = MusicPlayback.handler;
@@ -486,7 +486,7 @@ class _QueueSheet extends StatelessWidget {
                                   imageUrl: item.artUri!.toString(),
                                   fit: BoxFit.cover,
                                 )
-                              : const Icon(Icons.music_note_rounded,
+                              : Icon(Icons.music_note_rounded,
                                   color: AppColors.accent),
                         ),
                       ),
@@ -495,8 +495,8 @@ class _QueueSheet extends StatelessWidget {
                       subtitle: Text(item.artist ?? '',
                           style: const TextStyle(
                               color: Colors.white70, fontSize: 12)),
-                      trailing: _item != null && item.id == _item!.id
-                          ? const Icon(Icons.radio_button_on_rounded,
+                      trailing: this.item != null && item.id == this.item!.id
+                          ? Icon(Icons.radio_button_on_rounded,
                               color: AppColors.accent)
                           : null,
                       onTap: () {
