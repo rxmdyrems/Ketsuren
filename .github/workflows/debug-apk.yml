@@ -35,7 +35,6 @@ jobs:
       - run: flutter pub get
       - name: Build debug APK
         run: flutter build apk --debug
-        env:
       - uses: actions/upload-artifact@v4
         with:
           name: ketsuren-debug-apk
