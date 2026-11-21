@@ -188,7 +188,7 @@ class _DeveloperRow extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(14),
           onTap: () async {
-            final uri = Uri.parse('https://github.com/spyou');
+            final uri = Uri.parse('https://github.com/rxmdyrems');
             if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
               await launchUrl(uri, mode: LaunchMode.platformDefault);
             }
@@ -196,15 +196,14 @@ class _DeveloperRow extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
-              // One solid dark grey, matching the app's cards.
               color: AppColors.settingsCard,
               borderRadius: BorderRadius.circular(14),
             ),
             child: Row(
               children: [
                 const TeamAvatar(
-                  url: 'https://github.com/spyou.png?size=200',
-                  name: 'Spyou',
+                  url: 'https://github.com/rxmdyrems.png?size=200',
+                  name: 'rxmdyrems',
                   size: 46,
                 ),
                 const SizedBox(width: 14),
@@ -213,7 +212,7 @@ class _DeveloperRow extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Spyou',
+                        'rxmdyrems',
                         style: AppText.headline.copyWith(
                           color: AppColors.textPrimary,
                           fontWeight: FontWeight.w700,

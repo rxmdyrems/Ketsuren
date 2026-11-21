@@ -17,7 +17,7 @@ typedef ModeChoice = ({
 /// The content experiences available from the dock switcher.
 final List<ModeChoice> modeChoices = [
   (
-    label: (_) => 'Music',
+    label: (c) => c.l10n.modeMusic,
     icon: Icons.music_note_rounded,
     mode: ContentMode.music,
     kind: StreamKind.anime,

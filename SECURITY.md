@@ -10,7 +10,7 @@ Thanks for looking. If you've found a security problem in Ketsurēn, please repo
 
 **Use GitHub's private vulnerability reporting:**
 
-[**→ Report a vulnerability**](https://github.com/Spyou/Zangetsu/security/advisories/new)
+[**→ Report a vulnerability**](https://github.com/rxmdyrems/Ketsuren/security/advisories/new)
 
 (Also reachable from the repo's **Security** tab → *Report a vulnerability*.)
 

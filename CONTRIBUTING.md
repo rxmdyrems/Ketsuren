@@ -22,13 +22,13 @@ This repo is the main Ketsurēn app (Flutter/Dart, with native `android/` and `i
 - `assets/` — icons, splash screens, and other static assets
 - `test/` — tests
 
-**Note:** additional/community content sources live in a separate repo, [zangetsu-providers](https://github.com/Spyou/zangetsu-providers). If your contribution is a new content source rather than a core app change, check there first — it may be the better place for it.
+**Note:** additional/community content sources live in a separate repo under the Ketsurēn organization. If your contribution is a new content source rather than a core app change, check there first — it may be the better place for it.
 
 ## Setting Up Your Dev Environment
 
 1. Fork the repo and clone your fork:
    ```bash
-   git clone https://github.com/Spyou/Zangetsu.git
+   git clone https://github.com/rxmdyrems/Ketsuren.git
    cd Ketsurēn
    ```
 2. Make sure you have the **Flutter SDK** installed (check `pubspec.yaml` / `.metadata` for the version this project targets).

@@ -8,6 +8,8 @@ import '../../core/audio/music_audio_handler.dart';
 import '../../core/innertube/innertube_client.dart';
 import '../../core/theme/app_colors.dart';
 import 'music_library.dart';
+import 'music_player_screen.dart';
+import 'music_detail_screen.dart';
 import 'music_track.dart';
 
 /// Music-first home/search/library surface shared by phone and Android TV.
@@ -364,7 +366,11 @@ class _MusicHomeScreenState extends State<MusicHomeScreen> {
             ),
           ],
         ),
-        onTap: () => _play(track),
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute<void>(
+            builder: (_) => MusicDetailScreen(track: track),
+          ),
+        ),
       );
     },
   );
@@ -443,47 +449,55 @@ class _MusicHomeScreenState extends State<MusicHomeScreen> {
             borderRadius: BorderRadius.circular(18),
             border: Border.all(color: AppColors.hairline),
           ),
-          child: Row(
-            children: [
-              Icon(Icons.graphic_eq_rounded, color: AppColors.accent),
-              const SizedBox(width: 10),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      item.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(color: AppColors.textPrimary),
-                    ),
-                    Text(
-                      item.artist ?? '',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        color: AppColors.textSecondary,
-                        fontSize: 12,
-                      ),
-                    ),
-                  ],
-                ),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(18),
+            onTap: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => const MusicPlayerScreen(),
               ),
-              StreamBuilder<PlaybackState>(
-                stream: handler.playbackState,
-                builder: (context, state) => IconButton(
-                  onPressed: () => state.data?.playing == true
-                      ? handler.pause()
-                      : handler.play(),
-                  icon: Icon(
-                    state.data?.playing == true
-                        ? Icons.pause_rounded
-                        : Icons.play_arrow_rounded,
-                    color: AppColors.textPrimary,
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.graphic_eq_rounded, color: AppColors.accent),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        item.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(color: AppColors.textPrimary),
+                      ),
+                      Text(
+                        item.artist ?? '',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          color: AppColors.textSecondary,
+                          fontSize: 12,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-            ],
+                StreamBuilder<PlaybackState>(
+                  stream: handler.playbackState,
+                  builder: (context, state) => IconButton(
+                    onPressed: () => state.data?.playing == true
+                        ? handler.pause()
+                        : handler.play(),
+                    icon: Icon(
+                      state.data?.playing == true
+                          ? Icons.pause_rounded
+                          : Icons.play_arrow_rounded,
+                      color: AppColors.textPrimary,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },
