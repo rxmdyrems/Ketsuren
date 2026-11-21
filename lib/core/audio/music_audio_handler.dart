@@ -6,7 +6,7 @@ import '../../features/music/music_track.dart';
 
 /// Bridges just_audio playback into Android's media session and notification.
 /// Search uses InnerTube; stream URLs are resolved with youtube_explode_dart.
-class MusicAudioHandler extends BaseAudioHandler with SeekHandler {
+class MusicAudioHandler extends BaseAudioHandler with SeekHandler, RepeatModeHandler {
   MusicAudioHandler({AudioPlayer? player, YoutubeExplode? youtube})
     : _player = player ?? AudioPlayer(),
       _youtube = youtube ?? YoutubeExplode() {

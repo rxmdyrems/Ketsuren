@@ -84,20 +84,6 @@ class _MusicHomeScreenState extends State<MusicHomeScreen> {
     }
   }
 
-  Future<void> _play(MusicTrack track) async {
-    try {
-      await MusicLibrary.instance.addRecent(track);
-      await MusicPlayback.play(track);
-      if (mounted) setState(() {});
-    } on Object catch (error) {
-      if (!mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not play this track right now.')),
-      );
-      debugPrint('Ketsuren playback failed: $error');
-    }
-  }
-
   Future<void> _favorite(MusicTrack track) async {
     await MusicLibrary.instance.toggleFavorite(track);
     if (mounted) setState(() {});

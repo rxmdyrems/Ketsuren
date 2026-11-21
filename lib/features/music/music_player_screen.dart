@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import '../../core/audio/music_audio_handler.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/theme/app_text.dart';
-import '../../core/ui/poster_palette.dart';
 import '../../features/music/music_library.dart';
 import '../../features/music/music_track.dart';
 
@@ -24,10 +23,10 @@ class MusicPlayerScreen extends StatefulWidget {
 }
 
 class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
-  late StreamSubscription<MediaItem?> _itemSub;
-  late StreamSubscription<PlaybackState> _stateSub;
-  late StreamSubscription<double> _positionSub;
-  late StreamSubscription<double> _bufferedSub;
+  StreamSubscription<MediaItem?>? _itemSub;
+  StreamSubscription<PlaybackState>? _stateSub;
+  StreamSubscription<double>? _positionSub;
+  StreamSubscription<double>? _bufferedSub;
 
   MediaItem? _item;
   PlaybackState? _state;
@@ -42,6 +41,8 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
     super.initState();
     _item = MusicPlayback.handler?.mediaItem.value;
     _state = MusicPlayback.handler?.playbackState.value;
+    _position = _state?.position.inMilliseconds.toDouble() ?? 0;
+    _buffered = _state?.bufferedPosition.inMilliseconds.toDouble() ?? 0;
     _loadLiked();
 
     final handler = MusicPlayback.handler;
@@ -55,15 +56,11 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
       });
       _stateSub = handler.playbackState.listen((s) {
         if (!mounted) return;
-        setState(() => _state = s);
-      });
-      _positionSub = handler.currentPosition.listen((p) {
-        if (!mounted) return;
-        setState(() => _position = p.inMilliseconds.toDouble());
-      });
-      _bufferedSub = handler.bufferedPosition.listen((p) {
-        if (!mounted) return;
-        setState(() => _buffered = p.inMilliseconds.toDouble());
+        setState(() {
+          _state = s;
+          _position = s.position.inMilliseconds.toDouble();
+          _buffered = s.bufferedPosition.inMilliseconds.toDouble();
+        });
       });
     }
   }
@@ -76,10 +73,10 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
 
   @override
   void dispose() {
-    _itemSub.cancel();
-    _stateSub.cancel();
-    _positionSub.cancel();
-    _bufferedSub.cancel();
+    _itemSub?.cancel();
+    _stateSub?.cancel();
+    _positionSub?.cancel();
+    _bufferedSub?.cancel();
     super.dispose();
   }
 
@@ -157,24 +154,32 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 40),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(24),
-                      child: CachedNetworkImage(
-                        imageUrl: _item.artUri!.toString(),
-                        width: 260,
-                        height: 260,
-                        fit: BoxFit.cover,
-                        placeholder: (_, _) => Container(
-                          width: 260,
-                          height: 260,
-                          color: AppColors.surface,
-                        ),
-                        errorWidget: (_, _, _) => Container(
-                          width: 260,
-                          height: 260,
-                          color: AppColors.surface,
-                          child: const Icon(Icons.music_note_rounded,
-                              color: AppColors.accent, size: 64),
-                        ),
-                      ),
+                      child: _item.artUri != null
+                          ? CachedNetworkImage(
+                              imageUrl: _item.artUri!.toString(),
+                              width: 260,
+                              height: 260,
+                              fit: BoxFit.cover,
+                              placeholder: (_, _) => Container(
+                                width: 260,
+                                height: 260,
+                                color: AppColors.surface,
+                              ),
+                              errorWidget: (_, _, _) => Container(
+                                width: 260,
+                                height: 260,
+                                color: AppColors.surface,
+                                child: const Icon(Icons.music_note_rounded,
+                                    color: AppColors.accent, size: 64),
+                              ),
+                            )
+                          : Container(
+                              width: 260,
+                              height: 260,
+                              color: AppColors.surface,
+                              child: const Icon(Icons.music_note_rounded,
+                                  color: AppColors.accent, size: 64),
+                            ),
                     ),
                   ),
                 ),
@@ -354,14 +359,12 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
     setState(() {
       _repeatMode = (_repeatMode + 1) % 3;
     });
-    switch (_repeatMode) {
-      case 0:
-        MusicPlayback.handler?.setRepeatMode(RepeatMode.off);
-      case 1:
-        MusicPlayback.handler?.setRepeatMode(RepeatMode.one);
-      case 2:
-        MusicPlayback.handler?.setRepeatMode(RepeatMode.all);
-    }
+    final repeat = switch (_repeatMode) {
+      0 => RepeatMode.off,
+      1 => RepeatMode.one,
+      _ => RepeatMode.all,
+    };
+    MusicPlayback.handler?.setRepeatMode(repeat);
   }
 
   void _toggleLike() {
@@ -369,6 +372,12 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
     final track = _trackFromMediaItem(_item!);
     MusicLibrary.instance.toggleFavorite(track).then((_) {
       if (mounted) setState(() => _liked = !_liked);
+    }).catchError((_) {
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Couldn\'t toggle favorite.')),
+        );
+      }
     });
   }
 
@@ -411,9 +420,9 @@ class CachedNetworkImageWrapper extends StatelessWidget {
 }
 
 final List<IconData> _repeatIcons = [
-  Icons.repeat_rounded,
-  Icons.repeat_one_rounded,
-  Icons.repeat_rounded,
+  Icons.repeat_outlined, // off
+  Icons.repeat_one_rounded, // one
+  Icons.repeat_rounded, // all
 ];
 
 /// Queue bottom sheet.
