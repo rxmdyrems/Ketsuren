@@ -1,8 +1,6 @@
 {
   "ar": [
     "customRange",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -146,8 +144,6 @@
   "de": [
     "customRange",
     "searchOk",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -404,8 +400,6 @@
   "es": [
     "customRange",
     "searchOk",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -662,8 +656,6 @@
   "fr": [
     "customRange",
     "searchOk",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -919,8 +911,6 @@
 
   "id": [
     "customRange",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -1064,8 +1054,6 @@
   "it": [
     "customRange",
     "searchOk",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -1322,8 +1310,6 @@
   "ja": [
     "customRange",
     "searchOk",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -1579,8 +1565,6 @@
 
   "pt": [
     "customRange",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -1723,8 +1707,6 @@
 
   "tr": [
     "customRange",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -1868,8 +1850,6 @@
   "zh": [
     "customRange",
     "searchOk",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",
@@ -2126,8 +2106,6 @@
   "zh_TW": [
     "customRange",
     "searchOk",
-    "discordActivityStatus",
-    "discordOnlineStatus",
     "presenceInvisible",
     "presenceOnline",
     "presenceIdle",

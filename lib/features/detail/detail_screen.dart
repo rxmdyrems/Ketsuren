@@ -1124,7 +1124,7 @@ class _DetailViewState extends State<_DetailView>
       onChanged: (_) {},
       onInstallSources: () => Navigator.of(context).push(
         MaterialPageRoute<void>(
-          builder: (_) => const KetsurēnSourcesScreen(openToRepos: true),
+          builder: (_) => const KetsurenSourcesScreen(openToRepos: true),
         ),
       ),
     ).showPicker(

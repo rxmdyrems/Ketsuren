@@ -31,7 +31,7 @@ Widget? manageSourceScreenFor(String sourceId) {
   if (sourceId.startsWith('mg:')) return const MangayomiSourcesScreen();
   // Everything else is a JS provider from the Ketsurēn repo — those ids carry
   // no prefix, so this is the fallback rather than a match.
-  return const KetsurēnSourcesScreen();
+  return const KetsurenSourcesScreen();
 }
 
 /// Whether [sourceId] can be managed at all. Z-Mode is the one that cannot:

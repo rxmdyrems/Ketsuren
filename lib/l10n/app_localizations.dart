@@ -771,29 +771,29 @@ abstract class AppLocalizations {
   /// **'Connections'**
   String get connections;
 
-  /// No description provided for @discord.
+  /// No description provided for @presence.
   ///
   /// In en, this message translates to:
   /// **'presence'**
-  String get discord;
+  String get presence;
 
-  /// No description provided for @discordSubtitle.
+  /// No description provided for @presenceSubtitle.
   ///
   /// In en, this message translates to:
   /// **'Rich Presence — show your status'**
-  String get discordSubtitle;
+  String get presenceSubtitle;
 
-  /// No description provided for @discordActivityStatus.
+  /// No description provided for @presenceActivityStatus.
   ///
   /// In en, this message translates to:
   /// **'Activity status'**
-  String get discordActivityStatus;
+  String get presenceActivityStatus;
 
-  /// No description provided for @discordOnlineStatus.
+  /// No description provided for @presenceOnlineStatus.
   ///
   /// In en, this message translates to:
   /// **'presence status'**
-  String get discordOnlineStatus;
+  String get presenceOnlineStatus;
 
   /// No description provided for @presenceInvisible.
   ///
@@ -2463,11 +2463,11 @@ abstract class AppLocalizations {
   /// **'Incognito mode'**
   String get incognitoMode;
 
-  /// No description provided for @pauseHistoryTrackingDiscordPresence.
+  /// No description provided for @pauseHistoryTrackingpresencePresence.
   ///
   /// In en, this message translates to:
   /// **'Pause history, tracking & presence presence'**
-  String get pauseHistoryTrackingDiscordPresence;
+  String get pauseHistoryTrackingpresencePresence;
 
   /// No description provided for @enableNSFWSources2.
   ///
@@ -3027,11 +3027,11 @@ abstract class AppLocalizations {
   /// **'Turn off Material You to pick a colour yourself'**
   String get turnOffMaterialYouToPickAColourYourself;
 
-  /// No description provided for @downloadsZangetsu.
+  /// No description provided for @downloadsKetsuren.
   ///
   /// In en, this message translates to:
   /// **'Downloads › Ketsurēn'**
-  String get downloadsZangetsu;
+  String get downloadsKetsuren;
 
   /// No description provided for @removableDrive.
   ///
@@ -3105,17 +3105,17 @@ abstract class AppLocalizations {
   /// **'SP0 — test SurfaceView playback smoothness'**
   String get sp0TestSurfaceViewPlaybackSmoothness;
 
-  /// No description provided for @pasteDiscordToken.
+  /// No description provided for @pastepresenceToken.
   ///
   /// In en, this message translates to:
   /// **'Paste presence token'**
-  String get pasteDiscordToken;
+  String get pastepresenceToken;
 
-  /// No description provided for @yourDiscordUserToken.
+  /// No description provided for @yourpresenceUserToken.
   ///
   /// In en, this message translates to:
   /// **'Your presence user token'**
-  String get yourDiscordUserToken;
+  String get yourpresenceUserToken;
 
   /// No description provided for @pasteToken.
   ///
@@ -3129,17 +3129,17 @@ abstract class AppLocalizations {
   /// **'Use mobile data for torrents'**
   String get useMobileDataForTorrents;
 
-  /// No description provided for @discordConnected.
+  /// No description provided for @presenceConnected.
   ///
   /// In en, this message translates to:
   /// **'presence connected'**
-  String get discordConnected;
+  String get presenceConnected;
 
-  /// No description provided for @disconnectDiscord.
+  /// No description provided for @disconnectpresence.
   ///
   /// In en, this message translates to:
   /// **'Disconnect presence?'**
-  String get disconnectDiscord;
+  String get disconnectpresence;
 
   /// No description provided for @notConfigured.
   ///
@@ -3147,11 +3147,11 @@ abstract class AppLocalizations {
   /// **'Not configured'**
   String get notConfigured;
 
-  /// No description provided for @aDiscordApplicationIDMustBeSetInTheBuildFirst.
+  /// No description provided for @apresenceApplicationIDMustBeSetInTheBuildFirst.
   ///
   /// In en, this message translates to:
   /// **'A presence Application ID must be set in the build first.'**
-  String get aDiscordApplicationIDMustBeSetInTheBuildFirst;
+  String get apresenceApplicationIDMustBeSetInTheBuildFirst;
 
   /// No description provided for @richPresence.
   ///
@@ -4372,11 +4372,11 @@ abstract class AppLocalizations {
   /// **'Have the app?'**
   String get haveTheApp;
 
-  /// No description provided for @openZangetsuOnYourNphoneAndScan.
+  /// No description provided for @openKetsurenOnYourNphoneAndScan.
   ///
   /// In en, this message translates to:
   /// **'Open Ketsurēn on your\\nphone and scan'**
-  String get openZangetsuOnYourNphoneAndScan;
+  String get openKetsurenOnYourNphoneAndScan;
 
   /// No description provided for @noApp.
   ///
@@ -4486,11 +4486,11 @@ abstract class AppLocalizations {
   /// **'Sign in with your phone'**
   String get signInWithYourPhone;
 
-  /// No description provided for @onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR.
+  /// No description provided for @onTheKetsurenAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR.
   ///
   /// In en, this message translates to:
   /// **'On the Ketsurēn app on your phone, open\\n\"Pair a TV\" and enter this code — or scan the QR.'**
-  String get onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR;
+  String get onTheKetsurenAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR;
 
   /// No description provided for @signingIn.
   ///
@@ -4534,11 +4534,11 @@ abstract class AppLocalizations {
   /// **'Enter the code from your TV'**
   String get enterTheCodeFromYourTV;
 
-  /// No description provided for @openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt.
+  /// No description provided for @openKetsurenOnYourTVAndSignInWithYourPhoneToSeeIt.
   ///
   /// In en, this message translates to:
   /// **'Open Ketsurēn on your TV and sign in with your phone to see it.'**
-  String get openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt;
+  String get openKetsurenOnYourTVAndSignInWithYourPhoneToSeeIt;
 
   /// No description provided for @abcd2345.
   ///
@@ -4612,11 +4612,11 @@ abstract class AppLocalizations {
   /// **'Restore complete'**
   String get restoreComplete;
 
-  /// No description provided for @reopenZangetsuToSeeRestoredLibrarySources.
+  /// No description provided for @reopenKetsurenToSeeRestoredLibrarySources.
   ///
   /// In en, this message translates to:
   /// **'Reopen Ketsurēn to see restored library & sources.'**
-  String get reopenZangetsuToSeeRestoredLibrarySources;
+  String get reopenKetsurenToSeeRestoredLibrarySources;
 
   /// No description provided for @saveToAFile.
   ///
@@ -5032,11 +5032,11 @@ abstract class AppLocalizations {
   /// **'No sources in this repo.'**
   String get noSourcesInThisRepo;
 
-  /// No description provided for @zangetsuProviders.
+  /// No description provided for @ketsurenProviders.
   ///
   /// In en, this message translates to:
   /// **'Ketsurēn providers'**
-  String get zangetsuProviders;
+  String get ketsurenProviders;
 
   /// No description provided for @addRepo.
   ///
@@ -5224,11 +5224,11 @@ abstract class AppLocalizations {
   /// **'Open this source\'s own settings (e.g. server, language)'**
   String get openThisSourceSOwnSettingsEGServerLanguage;
 
-  /// No description provided for @addZangetsuRepo.
+  /// No description provided for @addKetsurenRepo.
   ///
   /// In en, this message translates to:
   /// **'Add Ketsurēn repo'**
-  String get addZangetsuRepo;
+  String get addKetsurenRepo;
 
   /// No description provided for @theProviderWillBeRemovedFromYourInstalledSources.
   ///
@@ -7066,11 +7066,11 @@ abstract class AppLocalizations {
   /// **'Sync watch progress and list status to your accounts. Anime syncs to all three; movies and series sync to Simkl.'**
   String get connectionsBlurb;
 
-  /// No description provided for @connectDiscord.
+  /// No description provided for @connectpresence.
   ///
   /// In en, this message translates to:
   /// **'Connect presence'**
-  String get connectDiscord;
+  String get connectpresence;
 
   /// No description provided for @signInSoYourStatusCanShow.
   ///
@@ -7078,17 +7078,17 @@ abstract class AppLocalizations {
   /// **'Sign in so your status can show on your profile'**
   String get signInSoYourStatusCanShow;
 
-  /// No description provided for @disconnectDiscordBody.
+  /// No description provided for @disconnectpresenceBody.
   ///
   /// In en, this message translates to:
   /// **'Rich Presence stops and your token is removed from this device. Your presence account is not changed — you can reconnect anytime.'**
-  String get disconnectDiscordBody;
+  String get disconnectpresenceBody;
 
-  /// No description provided for @discordPresenceBlurb.
+  /// No description provided for @presencePresenceBlurb.
   ///
   /// In en, this message translates to:
   /// **'Shows \"Watching <title> • Episode N\" (and what you\'re browsing) on your presence profile while the app is open. Uses your presence login, stored only on this device. Turn off anytime.'**
-  String get discordPresenceBlurb;
+  String get presencePresenceBlurb;
 
   /// No description provided for @github.
   ///
@@ -7096,11 +7096,11 @@ abstract class AppLocalizations {
   /// **'GitHub'**
   String get github;
 
-  /// No description provided for @telegram.
+  /// No description provided for @community.
   ///
   /// In en, this message translates to:
   /// **'community'**
-  String get telegram;
+  String get community;
 
   /// No description provided for @accentColourBlurb.
   ///
@@ -7252,11 +7252,11 @@ abstract class AppLocalizations {
   /// **'Cloud backup failed. Check you\'re online — if it keeps failing, the cloud backup store may not be set up yet.'**
   String get cloudBackupFailed;
 
-  /// No description provided for @savedToDownloadsZangetsu.
+  /// No description provided for @savedToDownloadsKetsuren.
   ///
   /// In en, this message translates to:
   /// **'Saved to Downloads › Ketsurēn'**
-  String get savedToDownloadsZangetsu;
+  String get savedToDownloadsKetsuren;
 
   /// No description provided for @restoreFailed.
   ///
@@ -7630,11 +7630,11 @@ abstract class AppLocalizations {
   /// **'LNReader'**
   String get lnreader;
 
-  /// No description provided for @zangetsu.
+  /// No description provided for @ketsuren.
   ///
   /// In en, this message translates to:
   /// **'Ketsurēn'**
-  String get zangetsu;
+  String get ketsuren;
 
   /// No description provided for @cloudStream.
   ///

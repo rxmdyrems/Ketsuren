@@ -297,7 +297,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get settingsSectionAccountSummary =>
-      'İzleyiciler, discord, yedekleme, eşitleme';
+      'İzleyiciler, presence, yedekleme, eşitleme';
 
   @override
   String get settingsSectionSourcesSummary =>
@@ -333,7 +333,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get couldNotExportLogs => 'Günlükler dışa aktarılamadı';
 
   @override
-  String get logsShareSubject => 'zangetsu günlükleri';
+  String get logsShareSubject => 'ketsuren günlükleri';
 
   @override
   String get signInSubtitle =>
@@ -347,16 +347,16 @@ class AppLocalizationsTr extends AppLocalizations {
   String get connections => 'Bağlantılar';
 
   @override
-  String get discord => 'discord';
+  String get presence => 'presence';
 
   @override
-  String get discordSubtitle => 'Rich Presence — durumunu göster';
+  String get presenceSubtitle => 'Rich Presence — durumunu göster';
 
   @override
-  String get discordActivityStatus => 'Activity status';
+  String get presenceActivityStatus => 'Activity status';
 
   @override
-  String get discordOnlineStatus => 'discord status';
+  String get presenceOnlineStatus => 'presence status';
 
   @override
   String get presenceInvisible => 'Invisible';
@@ -410,7 +410,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get presenceButtonLabel => 'Button label';
 
   @override
-  String get presenceButtonLabelHint => 'Open in zangetsu';
+  String get presenceButtonLabelHint => 'Open in ketsuren';
 
   @override
   String get presenceShowWhenPaused => 'Show when paused';
@@ -1040,7 +1040,7 @@ class AppLocalizationsTr extends AppLocalizations {
   }
 
   @override
-  String get bootErrorTitle => 'zangetsu açılışını tamamlayamadı';
+  String get bootErrorTitle => 'ketsuren açılışını tamamlayamadı';
 
   @override
   String get bootErrorBody =>
@@ -1054,10 +1054,10 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get resetAppDataBody =>
-      'zangetsu\'nun bu cihazda kaydettiği her şeyi temizler, böylece sıfırdan başlar.\n\nHesabın ve buluta eşitlenen hiçbir şey etkilenmez — tekrar oturum aç, kitaplığın geri gelir.';
+      'ketsuren\'nun bu cihazda kaydettiği her şeyi temizler, böylece sıfırdan başlar.\n\nHesabın ve buluta eşitlenen hiçbir şey etkilenmez — tekrar oturum aç, kitaplığın geri gelir.';
 
   @override
-  String get resetAppDataDone => 'zangetsu\'yu tamamen kapat ve yeniden aç.';
+  String get resetAppDataDone => 'ketsuren\'yu tamamen kapat ve yeniden aç.';
 
   @override
   String get detailsCopied => 'Ayrıntılar kopyalandı — bize gönder';
@@ -1283,8 +1283,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get incognitoMode => 'Gizli mod';
 
   @override
-  String get pauseHistoryTrackingDiscordPresence =>
-      'Geçmiş, izleyici ve discord durumunu duraklat';
+  String get pauseHistoryTrackingpresencePresence =>
+      'Geçmiş, izleyici ve presence durumunu duraklat';
 
   @override
   String get enableNSFWSources2 => 'NSFW kaynaklarını etkinleştir';
@@ -1589,7 +1589,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Kendi rengini seçmek için Material You\'u kapat';
 
   @override
-  String get downloadsZangetsu => 'İndirilenler › zangetsu';
+  String get downloadsKetsuren => 'İndirilenler › ketsuren';
 
   @override
   String get removableDrive => 'Çıkarılabilir sürücü';
@@ -1629,10 +1629,10 @@ class AppLocalizationsTr extends AppLocalizations {
       'SP0 — SurfaceView oynatma akıcılığını test et';
 
   @override
-  String get pasteDiscordToken => 'discord belirtecini yapıştır';
+  String get pastepresenceToken => 'presence belirtecini yapıştır';
 
   @override
-  String get yourDiscordUserToken => 'discord kullanıcı belirtecin';
+  String get yourpresenceUserToken => 'presence kullanıcı belirtecin';
 
   @override
   String get pasteToken => 'Belirteci yapıştır';
@@ -1641,17 +1641,17 @@ class AppLocalizationsTr extends AppLocalizations {
   String get useMobileDataForTorrents => 'Torrentler için mobil veri kullan';
 
   @override
-  String get discordConnected => 'discord bağlandı';
+  String get presenceConnected => 'presence bağlandı';
 
   @override
-  String get disconnectDiscord => 'discord bağlantısı kesilsin mi?';
+  String get disconnectpresence => 'presence bağlantısı kesilsin mi?';
 
   @override
   String get notConfigured => 'Yapılandırılmadı';
 
   @override
-  String get aDiscordApplicationIDMustBeSetInTheBuildFirst =>
-      'Önce derlemede bir discord Application ID ayarlanmalı.';
+  String get apresenceApplicationIDMustBeSetInTheBuildFirst =>
+      'Önce derlemede bir presence Application ID ayarlanmalı.';
 
   @override
   String get richPresence => 'Rich Presence';
@@ -2286,8 +2286,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get haveTheApp => 'Uygulamayı indirdin mi?';
 
   @override
-  String get openZangetsuOnYourNphoneAndScan =>
-      'Telefonunda zangetsu\'yu aç ve tara';
+  String get openKetsurenOnYourNphoneAndScan =>
+      'Telefonunda ketsuren\'yu aç ve tara';
 
   @override
   String get noApp => 'Uygulama yok mu?';
@@ -2345,8 +2345,8 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String
-  get onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
-      'Telefonundaki zangetsu uygulamasında \"TV\'yi eşle\" ekranını aç ve bu kodu gir — ya da QR kodunu tara.';
+  get onTheKetsurenAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
+      'Telefonundaki ketsuren uygulamasında \"TV\'yi eşle\" ekranını aç ve bu kodu gir — ya da QR kodunu tara.';
 
   @override
   String get signingIn => 'Oturum açılıyor…';
@@ -2371,8 +2371,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get enterTheCodeFromYourTV => 'TV\'ndeki kodu gir';
 
   @override
-  String get openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt =>
-      'TV\'nde zangetsu\'yu aç ve görünmesi için telefonunla oturum aç.';
+  String get openKetsurenOnYourTVAndSignInWithYourPhoneToSeeIt =>
+      'TV\'nde ketsuren\'yu aç ve görünmesi için telefonunla oturum aç.';
 
   @override
   String get abcd2345 => 'ABCD 2345';
@@ -2415,8 +2415,8 @@ class AppLocalizationsTr extends AppLocalizations {
   String get restoreComplete => 'Geri yükleme tamamlandı';
 
   @override
-  String get reopenZangetsuToSeeRestoredLibrarySources =>
-      'Geri yüklenen kitaplığı ve kaynakları görmek için zangetsu\'yu yeniden aç.';
+  String get reopenKetsurenToSeeRestoredLibrarySources =>
+      'Geri yüklenen kitaplığı ve kaynakları görmek için ketsuren\'yu yeniden aç.';
 
   @override
   String get saveToAFile => 'Bir dosyaya kaydet';
@@ -2638,7 +2638,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get noSourcesInThisRepo => 'Bu depoda kaynak yok.';
 
   @override
-  String get zangetsuProviders => 'zangetsu sağlayıcıları';
+  String get ketsurenProviders => 'ketsuren sağlayıcıları';
 
   @override
   String get addRepo => 'Depo ekle';
@@ -2745,7 +2745,7 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bu kaynağın kendi ayarlarını aç (örn. sunucu, dil)';
 
   @override
-  String get addZangetsuRepo => 'zangetsu deposu ekle';
+  String get addKetsurenRepo => 'ketsuren deposu ekle';
 
   @override
   String get theProviderWillBeRemovedFromYourInstalledSources =>
@@ -3880,7 +3880,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get incognitoModeBlurb =>
-      'Açıkken aramalar, izleme geçmişi, izleyici kaydı ve discord durumu duraklar — kapatana kadar hiçbir şey kaydedilmez.';
+      'Açıkken aramalar, izleme geçmişi, izleyici kaydı ve presence durumu duraklar — kapatana kadar hiçbir şey kaydedilmez.';
 
   @override
   String get enableNsfwSourcesBody =>
@@ -3902,25 +3902,25 @@ class AppLocalizationsTr extends AppLocalizations {
       'İzleme ilerlemesini ve liste durumunu hesaplarına eşitle. Anime üçüne de, filmler ve diziler yalnızca Simkl\'a eşitlenir.';
 
   @override
-  String get connectDiscord => 'discord\'a bağlan';
+  String get connectpresence => 'presence\'a bağlan';
 
   @override
   String get signInSoYourStatusCanShow =>
       'Durumun profilinde görünebilsin diye oturum aç';
 
   @override
-  String get disconnectDiscordBody =>
-      'Rich Presence durur ve belirtecin bu cihazdan kaldırılır. discord hesabın değişmez — istediğin zaman yeniden bağlanabilirsin.';
+  String get disconnectpresenceBody =>
+      'Rich Presence durur ve belirtecin bu cihazdan kaldırılır. presence hesabın değişmez — istediğin zaman yeniden bağlanabilirsin.';
 
   @override
-  String get discordPresenceBlurb =>
-      'Uygulama açıkken discord profilinde \"X izleniyor • Bölüm N\" (ve ne gözdüğünü) gösterir. discord oturumunu kullanır, yalnızca bu cihazda saklanır. İstediğin zaman kapat.';
+  String get presencePresenceBlurb =>
+      'Uygulama açıkken presence profilinde \"X izleniyor • Bölüm N\" (ve ne gözdüğünü) gösterir. presence oturumunu kullanır, yalnızca bu cihazda saklanır. İstediğin zaman kapat.';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get telegram => 'telegram';
+  String get community => 'community';
 
   @override
   String get accentColourBlurb =>
@@ -3928,7 +3928,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get appIconBlurb =>
-      'Ana ekranındaki simge. Simgeyi değiştirince zangetsu kapanır — Android başlatıcı girdisini değiştirmeli.';
+      'Ana ekranındaki simge. Simgeyi değiştirince ketsuren kapanır — Android başlatıcı girdisini değiştirmeli.';
 
   @override
   String useTheIcon(String label) {
@@ -3937,7 +3937,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get useTheIconBody =>
-      'Android yeni simgeyi uygulayabilsin diye zangetsu kapanacak. Sonra ana ekranından yeniden aç.\n\nKetsurēn bir klasörde ya da uygulama çubuğundaysa yeniden eklemen gerekebilir.';
+      'Android yeni simgeyi uygulayabilsin diye ketsuren kapanacak. Sonra ana ekranından yeniden aç.\n\nKetsurēn bir klasörde ya da uygulama çubuğundaysa yeniden eklemen gerekebilir.';
 
   @override
   String get animRise => 'Yüksel';
@@ -4017,8 +4017,8 @@ class AppLocalizationsTr extends AppLocalizations {
       'Bulut yedeği başarısız. Çevrimiçi olduğunu denetle — hâlâ başarısızsa bulut yedeği deposu henüz kurulmamış olabilir.';
 
   @override
-  String get savedToDownloadsZangetsu =>
-      'İndirilenler › zangetsu\'ya kaydedildi';
+  String get savedToDownloadsKetsuren =>
+      'İndirilenler › ketsuren\'ya kaydedildi';
 
   @override
   String restoreFailed(String error) {
@@ -4031,7 +4031,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get backupScreenBlurb =>
-      'Kaynaklarını, listeni ve ayarlarını kaydet — cihazındaki bir dosyaya ya da zangetsu hesabına. Geri yükleme yalnızca geri ekler; elinde olanları asla silmez.';
+      'Kaynaklarını, listeni ve ayarlarını kaydet — cihazındaki bir dosyaya ya da ketsuren hesabına. Geri yükleme yalnızca geri ekler; elinde olanları asla silmez.';
 
   @override
   String get includeInTheBackup => 'Yedeğe dahil et';
@@ -4094,7 +4094,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get couldnTOpenInstaller =>
-      'Kurulum sihirbazı açılamadı. Sistem ayarlarında zangetsu için \"Bilinmeyen uygulamaları yükle\"yi etkinleştir, sonra tekrar dene.';
+      'Kurulum sihirbazı açılamadı. Sistem ayarlarında ketsuren için \"Bilinmeyen uygulamaları yükle\"yi etkinleştir, sonra tekrar dene.';
 
   @override
   String get downloadFailedCheckConnection =>
@@ -4258,7 +4258,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get lnreader => 'LNReader';
 
   @override
-  String get zangetsu => 'zangetsu';
+  String get ketsuren => 'ketsuren';
 
   @override
   String get cloudStream => 'CloudStream';
@@ -5534,7 +5534,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get keepDownloadsPrivateSubtitle =>
-      'Yeni video indirmeleri İndirilenler klasörü yerine zangetsu içinde kalır. zangetsu\'yu kaldırdığında silinirler. Kitap bölümleri ve dışa aktarmalar etkilenmez.';
+      'Yeni video indirmeleri İndirilenler klasörü yerine ketsuren içinde kalır. ketsuren\'yu kaldırdığında silinirler. Kitap bölümleri ve dışa aktarmalar etkilenmez.';
 
   @override
   String get mangaPageTranslationTitle => 'Translate page';
@@ -5675,7 +5675,7 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get mangaTranslationRestartRequiredMessage =>
-      'Close and reopen zangetsu to finish setting up on-device OCR, then try again.';
+      'Close and reopen ketsuren to finish setting up on-device OCR, then try again.';
 
   @override
   String get mangaTranslationSearchLanguages => 'Search languages';

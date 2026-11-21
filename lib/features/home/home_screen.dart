@@ -2283,7 +2283,7 @@ class HomeSourceSwitcherSlot extends StatelessWidget {
                 onInstallSources: () => Navigator.of(context).push(
                   MaterialPageRoute<void>(
                     builder: (_) =>
-                        const KetsurēnSourcesScreen(openToRepos: true),
+                        const KetsurenSourcesScreen(openToRepos: true),
                   ),
                 ),
               ),

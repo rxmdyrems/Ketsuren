@@ -92,7 +92,7 @@ class _MatchLineState extends State<MatchLine> {
       onChanged: (_) {},
       onInstallSources: () => Navigator.of(context).push(
         MaterialPageRoute<void>(
-          builder: (_) => const KetsurēnSourcesScreen(openToRepos: true),
+          builder: (_) => const KetsurenSourcesScreen(openToRepos: true),
         ),
       ),
     ).showPicker(
@@ -597,7 +597,7 @@ class _WrongTitleViewState extends State<_WrongTitleView> {
     onChanged: (_) {},
     onInstallSources: () => Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => const KetsurēnSourcesScreen(openToRepos: true),
+        builder: (_) => const KetsurenSourcesScreen(openToRepos: true),
       ),
     ),
   ).showPicker(context, onPick: (id) => cubit.setSource(id));

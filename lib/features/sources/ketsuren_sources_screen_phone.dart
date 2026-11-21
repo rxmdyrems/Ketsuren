@@ -8,10 +8,10 @@ part of 'ketsuren_sources_screen.dart';
 class _ZPhoneView extends StatefulWidget {
   const _ZPhoneView({this.openToRepos = false, this.scopeToReading = false});
 
-  /// See [KetsurēnSourcesScreen.openToRepos].
+  /// See [KetsurenSourcesScreen.openToRepos].
   final bool openToRepos;
 
-  /// See [KetsurēnSourcesScreen.scopeToReading].
+  /// See [KetsurenSourcesScreen.scopeToReading].
   final bool scopeToReading;
 
   @override
@@ -23,7 +23,7 @@ class _ZPhoneViewState extends State<_ZPhoneView> {
   String _query = '';
 
   /// User-toggled escape hatch out of the reading-only scope. Only consulted
-  /// when [KetsurēnSourcesScreen.scopeToReading] is true; irrelevant (and
+  /// when [KetsurenSourcesScreen.scopeToReading] is true; irrelevant (and
   /// never surfaced) otherwise.
   bool _showAll = false;
 
@@ -77,7 +77,7 @@ class _ZPhoneViewState extends State<_ZPhoneView> {
             onPressed: () => _showAddRepoDialog(context),
             icon: const Icon(Icons.add),
             label: Text(
-              context.l10n.addZangetsuRepo,
+              context.l10n.addKetsurenRepo,
               style: AppText.button.copyWith(color: Colors.white),
             ),
           ),

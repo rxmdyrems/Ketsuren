@@ -296,7 +296,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get settingsSectionAbout => '关于';
 
   @override
-  String get settingsSectionAccountSummary => '追番、discord、备份、同步';
+  String get settingsSectionAccountSummary => '追番、presence、备份、同步';
 
   @override
   String get settingsSectionSourcesSummary => '扩展、当前来源、更新';
@@ -329,7 +329,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get couldNotExportLogs => '无法导出日志';
 
   @override
-  String get logsShareSubject => 'zangetsu 日志';
+  String get logsShareSubject => 'ketsuren 日志';
 
   @override
   String get signInSubtitle => '同步列表、历史和继续观看';
@@ -341,16 +341,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get connections => '关联账号';
 
   @override
-  String get discord => '不和谐';
+  String get presence => '不和谐';
 
   @override
-  String get discordSubtitle => 'Rich Presence — 显示正在观看';
+  String get presenceSubtitle => 'Rich Presence — 显示正在观看';
 
   @override
-  String get discordActivityStatus => 'Activity status';
+  String get presenceActivityStatus => 'Activity status';
 
   @override
-  String get discordOnlineStatus => 'discord status';
+  String get presenceOnlineStatus => 'presence status';
 
   @override
   String get presenceInvisible => 'Invisible';
@@ -404,7 +404,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get presenceButtonLabel => 'Button label';
 
   @override
-  String get presenceButtonLabelHint => 'Open in zangetsu';
+  String get presenceButtonLabelHint => 'Open in ketsuren';
 
   @override
   String get presenceShowWhenPaused => 'Show when paused';
@@ -1010,7 +1010,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get bootErrorTitle => 'zangetsu 未能完成启动';
+  String get bootErrorTitle => 'ketsuren 未能完成启动';
 
   @override
   String get bootErrorBody => '此设备上保存的数据导致无法打开。内容没有丢失 — 账号和已同步到云端的数据都是安全的。';
@@ -1023,10 +1023,10 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get resetAppDataBody =>
-      '这将清除 zangetsu 在此设备上保存的数据，以便重新启动。\n\n不会改动你的账号和已同步到云端的内容 — 重新登录后资料库就会回来。';
+      '这将清除 ketsuren 在此设备上保存的数据，以便重新启动。\n\n不会改动你的账号和已同步到云端的内容 — 重新登录后资料库就会回来。';
 
   @override
-  String get resetAppDataDone => '请完全关闭 zangetsu 后再打开。';
+  String get resetAppDataDone => '请完全关闭 ketsuren 后再打开。';
 
   @override
   String get detailsCopied => '已复制详情 — 发给我们即可';
@@ -1245,7 +1245,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get incognitoMode => '无痕模式';
 
   @override
-  String get pauseHistoryTrackingDiscordPresence => '暂停历史、追番和 discord 状态';
+  String get pauseHistoryTrackingpresencePresence => '暂停历史、追番和 presence 状态';
 
   @override
   String get enableNSFWSources2 => '启用 NSFW 来源';
@@ -1531,7 +1531,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '关闭 Material You 后可自选颜色';
 
   @override
-  String get downloadsZangetsu => '下载 › 斩月';
+  String get downloadsKetsuren => '下载 › 斩月';
 
   @override
   String get removableDrive => '可移动存储';
@@ -1571,10 +1571,10 @@ class AppLocalizationsZh extends AppLocalizations {
       'SP0 — 测试 SurfaceView 播放流畅度';
 
   @override
-  String get pasteDiscordToken => '粘贴 discord 令牌';
+  String get pastepresenceToken => '粘贴 presence 令牌';
 
   @override
-  String get yourDiscordUserToken => '你的 discord 用户令牌';
+  String get yourpresenceUserToken => '你的 presence 用户令牌';
 
   @override
   String get pasteToken => '粘贴令牌';
@@ -1583,17 +1583,17 @@ class AppLocalizationsZh extends AppLocalizations {
   String get useMobileDataForTorrents => '使用移动数据下载种子';
 
   @override
-  String get discordConnected => '已连接 discord';
+  String get presenceConnected => '已连接 presence';
 
   @override
-  String get disconnectDiscord => '要断开 discord 吗？';
+  String get disconnectpresence => '要断开 presence 吗？';
 
   @override
   String get notConfigured => '未配置';
 
   @override
-  String get aDiscordApplicationIDMustBeSetInTheBuildFirst =>
-      '必须先在构建中设置 discord Application ID。';
+  String get apresenceApplicationIDMustBeSetInTheBuildFirst =>
+      '必须先在构建中设置 presence Application ID。';
 
   @override
   String get richPresence => '丰富的存在感';
@@ -2214,7 +2214,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get haveTheApp => '已有应用？';
 
   @override
-  String get openZangetsuOnYourNphoneAndScan => '在手机上打开 zangetsu\\n并扫描';
+  String get openKetsurenOnYourNphoneAndScan => '在手机上打开 ketsuren\\n并扫描';
 
   @override
   String get noApp => '没有应用？';
@@ -2272,8 +2272,8 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String
-  get onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
-      '在手机上的 zangetsu 中打开「配对电视」，\\n输入此代码或扫描二维码。';
+  get onTheKetsurenAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
+      '在手机上的 ketsuren 中打开「配对电视」，\\n输入此代码或扫描二维码。';
 
   @override
   String get signingIn => '正在登录…';
@@ -2297,8 +2297,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get enterTheCodeFromYourTV => '输入电视上的代码';
 
   @override
-  String get openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt =>
-      '在电视上打开 zangetsu，并用手机登录即可看到。';
+  String get openKetsurenOnYourTVAndSignInWithYourPhoneToSeeIt =>
+      '在电视上打开 ketsuren，并用手机登录即可看到。';
 
   @override
   String get abcd2345 => 'ABCD 2345';
@@ -2340,8 +2340,8 @@ class AppLocalizationsZh extends AppLocalizations {
   String get restoreComplete => '还原完成';
 
   @override
-  String get reopenZangetsuToSeeRestoredLibrarySources =>
-      '重新打开 zangetsu 即可看到还原的资料库和来源。';
+  String get reopenKetsurenToSeeRestoredLibrarySources =>
+      '重新打开 ketsuren 即可看到还原的资料库和来源。';
 
   @override
   String get saveToAFile => '保存到文件';
@@ -2554,7 +2554,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get noSourcesInThisRepo => '此仓库中没有来源。';
 
   @override
-  String get zangetsuProviders => 'zangetsu 扩展';
+  String get ketsurenProviders => 'ketsuren 扩展';
 
   @override
   String get addRepo => '添加仓库';
@@ -2653,7 +2653,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '打开此来源自己的设置（如服务器、语言）';
 
   @override
-  String get addZangetsuRepo => '添加 zangetsu 仓库';
+  String get addKetsurenRepo => '添加 ketsuren 仓库';
 
   @override
   String get theProviderWillBeRemovedFromYourInstalledSources =>
@@ -3768,7 +3768,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get incognitoModeBlurb =>
-      '开启此功能后，搜索记录、观看历史、追踪器记录和 discord 在线状态都会暂停——直到您将其关闭，才会记录任何内容。';
+      '开启此功能后，搜索记录、观看历史、追踪器记录和 presence 在线状态都会暂停——直到您将其关闭，才会记录任何内容。';
 
   @override
   String get enableNsfwSourcesBody =>
@@ -3789,30 +3789,30 @@ class AppLocalizationsZh extends AppLocalizations {
       '将观看进度和列表状态同步到您的帐户。动漫同步到所有三个平台；电影和剧集同步到 Simkl。';
 
   @override
-  String get connectDiscord => '连接 discord';
+  String get connectpresence => '连接 presence';
 
   @override
   String get signInSoYourStatusCanShow => '登录后，您的状态即可显示在您的个人资料中。';
 
   @override
-  String get disconnectDiscordBody =>
-      'Rich Presence 功能已停止，您的令牌已从此设备中移除。您的 discord 帐户不会更改，您可以随时重新连接。';
+  String get disconnectpresenceBody =>
+      'Rich Presence 功能已停止，您的令牌已从此设备中移除。您的 presence 帐户不会更改，您可以随时重新连接。';
 
   @override
-  String get discordPresenceBlurb =>
-      '应用开启时，会在你的 discord 个人资料页面显示“正在观看 <title> • 第 N 集”（以及你正在浏览的内容）。使用你的 discord 登录信息，仅存储在此设备上。可随时关闭此功能。';
+  String get presencePresenceBlurb =>
+      '应用开启时，会在你的 presence 个人资料页面显示“正在观看 <title> • 第 N 集”（以及你正在浏览的内容）。使用你的 presence 登录信息，仅存储在此设备上。可随时关闭此功能。';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get telegram => '电报';
+  String get community => '电报';
 
   @override
   String get accentColourBlurb => '用于按钮、芯片、进度和选定项目的突出显示颜色。';
 
   @override
-  String get appIconBlurb => '主屏幕上的图标。更改图标时，zangetsu 会关闭——Android 需要切换启动器条目。';
+  String get appIconBlurb => '主屏幕上的图标。更改图标时，ketsuren 会关闭——Android 需要切换启动器条目。';
 
   @override
   String useTheIcon(String label) {
@@ -3897,7 +3897,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '云备份失败。请检查您的网络连接是否正常——如果备份持续失败，则可能是云备份存储尚未设置完成。';
 
   @override
-  String get savedToDownloadsZangetsu => '已保存至下载 › 斩月';
+  String get savedToDownloadsKetsuren => '已保存至下载 › 斩月';
 
   @override
   String restoreFailed(String error) {
@@ -3909,7 +3909,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get backupScreenBlurb =>
-      '将您的资源、列表和设置保存到设备上的文件或您的zangetsu帐户。恢复操作只会添加新内容，绝不会删除您已有的内容。';
+      '将您的资源、列表和设置保存到设备上的文件或您的ketsuren帐户。恢复操作只会添加新内容，绝不会删除您已有的内容。';
 
   @override
   String get includeInTheBackup => '包含在备份中';
@@ -3970,7 +3970,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get couldnTOpenInstaller =>
-      '安装程序无法打开。请在系统设置中为 zangetsu 启用“安装未知应用”，然后重试。';
+      '安装程序无法打开。请在系统设置中为 ketsuren 启用“安装未知应用”，然后重试。';
 
   @override
   String get downloadFailedCheckConnection => '下载失败——请检查您的网络连接并重试。';
@@ -4123,7 +4123,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get lnreader => 'LNReader';
 
   @override
-  String get zangetsu => '斩月';
+  String get ketsuren => '斩月';
 
   @override
   String get cloudStream => '云流';
@@ -5377,7 +5377,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get keepDownloadsPrivateSubtitle =>
-      'New video downloads stay inside zangetsu instead of the Downloads folder. They are deleted when you uninstall zangetsu. Chapters and exports are unaffected.';
+      'New video downloads stay inside ketsuren instead of the Downloads folder. They are deleted when you uninstall ketsuren. Chapters and exports are unaffected.';
 
   @override
   String get mangaPageTranslationTitle => 'Translate page';
@@ -5518,7 +5518,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get mangaTranslationRestartRequiredMessage =>
-      'Close and reopen zangetsu to finish setting up on-device OCR, then try again.';
+      'Close and reopen ketsuren to finish setting up on-device OCR, then try again.';
 
   @override
   String get mangaTranslationSearchLanguages => 'Search languages';
@@ -5888,7 +5888,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get settingsSectionAbout => '關於';
 
   @override
-  String get settingsSectionAccountSummary => '追蹤、discord、備份、同步';
+  String get settingsSectionAccountSummary => '追蹤、presence、備份、同步';
 
   @override
   String get settingsSectionSourcesSummary => '擴充套件、目前來源、更新';
@@ -5921,7 +5921,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get couldNotExportLogs => '無法匯出紀錄檔';
 
   @override
-  String get logsShareSubject => 'zangetsu 紀錄檔';
+  String get logsShareSubject => 'ketsuren 紀錄檔';
 
   @override
   String get signInSubtitle => '同步清單、紀錄與繼續觀看';
@@ -5933,10 +5933,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get connections => '連線';
 
   @override
-  String get discord => 'discord';
+  String get presence => 'presence';
 
   @override
-  String get discordSubtitle => 'Rich Presence — 顯示正在觀看';
+  String get presenceSubtitle => 'Rich Presence — 顯示正在觀看';
 
   @override
   String get watchParty => '一起看';
@@ -6453,7 +6453,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   }
 
   @override
-  String get bootErrorTitle => 'zangetsu 未能完成啟動';
+  String get bootErrorTitle => 'ketsuren 未能完成啟動';
 
   @override
   String get bootErrorBody => '此裝置上儲存的資料導致無法開啟。內容沒有遺失 — 帳號與已同步到雲端的資料都安全。';
@@ -6466,10 +6466,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get resetAppDataBody =>
-      '這會清除 zangetsu 在此裝置上儲存的資料，以便重新啟動。\n\n不會更動你的帳號與已同步到雲端的內容 — 重新登入後收藏庫就會回來。';
+      '這會清除 ketsuren 在此裝置上儲存的資料，以便重新啟動。\n\n不會更動你的帳號與已同步到雲端的內容 — 重新登入後收藏庫就會回來。';
 
   @override
-  String get resetAppDataDone => '請完全關閉 zangetsu 後再開啟。';
+  String get resetAppDataDone => '請完全關閉 ketsuren 後再開啟。';
 
   @override
   String get detailsCopied => '已複製詳細資料 — 傳給我們即可';
@@ -6641,7 +6641,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get incognitoMode => '無痕模式';
 
   @override
-  String get pauseHistoryTrackingDiscordPresence => '暫停紀錄、追蹤與 discord 狀態';
+  String get pauseHistoryTrackingpresencePresence => '暫停紀錄、追蹤與 presence 狀態';
 
   @override
   String get enableNSFWSources2 => '啟用 NSFW 來源';
@@ -6915,7 +6915,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
       '關閉 Material You 後可自選顏色';
 
   @override
-  String get downloadsZangetsu => '下載 › 斬月';
+  String get downloadsKetsuren => '下載 › 斬月';
 
   @override
   String get removableDrive => '可移除磁碟';
@@ -6955,10 +6955,10 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
       'SP0 — 測試 SurfaceView 播放順暢度';
 
   @override
-  String get pasteDiscordToken => '貼上 discord 權杖';
+  String get pastepresenceToken => '貼上 presence 權杖';
 
   @override
-  String get yourDiscordUserToken => '你的 discord 使用者權杖';
+  String get yourpresenceUserToken => '你的 presence 使用者權杖';
 
   @override
   String get pasteToken => '貼上權杖';
@@ -6967,17 +6967,17 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get useMobileDataForTorrents => '使用行動數據下載種子';
 
   @override
-  String get discordConnected => '已連線 discord';
+  String get presenceConnected => '已連線 presence';
 
   @override
-  String get disconnectDiscord => '要中斷 discord 連線嗎？';
+  String get disconnectpresence => '要中斷 presence 連線嗎？';
 
   @override
   String get notConfigured => '尚未設定';
 
   @override
-  String get aDiscordApplicationIDMustBeSetInTheBuildFirst =>
-      '必須先在建置中設定 discord Application ID。';
+  String get apresenceApplicationIDMustBeSetInTheBuildFirst =>
+      '必須先在建置中設定 presence Application ID。';
 
   @override
   String get richPresence => '豐富的存在感';
@@ -7549,7 +7549,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get haveTheApp => '已有 App？';
 
   @override
-  String get openZangetsuOnYourNphoneAndScan => '在手機開啟 zangetsu\\n並掃描';
+  String get openKetsurenOnYourNphoneAndScan => '在手機開啟 ketsuren\\n並掃描';
 
   @override
   String get noApp => '沒有 App？';
@@ -7607,8 +7607,8 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String
-  get onTheZangetsuAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
-      '在手機上的 zangetsu 開啟「配對電視」，\\n輸入此代碼或掃描 QR。';
+  get onTheKetsurenAppOnYourPhoneOpenNPairATVAndEnterThisCodeOrScanTheQR =>
+      '在手機上的 ketsuren 開啟「配對電視」，\\n輸入此代碼或掃描 QR。';
 
   @override
   String get signingIn => '正在登入…';
@@ -7632,8 +7632,8 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get enterTheCodeFromYourTV => '輸入電視上的代碼';
 
   @override
-  String get openZangetsuOnYourTVAndSignInWithYourPhoneToSeeIt =>
-      '在電視開啟 zangetsu，並用手機登入即可看到。';
+  String get openKetsurenOnYourTVAndSignInWithYourPhoneToSeeIt =>
+      '在電視開啟 ketsuren，並用手機登入即可看到。';
 
   @override
   String get abcd2345 => 'ABCD 2345';
@@ -7675,8 +7675,8 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get restoreComplete => '還原完成';
 
   @override
-  String get reopenZangetsuToSeeRestoredLibrarySources =>
-      '重新開啟 zangetsu 即可看到還原的收藏庫與來源。';
+  String get reopenKetsurenToSeeRestoredLibrarySources =>
+      '重新開啟 ketsuren 即可看到還原的收藏庫與來源。';
 
   @override
   String get saveToAFile => '儲存成檔案';
@@ -7889,7 +7889,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get noSourcesInThisRepo => '此儲庫中沒有來源。';
 
   @override
-  String get zangetsuProviders => 'zangetsu 擴充套件';
+  String get ketsurenProviders => 'ketsuren 擴充套件';
 
   @override
   String get addRepo => '新增儲庫';
@@ -7988,7 +7988,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
       '開啟此來源自己的設定（如伺服器、語言）';
 
   @override
-  String get addZangetsuRepo => '新增 zangetsu 儲庫';
+  String get addKetsurenRepo => '新增 ketsuren 儲庫';
 
   @override
   String get theProviderWillBeRemovedFromYourInstalledSources =>
@@ -8987,7 +8987,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get incognitoModeBlurb =>
-      '開啟此功能後，搜尋記錄、觀看歷史記錄、追蹤器記錄和 discord 線上狀態都會暫停——直到您將其關閉，才會記錄任何內容。';
+      '開啟此功能後，搜尋記錄、觀看歷史記錄、追蹤器記錄和 presence 線上狀態都會暫停——直到您將其關閉，才會記錄任何內容。';
 
   @override
   String get enableNsfwSourcesBody =>
@@ -9008,30 +9008,30 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
       '將觀看進度和清單狀態同步到您的帳戶。動畫同步到所有三個平台；電影和劇集同步到 Simkl。';
 
   @override
-  String get connectDiscord => '連結 discord';
+  String get connectpresence => '連結 presence';
 
   @override
   String get signInSoYourStatusCanShow => '登入後，您的狀態即可顯示在您的個人資料中。';
 
   @override
-  String get disconnectDiscordBody =>
-      'Rich Presence 功能已停止，您的代幣已從此裝置移除。您的 discord 帳戶不會更改，您可以隨時重新連線。';
+  String get disconnectpresenceBody =>
+      'Rich Presence 功能已停止，您的代幣已從此裝置移除。您的 presence 帳戶不會更改，您可以隨時重新連線。';
 
   @override
-  String get discordPresenceBlurb =>
-      '當應用程式開啟時，會在你的 discord 個人資料頁面顯示「正在觀看 <title> • 第 N 集」（以及你正在瀏覽的內容）。使用你的 discord 登入訊息，僅儲存在此裝置上。可隨時關閉此功能。';
+  String get presencePresenceBlurb =>
+      '當應用程式開啟時，會在你的 presence 個人資料頁面顯示「正在觀看 <title> • 第 N 集」（以及你正在瀏覽的內容）。使用你的 presence 登入訊息，僅儲存在此裝置上。可隨時關閉此功能。';
 
   @override
   String get github => 'GitHub';
 
   @override
-  String get telegram => '電報';
+  String get community => '電報';
 
   @override
   String get accentColourBlurb => '用於按鈕、晶片、進度和選定項目的突出顯示顏色。';
 
   @override
-  String get appIconBlurb => '主畫面上的圖示。更改圖示時，zangetsu 會關閉－Android 需要切換啟動器項目。';
+  String get appIconBlurb => '主畫面上的圖示。更改圖示時，ketsuren 會關閉－Android 需要切換啟動器項目。';
 
   @override
   String useTheIcon(String label) {
@@ -9116,7 +9116,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
       '雲端備份失敗。請檢查您的網路連線是否正常—如果備份持續失敗，則可能是雲端備份儲存尚未設定完成。';
 
   @override
-  String get savedToDownloadsZangetsu => '已儲存至下載 › 斬月';
+  String get savedToDownloadsKetsuren => '已儲存至下載 › 斬月';
 
   @override
   String restoreFailed(String error) {
@@ -9128,7 +9128,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get backupScreenBlurb =>
-      '將您的資源、清單和設定儲存到裝置上的檔案或您的zangetsu帳戶。恢復操作只會新增內容，絕不會刪除您已有的內容。';
+      '將您的資源、清單和設定儲存到裝置上的檔案或您的ketsuren帳戶。恢復操作只會新增內容，絕不會刪除您已有的內容。';
 
   @override
   String get includeInTheBackup => '包含在備份中';
@@ -9189,7 +9189,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
 
   @override
   String get couldnTOpenInstaller =>
-      '安裝程式無法開啟。請在系統設定中為 zangetsu 啟用「安裝未知應用程式」選項，然後重試。';
+      '安裝程式無法開啟。請在系統設定中為 ketsuren 啟用「安裝未知應用程式」選項，然後重試。';
 
   @override
   String get downloadFailedCheckConnection => '下載失敗—請檢查您的網路連線並重試。';
@@ -9342,7 +9342,7 @@ class AppLocalizationsZhTw extends AppLocalizationsZh {
   String get lnreader => 'LNReader';
 
   @override
-  String get zangetsu => '斬月';
+  String get ketsuren => '斬月';
 
   @override
   String get cloudStream => '雲端';

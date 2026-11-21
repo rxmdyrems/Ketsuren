@@ -36,7 +36,6 @@ jobs:
       - name: Build debug APK
         run: flutter build apk --debug
         env:
-          KETSUREN_NO_DISCORD: '1'
       - uses: actions/upload-artifact@v4
         with:
           name: ketsuren-debug-apk

@@ -35,8 +35,8 @@ part 'ketsuren_sources_screen_tv.dart';
 /// Phone and TV share this file (`if (sl<AppMode>().isTv)`); every lifted
 /// widget below is copied byte-identical from `sources_screen.dart` /
 /// `sources_screen_tv.dart` — only the host screen around them is new.
-class KetsurēnSourcesScreen extends StatelessWidget {
-  const KetsurēnSourcesScreen({
+class KetsurenSourcesScreen extends StatelessWidget {
+  const KetsurenSourcesScreen({
     super.key,
     this.openToRepos = false,
     this.scopeToReading = false,

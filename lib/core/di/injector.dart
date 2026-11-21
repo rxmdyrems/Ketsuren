@@ -1138,7 +1138,7 @@ Future<void> initDependencies({bool Function()? isOffline}) async {
 
   // Z Mode: the catalogue router and its metadata side. Off by default;
   // registering it costs nothing but makes the toggle instant.
-  await registerKetsurēnMode(sl);
+  await registerKetsurenMode(sl);
 
   // TV never started loadAll above. Reapply the saved active source once the
   // shell is up (CloudStream/Aniyomi may still land later via their microtasks).

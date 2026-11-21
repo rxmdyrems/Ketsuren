@@ -205,7 +205,7 @@ SearchEcosystem ecosystemOf(String sourceId) {
   if (mangayomiContentTypeOf(sourceId) != null) {
     return SearchEcosystem.mangayomi;
   }
-  return SearchEcosystem.zangetsu;
+  return SearchEcosystem.ketsuren;
 }
 
 /// The ecosystem tabs to offer for the given installed [sourceIds]. Always
@@ -218,7 +218,7 @@ List<SearchEcosystem> ecosystemTabsFor(Iterable<String> sourceIds) {
   return [
     SearchEcosystem.all,
     for (final e in const [
-      SearchEcosystem.zangetsu,
+      SearchEcosystem.ketsuren,
       SearchEcosystem.cloudstream,
       SearchEcosystem.aniyomi,
       SearchEcosystem.mihon,

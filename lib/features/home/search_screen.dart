@@ -3581,7 +3581,7 @@ class _SearchFilterSheet extends StatelessWidget {
   /// switches/"turn all on/off" behaviour as before, just moved off the main
   /// sheet. [filterSheetContext] is the MAIN sheet's context, kept so the
   /// empty-state's install CTA can close both sheets and push
-  /// [KetsurēnSourcesScreen], same as it always has.
+  /// [KetsurenSourcesScreen], same as it always has.
   void _openSourcesSheet(
     BuildContext filterSheetContext,
     List<
@@ -3639,7 +3639,7 @@ class _SearchFilterSheet extends StatelessWidget {
                             Navigator.of(filterSheetContext).pop();
                             Navigator.of(filterSheetContext).push(
                               MaterialPageRoute<void>(
-                                builder: (_) => const KetsurēnSourcesScreen(
+                                builder: (_) => const KetsurenSourcesScreen(
                                   openToRepos: true,
                                 ),
                               ),

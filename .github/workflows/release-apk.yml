@@ -44,11 +44,9 @@ jobs:
       - name: Build arm64 release APK
         run: flutter build apk --release --split-per-abi --target-platform android-arm64
         env:
-          KETSUREN_NO_DISCORD: '1'
       - name: Build universal-compatible release APK
         run: flutter build apk --release
         env:
-          KETSUREN_NO_DISCORD: '1'
       - name: Prepare release assets
         run: |
           mkdir -p release-assets
