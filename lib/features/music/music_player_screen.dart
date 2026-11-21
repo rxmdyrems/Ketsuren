@@ -360,7 +360,7 @@ class _MusicPlayerScreenState extends State<MusicPlayerScreen> {
     setState(() {
       _repeatMode = (_repeatMode + 1) % 3;
     });
-    MusicPlayback.handler?.setRepeatMode(_repeatMode);
+    MusicPlayback.handler?.setLoopMode(_repeatMode);
   }
 
   void _toggleLike() {

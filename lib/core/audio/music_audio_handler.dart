@@ -97,7 +97,17 @@ class MusicAudioHandler extends BaseAudioHandler with SeekHandler {
     );
   }
 
-  Future<void> setRepeatMode(int mode) async {
+  @override
+  Future<void> setRepeatMode(AudioServiceRepeatMode repeatMode) async {
+    final loopMode = switch (repeatMode.index) {
+      1 => LoopMode.one,
+      2 => LoopMode.all,
+      _ => LoopMode.off,
+    };
+    await _player.setLoopMode(loopMode);
+  }
+
+  Future<void> setLoopMode(int mode) async {
     final loopMode = switch (mode) {
       1 => LoopMode.one,
       2 => LoopMode.all,
