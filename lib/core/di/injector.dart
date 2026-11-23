@@ -273,19 +273,18 @@ Future<void> initDependencies({bool Function()? isOffline}) async {
         )
       : sl<SupabaseService>().currentUserId();
 
-  // Supabase issues auth tokens; cloud data requests use the VPS client.
+  // Supabase issues auth tokens. VPS sync is optional: account/auth startup
+  // must remain usable when the private sync service is not configured.
   final endpoint = Uri.tryParse(Environment.vpsSyncUrl);
-  if (endpoint == null ||
-      endpoint.scheme != 'https' ||
-      endpoint.host.isEmpty ||
-      endpoint.userInfo.isNotEmpty ||
-      endpoint.hasQuery ||
-      endpoint.hasFragment) {
-    throw StateError('VPS_SYNC_URL must be a valid HTTPS sync endpoint');
-  }
-  final vpsClient = PostgrestClient(
-    endpoint.toString().replaceFirst(RegExp(r'/$'), ''),
-  );
+  final hasValidVpsEndpoint = endpoint != null &&
+      endpoint.scheme == 'https' &&
+      endpoint.host.isNotEmpty &&
+      endpoint.userInfo.isEmpty &&
+      !endpoint.hasQuery &&
+      !endpoint.hasFragment;
+  final vpsClient = hasValidVpsEndpoint
+      ? PostgrestClient(endpoint.toString().replaceFirst(RegExp(r'/$'), ''))
+      : null;
   String? cloudAccessToken() =>
       sl<SupabaseService>().client.auth.currentSession?.accessToken;
   const backendNamespace = 'vps';
@@ -309,21 +308,22 @@ Future<void> initDependencies({bool Function()? isOffline}) async {
       },
     ),
   );
-  sl.registerSingleton<ProfileLockStore>(
-    SyncedProfileLockStore(
-      remote: PostgrestProfileLockRemote(vpsClient, cloudAccessToken),
-      currentUserId: currentUserId,
-      isOffline: isOffline,
-      onGrantsChanged: (grants) {
-        if (grants.isEmpty) {
-          vpsClient.headers.remove('x-profile-grants');
-        } else {
-          vpsClient.headers['x-profile-grants'] = jsonEncode(grants);
-        }
-      },
-      isolateGuestData: () => sl<ViewerProfileStore>().isolateGuestData(),
-    ),
-  );
+  final profileLockStore = vpsClient == null
+      ? ProfileLockStore()
+      : SyncedProfileLockStore(
+          remote: PostgrestProfileLockRemote(vpsClient, cloudAccessToken),
+          currentUserId: currentUserId,
+          isOffline: isOffline,
+          onGrantsChanged: (grants) {
+            if (grants.isEmpty) {
+              vpsClient.headers.remove('x-profile-grants');
+            } else {
+              vpsClient.headers['x-profile-grants'] = jsonEncode(grants);
+            }
+          },
+          isolateGuestData: () => sl<ViewerProfileStore>().isolateGuestData(),
+        );
+  sl.registerSingleton<ProfileLockStore>(profileLockStore);
   String currentProfileId() => sl<ViewerProfileStore>().dataProfileId;
 
   // Client half of the invisible Appwrite→Supabase account migration. Wired
@@ -850,8 +850,12 @@ Future<void> initDependencies({bool Function()? isOffline}) async {
       ),
       LibraryBackup(),
       SettingsBackup(),
-      authorize: () => (sl<ProfileLockStore>() as SyncedProfileLockStore)
-          .requireBackupAccess(),
+      authorize: () {
+        final locks = sl<ProfileLockStore>();
+        return locks is SyncedProfileLockStore
+            ? locks.requireBackupAccess()
+            : Future<void>.value();
+      },
     ),
   );
 
